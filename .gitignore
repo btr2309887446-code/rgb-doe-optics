@@ -1,0 +1,40 @@
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments and build output
+.venv/
+venv/
+env/
+*.egg-info/
+build/
+dist/
+
+# Generated experiment results and optimization arrays
+results/
+**/results/
+*.npy
+*.npz
+*.pt
+*.pth
+
+# Downloaded references and local working notes
+literature_download/
+tmp_text/
+STRUCTURE_AUDIT_REPORT.md
+
+# LaTeX build intermediates (keep report PDF)
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.synctex.gz
+*.toc
