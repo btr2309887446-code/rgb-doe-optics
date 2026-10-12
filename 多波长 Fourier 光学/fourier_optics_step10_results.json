@@ -1,0 +1,3636 @@
+{
+  "step": 10,
+  "title": "Warm-start variation, augmented-Lagrangian ROI experiment, and 400-700 nm band sweep",
+  "status": "three perturbed starts and a 5 nm scalar-model sweep; not a device validation or global optimum",
+  "settings": {
+    "ROI_floor": 0.85,
+    "augmented_Lagrangian_outer_rounds": 4,
+    "Adam_steps_per_outer_round": 25,
+    "rho": 40.0,
+    "height_cycles_bound": [
+      0.0,
+      3.0
+    ],
+    "band_nm": [
+      400,
+      700
+    ],
+    "band_step_nm": 5,
+    "wavelengths_nm_for_optimization": [
+      450,
+      532,
+      633
+    ],
+    "random_seed": 20260930
+  },
+  "warm_start_results": {
+    "augmented Lagrange: soft-penalty solution": {
+      "initialization": "soft-penalty solution",
+      "rows": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2_to_target": 0.27245097473038754,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7941063101685522,
+          "power_fraction_in_target_1pct_ROI": 0.8240489369714579
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2_to_target": 0.26068520801957584,
+          "squared_Bhattacharyya_fidelity_to_target": 0.8816528267909914,
+          "power_fraction_in_target_1pct_ROI": 0.9149414062531145
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2_to_target": 0.2886269713850613,
+          "squared_Bhattacharyya_fidelity_to_target": 0.787387280940724,
+          "power_fraction_in_target_1pct_ROI": 0.8131820898192319
+        }
+      ],
+      "max_height_um": 3.4457399887225955,
+      "mean_neighbor_step_um": 0.22582989134806358,
+      "minimum_ROI_power": 0.8131820898192319,
+      "minimum_L2": 0.26068520801957584,
+      "mean_L2": 0.2739210513783416
+    },
+    "augmented Lagrange: shape solution + 0.10-cycle noise": {
+      "initialization": "shape solution + 0.10-cycle noise",
+      "rows": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2_to_target": 0.27399840161187566,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7949309907479788,
+          "power_fraction_in_target_1pct_ROI": 0.8244776685598327
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2_to_target": 0.2624936658978738,
+          "squared_Bhattacharyya_fidelity_to_target": 0.8794345184927015,
+          "power_fraction_in_target_1pct_ROI": 0.9125448069512925
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2_to_target": 0.2902199710435253,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7852161274936628,
+          "power_fraction_in_target_1pct_ROI": 0.8113191350061686
+        }
+      ],
+      "max_height_um": 3.2985988567969837,
+      "mean_neighbor_step_um": 0.22346949907543884,
+      "minimum_ROI_power": 0.8113191350061686,
+      "minimum_L2": 0.2624936658978738,
+      "mean_L2": 0.2755706795177583
+    },
+    "augmented Lagrange: principal branch + 0.10-cycle noise": {
+      "initialization": "principal branch + 0.10-cycle noise",
+      "rows": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2_to_target": 0.2776783863757331,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7997840102618577,
+          "power_fraction_in_target_1pct_ROI": 0.8317327436542932
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2_to_target": 0.26442346869095673,
+          "squared_Bhattacharyya_fidelity_to_target": 0.8828586614824236,
+          "power_fraction_in_target_1pct_ROI": 0.9175724522648819
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2_to_target": 0.31338683452482674,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7937044844689598,
+          "power_fraction_in_target_1pct_ROI": 0.8219932604792826
+        }
+      ],
+      "max_height_um": 1.8480227384778642,
+      "mean_neighbor_step_um": 0.19020324856990037,
+      "minimum_ROI_power": 0.8219932604792826,
+      "minimum_L2": 0.26442346869095673,
+      "mean_L2": 0.2851628965305055
+    }
+  },
+  "ROI_only_maximin_results": {
+    "ROI-only maximin from principal branch": {
+      "initialization": "principal branch",
+      "rows": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2_to_target": 0.6229434467702755,
+          "squared_Bhattacharyya_fidelity_to_target": 0.714083726399779,
+          "power_fraction_in_target_1pct_ROI": 0.8361140066908358
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2_to_target": 0.6126944983985039,
+          "squared_Bhattacharyya_fidelity_to_target": 0.8148473653275374,
+          "power_fraction_in_target_1pct_ROI": 0.9242023555093483
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2_to_target": 0.5405143101344604,
+          "squared_Bhattacharyya_fidelity_to_target": 0.75393235548468,
+          "power_fraction_in_target_1pct_ROI": 0.8300312465805271
+        }
+      ],
+      "minimum_ROI_power": 0.8300312465805271,
+      "mean_ROI_power": 0.8634492029269037,
+      "mean_L2": 0.5920507517677466,
+      "max_height_um": 2.0498836186973115
+    },
+    "ROI-only maximin from shape solution": {
+      "initialization": "shape solution",
+      "rows": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2_to_target": 0.4292604033355658,
+          "squared_Bhattacharyya_fidelity_to_target": 0.762287070568009,
+          "power_fraction_in_target_1pct_ROI": 0.8283802527250063
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2_to_target": 0.4246044415152042,
+          "squared_Bhattacharyya_fidelity_to_target": 0.8503738318871644,
+          "power_fraction_in_target_1pct_ROI": 0.9176963606519938
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2_to_target": 0.4008814130921404,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7657507937958852,
+          "power_fraction_in_target_1pct_ROI": 0.8148885683658553
+        }
+      ],
+      "minimum_ROI_power": 0.8148885683658553,
+      "mean_ROI_power": 0.8536550605809518,
+      "mean_L2": 0.41824875264763683,
+      "max_height_um": 3.366054952584497
+    },
+    "ROI-only maximin from ROI soft penalty solution": {
+      "initialization": "ROI soft penalty solution",
+      "rows": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2_to_target": 0.41466500776810306,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7640389859421177,
+          "power_fraction_in_target_1pct_ROI": 0.8241930816601123
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2_to_target": 0.40632106210612834,
+          "squared_Bhattacharyya_fidelity_to_target": 0.8569734604439606,
+          "power_fraction_in_target_1pct_ROI": 0.9188209332676129
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2_to_target": 0.3859389474541807,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7724817750665216,
+          "power_fraction_in_target_1pct_ROI": 0.8188244758630628
+        }
+      ],
+      "minimum_ROI_power": 0.8188244758630628,
+      "mean_ROI_power": 0.8539461635969294,
+      "mean_L2": 0.40230833910947067,
+      "max_height_um": 3.457369885199463
+    }
+  },
+  "dense_band_summary": {
+    "principal minimum-height": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.5761779525064431,
+        "squared_Bhattacharyya_fidelity_to_target": 0.731377098183946,
+        "power_fraction_in_target_1pct_ROI": 0.7319198744441215
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.5068705267730145,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5848491919212797,
+        "power_fraction_in_target_1pct_ROI": 0.5863931171250143
+      },
+      "band_mean_L2": 0.3323883740604861,
+      "band_mean_ROI": 0.8193223828541876
+    },
+    "joint shape only": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.42383024306059897,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5667643028404521,
+        "power_fraction_in_target_1pct_ROI": 0.5642234525088403
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.42383024306059897,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5667643028404521,
+        "power_fraction_in_target_1pct_ROI": 0.5642234525088403
+      },
+      "band_mean_L2": 0.21342346992912262,
+      "band_mean_ROI": 0.7876615341318369
+    },
+    "ROI soft penalty": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.44092069458682853,
+        "squared_Bhattacharyya_fidelity_to_target": 0.6969510030953356,
+        "power_fraction_in_target_1pct_ROI": 0.7142275321286129
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.43216918583643515,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5888536304082743,
+        "power_fraction_in_target_1pct_ROI": 0.6037059005817198
+      },
+      "band_mean_L2": 0.27924781522845216,
+      "band_mean_ROI": 0.8241356305217593
+    },
+    "augmented Lagrange: soft-penalty solution": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.45236559458433256,
+        "squared_Bhattacharyya_fidelity_to_target": 0.6968980644458567,
+        "power_fraction_in_target_1pct_ROI": 0.7171790507552108
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.44480645428144455,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5823332767018009,
+        "power_fraction_in_target_1pct_ROI": 0.6012543377872263
+      },
+      "band_mean_L2": 0.2988917345876861,
+      "band_mean_ROI": 0.826575956649304
+    },
+    "augmented Lagrange: shape solution + 0.10-cycle noise": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.45142498090698685,
+        "squared_Bhattacharyya_fidelity_to_target": 0.6954042884137789,
+        "power_fraction_in_target_1pct_ROI": 0.7160728371941936
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.440478486490584,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5862979735968543,
+        "power_fraction_in_target_1pct_ROI": 0.6050464559945135
+      },
+      "band_mean_L2": 0.29993844534100383,
+      "band_mean_ROI": 0.8254991288726885
+    },
+    "augmented Lagrange: principal branch + 0.10-cycle noise": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.5171223187964382,
+        "squared_Bhattacharyya_fidelity_to_target": 0.7037824328245008,
+        "power_fraction_in_target_1pct_ROI": 0.7268196520192778
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.4321853987084642,
+        "squared_Bhattacharyya_fidelity_to_target": 0.6050004396780307,
+        "power_fraction_in_target_1pct_ROI": 0.6275380832338253
+      },
+      "band_mean_L2": 0.3132931647620874,
+      "band_mean_ROI": 0.8344133814897766
+    },
+    "ROI-only maximin from principal branch": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.6357434657761069,
+        "squared_Bhattacharyya_fidelity_to_target": 0.6774341933743757,
+        "power_fraction_in_target_1pct_ROI": 0.7346892992906071
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.630380952544663,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5272715025092217,
+        "power_fraction_in_target_1pct_ROI": 0.6316967294156316
+      },
+      "band_mean_L2": 0.5949096249841641,
+      "band_mean_ROI": 0.8409139189338543
+    },
+    "ROI-only maximin from shape solution": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.5253411673005656,
+        "squared_Bhattacharyya_fidelity_to_target": 0.6808939739209408,
+        "power_fraction_in_target_1pct_ROI": 0.71748466566091
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.5180355759192202,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5614883443145131,
+        "power_fraction_in_target_1pct_ROI": 0.6092385390831592
+      },
+      "band_mean_L2": 0.4317779542364739,
+      "band_mean_ROI": 0.8295056393985932
+    },
+    "ROI-only maximin from ROI soft penalty solution": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.5225974171479532,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5566186127579211,
+        "power_fraction_in_target_1pct_ROI": 0.5995805182121521
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.5225974171479532,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5566186127579211,
+        "power_fraction_in_target_1pct_ROI": 0.5995805182121521
+      },
+      "band_mean_L2": 0.4169439137801451,
+      "band_mean_ROI": 0.8298697011468912
+    }
+  },
+  "multiplier_history_final": {
+    "augmented Lagrange: soft-penalty solution": [
+      4.417597690906607,
+      0.0,
+      6.468180526166902
+    ],
+    "augmented Lagrange: shape solution + 0.10-cycle noise": [
+      4.81507304298614,
+      0.0,
+      6.953557233975225
+    ],
+    "augmented Lagrange: principal branch + 0.10-cycle noise": [
+      3.8086422487552607,
+      0.0,
+      5.128009654812855
+    ]
+  },
+  "ROI_only_optimization_history": {
+    "ROI-only maximin from principal branch": [
+      {
+        "iteration": 0,
+        "soft_min_ROI": 0.8163750582910668,
+        "ROI_by_wavelength": [
+          0.7969923740498597,
+          0.901771154737872,
+          0.8220823552989842
+        ]
+      },
+      {
+        "iteration": 1,
+        "soft_min_ROI": 0.8182715691563485,
+        "ROI_by_wavelength": [
+          0.8363502974560217,
+          0.899574770444011,
+          0.7956045879459301
+        ]
+      },
+      {
+        "iteration": 2,
+        "soft_min_ROI": 0.8224281181288536,
+        "ROI_by_wavelength": [
+          0.8374269956505437,
+          0.903452729749075,
+          0.8004163135278058
+        ]
+      },
+      {
+        "iteration": 3,
+        "soft_min_ROI": 0.8286576689505436,
+        "ROI_by_wavelength": [
+          0.8254478615442253,
+          0.907892972836962,
+          0.8136733980752374
+        ]
+      },
+      {
+        "iteration": 4,
+        "soft_min_ROI": 0.8282227938233282,
+        "ROI_by_wavelength": [
+          0.8125381529759288,
+          0.9111908847311051,
+          0.8260433005377386
+        ]
+      },
+      {
+        "iteration": 5,
+        "soft_min_ROI": 0.8289425474749459,
+        "ROI_by_wavelength": [
+          0.8123538641947092,
+          0.9127465203320639,
+          0.828366157420393
+        ]
+      },
+      {
+        "iteration": 6,
+        "soft_min_ROI": 0.8322381481608989,
+        "ROI_by_wavelength": [
+          0.8207659374308303,
+          0.9133724730105074,
+          0.8242090456088806
+        ]
+      },
+      {
+        "iteration": 7,
+        "soft_min_ROI": 0.8330480678237935,
+        "ROI_by_wavelength": [
+          0.8340694658263084,
+          0.9129404791174168,
+          0.8157307088236929
+        ]
+      },
+      {
+        "iteration": 8,
+        "soft_min_ROI": 0.832718516960623,
+        "ROI_by_wavelength": [
+          0.8385444287623273,
+          0.913108649013089,
+          0.8133763388279175
+        ]
+      },
+      {
+        "iteration": 9,
+        "soft_min_ROI": 0.8339746312248693,
+        "ROI_by_wavelength": [
+          0.8360928291369607,
+          0.9140272038495817,
+          0.8161440095901653
+        ]
+      },
+      {
+        "iteration": 10,
+        "soft_min_ROI": 0.8350634467244054,
+        "ROI_by_wavelength": [
+          0.8282121657157424,
+          0.9152974417280557,
+          0.8226300402828116
+        ]
+      },
+      {
+        "iteration": 11,
+        "soft_min_ROI": 0.83509285338864,
+        "ROI_by_wavelength": [
+          0.8245072803138432,
+          0.916167346192919,
+          0.8260851247687504
+        ]
+      },
+      {
+        "iteration": 12,
+        "soft_min_ROI": 0.8357154853662188,
+        "ROI_by_wavelength": [
+          0.8266362145966206,
+          0.9164393137986258,
+          0.8252063205867829
+        ]
+      },
+      {
+        "iteration": 13,
+        "soft_min_ROI": 0.836153494222172,
+        "ROI_by_wavelength": [
+          0.8332610531694112,
+          0.9162124569003853,
+          0.8209545391647693
+        ]
+      },
+      {
+        "iteration": 14,
+        "soft_min_ROI": 0.8362930254475339,
+        "ROI_by_wavelength": [
+          0.8352940379194316,
+          0.9163918303147824,
+          0.8200027412934598
+        ]
+      },
+      {
+        "iteration": 15,
+        "soft_min_ROI": 0.8368074085377307,
+        "ROI_by_wavelength": [
+          0.8326619763504475,
+          0.9169945639603547,
+          0.8224035321763264
+        ]
+      },
+      {
+        "iteration": 16,
+        "soft_min_ROI": 0.8368998962146516,
+        "ROI_by_wavelength": [
+          0.828091996417197,
+          0.9177173193622239,
+          0.8261347177574535
+        ]
+      },
+      {
+        "iteration": 17,
+        "soft_min_ROI": 0.8371582660827551,
+        "ROI_by_wavelength": [
+          0.8286558057278801,
+          0.917941911344786,
+          0.8261147892723963
+        ]
+      },
+      {
+        "iteration": 18,
+        "soft_min_ROI": 0.8374799857281696,
+        "ROI_by_wavelength": [
+          0.8335206233339975,
+          0.9177473981286159,
+          0.8229516124573901
+        ]
+      },
+      {
+        "iteration": 19,
+        "soft_min_ROI": 0.8375604300486188,
+        "ROI_by_wavelength": [
+          0.8353420139652529,
+          0.9177999067712617,
+          0.8219543370871751
+        ]
+      },
+      {
+        "iteration": 20,
+        "soft_min_ROI": 0.8378566522784544,
+        "ROI_by_wavelength": [
+          0.8331105515750272,
+          0.9182047773978694,
+          0.8238556816356662
+        ]
+      },
+      {
+        "iteration": 21,
+        "soft_min_ROI": 0.8379239343071134,
+        "ROI_by_wavelength": [
+          0.8300492215491049,
+          0.9186588907198837,
+          0.826327830540764
+        ]
+      },
+      {
+        "iteration": 22,
+        "soft_min_ROI": 0.838167413304913,
+        "ROI_by_wavelength": [
+          0.8313981901725468,
+          0.9187459619141805,
+          0.8256601828718668
+        ]
+      },
+      {
+        "iteration": 23,
+        "soft_min_ROI": 0.8382671714613296,
+        "ROI_by_wavelength": [
+          0.8356598197946206,
+          0.9185654609856342,
+          0.8228903081498411
+        ]
+      },
+      {
+        "iteration": 24,
+        "soft_min_ROI": 0.8383986090401021,
+        "ROI_by_wavelength": [
+          0.83590454558471,
+          0.9187065414635373,
+          0.8229538059864532
+        ]
+      },
+      {
+        "iteration": 25,
+        "soft_min_ROI": 0.8386203452010215,
+        "ROI_by_wavelength": [
+          0.8325604046790286,
+          0.9191475163564126,
+          0.8255645239328108
+        ]
+      },
+      {
+        "iteration": 26,
+        "soft_min_ROI": 0.8387111793339749,
+        "ROI_by_wavelength": [
+          0.8314926455577399,
+          0.9194023930707366,
+          0.8265642099497387
+        ]
+      },
+      {
+        "iteration": 27,
+        "soft_min_ROI": 0.8389161729335579,
+        "ROI_by_wavelength": [
+          0.8341185074426635,
+          0.9193610569548676,
+          0.8249486546690401
+        ]
+      },
+      {
+        "iteration": 28,
+        "soft_min_ROI": 0.8389972072884128,
+        "ROI_by_wavelength": [
+          0.8356691639882252,
+          0.9193843408786858,
+          0.8240610015967998
+        ]
+      },
+      {
+        "iteration": 29,
+        "soft_min_ROI": 0.8391636991516839,
+        "ROI_by_wavelength": [
+          0.8340519356237589,
+          0.9196681122358967,
+          0.8254148002368462
+        ]
+      },
+      {
+        "iteration": 30,
+        "soft_min_ROI": 0.8392438270398875,
+        "ROI_by_wavelength": [
+          0.8324730585885552,
+          0.9199438286547086,
+          0.8267348990061935
+        ]
+      },
+      {
+        "iteration": 31,
+        "soft_min_ROI": 0.8394074263046192,
+        "ROI_by_wavelength": [
+          0.8342341551931668,
+          0.9199578632357922,
+          0.825701097171724
+        ]
+      },
+      {
+        "iteration": 32,
+        "soft_min_ROI": 0.8394935815236751,
+        "ROI_by_wavelength": [
+          0.8358559278914075,
+          0.919972777145663,
+          0.8247519197117266
+        ]
+      },
+      {
+        "iteration": 33,
+        "soft_min_ROI": 0.8396406223901685,
+        "ROI_by_wavelength": [
+          0.8345369954322517,
+          0.9202284276841803,
+          0.8258840469976058
+        ]
+      },
+      {
+        "iteration": 34,
+        "soft_min_ROI": 0.839722641720436,
+        "ROI_by_wavelength": [
+          0.8332117153803149,
+          0.9204740937239131,
+          0.8270078470532775
+        ]
+      },
+      {
+        "iteration": 35,
+        "soft_min_ROI": 0.8398578654123453,
+        "ROI_by_wavelength": [
+          0.8349964892588237,
+          0.9204674085192447,
+          0.8259308258911042
+        ]
+      },
+      {
+        "iteration": 36,
+        "soft_min_ROI": 0.839942381142138,
+        "ROI_by_wavelength": [
+          0.835887061499986,
+          0.920520516647757,
+          0.8254701014205865
+        ]
+      },
+      {
+        "iteration": 37,
+        "soft_min_ROI": 0.8400498763389737,
+        "ROI_by_wavelength": [
+          0.8343108108135583,
+          0.9207709589182105,
+          0.8267496780790604
+        ]
+      },
+      {
+        "iteration": 38,
+        "soft_min_ROI": 0.8401420166959751,
+        "ROI_by_wavelength": [
+          0.8343993688750541,
+          0.9208800043921415,
+          0.8268440729291703
+        ]
+      },
+      {
+        "iteration": 39,
+        "soft_min_ROI": 0.8402207848141506,
+        "ROI_by_wavelength": [
+          0.8360251403935978,
+          0.9208556666668747,
+          0.8258401743025778
+        ]
+      },
+      {
+        "iteration": 40,
+        "soft_min_ROI": 0.8403179293675079,
+        "ROI_by_wavelength": [
+          0.8351891982327221,
+          0.9210303676748867,
+          0.8265762716690581
+        ]
+      },
+      {
+        "iteration": 41,
+        "soft_min_ROI": 0.840386833783711,
+        "ROI_by_wavelength": [
+          0.8342988650027692,
+          0.9212043108557022,
+          0.8273453819683028
+        ]
+      },
+      {
+        "iteration": 42,
+        "soft_min_ROI": 0.8404722234167148,
+        "ROI_by_wavelength": [
+          0.8359818511432296,
+          0.9211645070550599,
+          0.8262883694897563
+        ]
+      },
+      {
+        "iteration": 43,
+        "soft_min_ROI": 0.8405544277259023,
+        "ROI_by_wavelength": [
+          0.8356553776428862,
+          0.9212865832549606,
+          0.8266508468202118
+        ]
+      },
+      {
+        "iteration": 44,
+        "soft_min_ROI": 0.8406171097618182,
+        "ROI_by_wavelength": [
+          0.8345194030215564,
+          0.9214716729529797,
+          0.8275821659817792
+        ]
+      },
+      {
+        "iteration": 45,
+        "soft_min_ROI": 0.8406976928106492,
+        "ROI_by_wavelength": [
+          0.8361184486706247,
+          0.9214311655995169,
+          0.82657339934241
+        ]
+      },
+      {
+        "iteration": 46,
+        "soft_min_ROI": 0.8407738966342267,
+        "ROI_by_wavelength": [
+          0.8358057644755768,
+          0.9215479796351692,
+          0.8269176644543239
+        ]
+      },
+      {
+        "iteration": 47,
+        "soft_min_ROI": 0.8408343173456594,
+        "ROI_by_wavelength": [
+          0.8348100595121866,
+          0.9217201727330351,
+          0.8277431361400134
+        ]
+      },
+      {
+        "iteration": 48,
+        "soft_min_ROI": 0.840905242311198,
+        "ROI_by_wavelength": [
+          0.8364548853127692,
+          0.921672683189025,
+          0.8266925856279326
+        ]
+      },
+      {
+        "iteration": 49,
+        "soft_min_ROI": 0.8409803536327728,
+        "ROI_by_wavelength": [
+          0.8357302901026527,
+          0.9218227612115977,
+          0.8273220512949218
+        ]
+      },
+      {
+        "iteration": 50,
+        "soft_min_ROI": 0.8410399160939348,
+        "ROI_by_wavelength": [
+          0.8352138548322744,
+          0.9219531177367211,
+          0.8277997401288388
+        ]
+      },
+      {
+        "iteration": 51,
+        "soft_min_ROI": 0.8410959555728804,
+        "ROI_by_wavelength": [
+          0.8368089844012161,
+          0.9219034311019548,
+          0.8267724428623304
+        ]
+      },
+      {
+        "iteration": 52,
+        "soft_min_ROI": 0.8411670102707277,
+        "ROI_by_wavelength": [
+          0.83550430275773,
+          0.922097851936257,
+          0.8278056842357563
+        ]
+      },
+      {
+        "iteration": 53,
+        "soft_min_ROI": 0.8412308922976104,
+        "ROI_by_wavelength": [
+          0.8358869476551163,
+          0.9221487712204768,
+          0.8276381496244409
+        ]
+      },
+      {
+        "iteration": 54,
+        "soft_min_ROI": 0.8412851217420088,
+        "ROI_by_wavelength": [
+          0.8366611009749751,
+          0.9221628056461628,
+          0.8271882013409756
+        ]
+      },
+      {
+        "iteration": 55,
+        "soft_min_ROI": 0.8413391188209156,
+        "ROI_by_wavelength": [
+          0.8353065377085876,
+          0.9223560677075757,
+          0.828251165494206
+        ]
+      },
+      {
+        "iteration": 56,
+        "soft_min_ROI": 0.8414000022680046,
+        "ROI_by_wavelength": [
+          0.8368721981335838,
+          0.9223024543922966,
+          0.8272368716338256
+        ]
+      },
+      {
+        "iteration": 57,
+        "soft_min_ROI": 0.841464482381565,
+        "ROI_by_wavelength": [
+          0.8358733767193156,
+          0.9224679201165842,
+          0.8280489978893171
+        ]
+      },
+      {
+        "iteration": 58,
+        "soft_min_ROI": 0.8415250630484666,
+        "ROI_by_wavelength": [
+          0.8362983707334902,
+          0.9225119034269528,
+          0.8278467936327648
+        ]
+      },
+      {
+        "iteration": 59,
+        "soft_min_ROI": 0.8415817140871278,
+        "ROI_by_wavelength": [
+          0.8365819632220863,
+          0.9225661175987317,
+          0.8277429054845719
+        ]
+      },
+      {
+        "iteration": 60,
+        "soft_min_ROI": 0.8416347537683495,
+        "ROI_by_wavelength": [
+          0.8358305785136471,
+          0.9227077919029036,
+          0.8283746364991507
+        ]
+      },
+      {
+        "iteration": 61,
+        "soft_min_ROI": 0.8416831288819981,
+        "ROI_by_wavelength": [
+          0.8372983112475678,
+          0.9226570965878856,
+          0.8274216211950088
+        ]
+      },
+      {
+        "iteration": 62,
+        "soft_min_ROI": 0.8417358544800462,
+        "ROI_by_wavelength": [
+          0.8355736667049031,
+          0.9228801900766901,
+          0.8287431278567626
+        ]
+      },
+      {
+        "iteration": 63,
+        "soft_min_ROI": 0.8417909355415871,
+        "ROI_by_wavelength": [
+          0.8373269901695511,
+          0.9228023334620921,
+          0.8275820419264748
+        ]
+      },
+      {
+        "iteration": 64,
+        "soft_min_ROI": 0.8418469004330703,
+        "ROI_by_wavelength": [
+          0.8359921302891636,
+          0.9229901571099104,
+          0.8286227837774628
+        ]
+      },
+      {
+        "iteration": 65,
+        "soft_min_ROI": 0.8418982816506939,
+        "ROI_by_wavelength": [
+          0.8371229611981922,
+          0.9229624683415074,
+          0.8279012941075357
+        ]
+      },
+      {
+        "iteration": 66,
+        "soft_min_ROI": 0.8419461739284148,
+        "ROI_by_wavelength": [
+          0.8361138870680378,
+          0.9231178261598108,
+          0.8287046764017876
+        ]
+      },
+      {
+        "iteration": 67,
+        "soft_min_ROI": 0.84198814710915,
+        "ROI_by_wavelength": [
+          0.8374719424917297,
+          0.9230642357285059,
+          0.8278132706427225
+        ]
+      },
+      {
+        "iteration": 68,
+        "soft_min_ROI": 0.8420257933433382,
+        "ROI_by_wavelength": [
+          0.8357635389298271,
+          0.9232738196274863,
+          0.8291070757407764
+        ]
+      },
+      {
+        "iteration": 69,
+        "soft_min_ROI": 0.8420620158415972,
+        "ROI_by_wavelength": [
+          0.8378911851360373,
+          0.923145614458157,
+          0.8276549745475148
+        ]
+      },
+      {
+        "iteration": 70,
+        "soft_min_ROI": 0.842107797267099,
+        "ROI_by_wavelength": [
+          0.8359680778566119,
+          0.9233695429638216,
+          0.8290952770147653
+        ]
+      },
+      {
+        "iteration": 71,
+        "soft_min_ROI": 0.8421469344430769,
+        "ROI_by_wavelength": [
+          0.8375616524706913,
+          0.9232834861245804,
+          0.8280177676365199
+        ]
+      },
+      {
+        "iteration": 72,
+        "soft_min_ROI": 0.8421807968112923,
+        "ROI_by_wavelength": [
+          0.8361488403753203,
+          0.9234583070639744,
+          0.8290863631894272
+        ]
+      },
+      {
+        "iteration": 73,
+        "soft_min_ROI": 0.8422061860787304,
+        "ROI_by_wavelength": [
+          0.8378877958593145,
+          0.9233537524101904,
+          0.8278962032159319
+        ]
+      },
+      {
+        "iteration": 74,
+        "soft_min_ROI": 0.8422304338698505,
+        "ROI_by_wavelength": [
+          0.8357879916557145,
+          0.9235835597343063,
+          0.8294482286008353
+        ]
+      },
+      {
+        "iteration": 75,
+        "soft_min_ROI": 0.842257644868724,
+        "ROI_by_wavelength": [
+          0.8381039551132874,
+          0.9234232373167727,
+          0.8278374334018666
+        ]
+      },
+      {
+        "iteration": 76,
+        "soft_min_ROI": 0.8422912463125698,
+        "ROI_by_wavelength": [
+          0.8360939469153006,
+          0.9236421272587244,
+          0.8293205022529244
+        ]
+      },
+      {
+        "iteration": 77,
+        "soft_min_ROI": 0.8423143906750443,
+        "ROI_by_wavelength": [
+          0.8378801185316691,
+          0.9235226886968162,
+          0.8280810773721937
+        ]
+      },
+      {
+        "iteration": 78,
+        "soft_min_ROI": 0.8423305105434221,
+        "ROI_by_wavelength": [
+          0.8359649066751091,
+          0.923726204196062,
+          0.8294878577171527
+        ]
+      },
+      {
+        "iteration": 79,
+        "soft_min_ROI": 0.842340294943746,
+        "ROI_by_wavelength": [
+          0.838336457502928,
+          0.9235471495470486,
+          0.8278202953897524
+        ]
+      },
+      {
+        "iteration": 80,
+        "soft_min_ROI": 0.8423671863397625,
+        "ROI_by_wavelength": [
+          0.8359709618389338,
+          0.9237873011400053,
+          0.8295476274820814
+        ]
+      },
+      {
+        "iteration": 81,
+        "soft_min_ROI": 0.8423876190786092,
+        "ROI_by_wavelength": [
+          0.838034893880524,
+          0.9236319928625669,
+          0.8280985616833876
+        ]
+      },
+      {
+        "iteration": 82,
+        "soft_min_ROI": 0.8424024186469566,
+        "ROI_by_wavelength": [
+          0.8360386637454227,
+          0.9238337664386563,
+          0.8295575173177966
+        ]
+      },
+      {
+        "iteration": 83,
+        "soft_min_ROI": 0.8424088804202334,
+        "ROI_by_wavelength": [
+          0.8383849275399499,
+          0.9236473235540896,
+          0.8279014115885646
+        ]
+      },
+      {
+        "iteration": 84,
+        "soft_min_ROI": 0.842429917982447,
+        "ROI_by_wavelength": [
+          0.8359348695710216,
+          0.923887678203142,
+          0.8296861901351555
+        ]
+      },
+      {
+        "iteration": 85,
+        "soft_min_ROI": 0.8424481326072965,
+        "ROI_by_wavelength": [
+          0.8382029205395849,
+          0.9237074228491758,
+          0.828086756523146
+        ]
+      },
+      {
+        "iteration": 86,
+        "soft_min_ROI": 0.8424631195042682,
+        "ROI_by_wavelength": [
+          0.8360494962634368,
+          0.923918293496827,
+          0.8296562171084287
+        ]
+      },
+      {
+        "iteration": 87,
+        "soft_min_ROI": 0.8424689765999646,
+        "ROI_by_wavelength": [
+          0.8384368219699433,
+          0.9237232101743948,
+          0.8279665588990042
+        ]
+      },
+      {
+        "iteration": 88,
+        "soft_min_ROI": 0.8424862690613063,
+        "ROI_by_wavelength": [
+          0.8359614046343424,
+          0.9239610548919788,
+          0.8297653943683657
+        ]
+      },
+      {
+        "iteration": 89,
+        "soft_min_ROI": 0.8424999125126803,
+        "ROI_by_wavelength": [
+          0.8383335082975939,
+          0.923766752099126,
+          0.8280859282996063
+        ]
+      },
+      {
+        "iteration": 90,
+        "soft_min_ROI": 0.842512753234321,
+        "ROI_by_wavelength": [
+          0.8360423489919632,
+          0.9239855560853428,
+          0.8297495012254117
+        ]
+      },
+      {
+        "iteration": 91,
+        "soft_min_ROI": 0.8425169903710421,
+        "ROI_by_wavelength": [
+          0.8385024453975746,
+          0.9237801222863675,
+          0.8280028022867315
+        ]
+      },
+      {
+        "iteration": 92,
+        "soft_min_ROI": 0.8425322628759693,
+        "ROI_by_wavelength": [
+          0.8360050132068672,
+          0.9240161403360578,
+          0.8298130399722368
+        ]
+      },
+      {
+        "iteration": 93,
+        "soft_min_ROI": 0.8425413773569977,
+        "ROI_by_wavelength": [
+          0.8384252134846797,
+          0.9238139144967373,
+          0.8280939797021276
+        ]
+      },
+      {
+        "iteration": 94,
+        "soft_min_ROI": 0.8425514186928826,
+        "ROI_by_wavelength": [
+          0.836024052362552,
+          0.9240392863723802,
+          0.8298321947081899
+        ]
+      },
+      {
+        "iteration": 95,
+        "soft_min_ROI": 0.842554409904632,
+        "ROI_by_wavelength": [
+          0.8385559483134037,
+          0.923824836693745,
+          0.8280295016587738
+        ]
+      },
+      {
+        "iteration": 96,
+        "soft_min_ROI": 0.8425684725617683,
+        "ROI_by_wavelength": [
+          0.8360513574177925,
+          0.9240589177330407,
+          0.8298411897799666
+        ]
+      },
+      {
+        "iteration": 97,
+        "soft_min_ROI": 0.8425735051084488,
+        "ROI_by_wavelength": [
+          0.8384865077200712,
+          0.923852278550157,
+          0.8281066971562436
+        ]
+      },
+      {
+        "iteration": 98,
+        "soft_min_ROI": 0.8425811249602074,
+        "ROI_by_wavelength": [
+          0.8360083045718963,
+          0.9240819290584388,
+          0.8298971415117871
+        ]
+      },
+      {
+        "iteration": 99,
+        "soft_min_ROI": 0.8425843561104971,
+        "ROI_by_wavelength": [
+          0.8385826766280025,
+          0.9238616251545801,
+          0.8280614118941594
+        ]
+      },
+      {
+        "iteration": 100,
+        "soft_min_ROI": 0.8425979080300705,
+        "ROI_by_wavelength": [
+          0.8360916158578783,
+          0.924092584742529,
+          0.829862088490251
+        ]
+      },
+      {
+        "iteration": 101,
+        "soft_min_ROI": 0.8426002716026049,
+        "ROI_by_wavelength": [
+          0.838543133095472,
+          0.9238821149264049,
+          0.8281137033474264
+        ]
+      },
+      {
+        "iteration": 102,
+        "soft_min_ROI": 0.8426074236965282,
+        "ROI_by_wavelength": [
+          0.8360061051881654,
+          0.9241150795123736,
+          0.8299456224313116
+        ]
+      },
+      {
+        "iteration": 103,
+        "soft_min_ROI": 0.8426115947189926,
+        "ROI_by_wavelength": [
+          0.8385940038894091,
+          0.9238918138303032,
+          0.8280990376837574
+        ]
+      },
+      {
+        "iteration": 104,
+        "soft_min_ROI": 0.8426239469467112,
+        "ROI_by_wavelength": [
+          0.8361164262821985,
+          0.9241194791787742,
+          0.8298890652460534
+        ]
+      },
+      {
+        "iteration": 105,
+        "soft_min_ROI": 0.8426240898005484,
+        "ROI_by_wavelength": [
+          0.838598489266627,
+          0.9239040704464963,
+          0.8281168031428324
+        ]
+      },
+      {
+        "iteration": 106,
+        "soft_min_ROI": 0.8426320410713889,
+        "ROI_by_wavelength": [
+          0.836030097491701,
+          0.9241384118260723,
+          0.8299707600477703
+        ]
+      },
+      {
+        "iteration": 107,
+        "soft_min_ROI": 0.8426363976405972,
+        "ROI_by_wavelength": [
+          0.8385941631694677,
+          0.923916002649842,
+          0.8281400624482471
+        ]
+      },
+      {
+        "iteration": 108,
+        "soft_min_ROI": 0.8426466896766119,
+        "ROI_by_wavelength": [
+          0.8361186970257413,
+          0.9241422691130856,
+          0.8299277765648233
+        ]
+      },
+      {
+        "iteration": 109,
+        "soft_min_ROI": 0.8426461409550575,
+        "ROI_by_wavelength": [
+          0.8386399945861348,
+          0.9239225825297979,
+          0.8281261475612911
+        ]
+      },
+      {
+        "iteration": 110,
+        "soft_min_ROI": 0.8426557085146515,
+        "ROI_by_wavelength": [
+          0.8360754963572985,
+          0.9241566295364688,
+          0.8299775126638569
+        ]
+      },
+      {
+        "iteration": 111,
+        "soft_min_ROI": 0.8426590106985732,
+        "ROI_by_wavelength": [
+          0.8386006547010472,
+          0.9239372018466541,
+          0.8281733239226993
+        ]
+      },
+      {
+        "iteration": 112,
+        "soft_min_ROI": 0.8426670389858256,
+        "ROI_by_wavelength": [
+          0.8361045112209815,
+          0.9241649696909422,
+          0.829975064345049
+        ]
+      },
+      {
+        "iteration": 113,
+        "soft_min_ROI": 0.8426671432849852,
+        "ROI_by_wavelength": [
+          0.8386561399050431,
+          0.9239424175176496,
+          0.8281503652204798
+        ]
+      },
+      {
+        "iteration": 114,
+        "soft_min_ROI": 0.8426773012198261,
+        "ROI_by_wavelength": [
+          0.8361219157609203,
+          0.9241739387485369,
+          0.829979768557183
+        ]
+      },
+      {
+        "iteration": 115,
+        "soft_min_ROI": 0.8426786011106562,
+        "ROI_by_wavelength": [
+          0.8386205174068884,
+          0.9239560162375107,
+          0.8281927517437689
+        ]
+      },
+      {
+        "iteration": 116,
+        "soft_min_ROI": 0.8426853674215293,
+        "ROI_by_wavelength": [
+          0.8360975204038055,
+          0.9241857742798711,
+          0.8300131673907093
+        ]
+      },
+      {
+        "iteration": 117,
+        "soft_min_ROI": 0.8426866383140134,
+        "ROI_by_wavelength": [
+          0.8386519803474106,
+          0.9239624982012833,
+          0.8281853983191232
+        ]
+      },
+      {
+        "iteration": 118,
+        "soft_min_ROI": 0.8426960302567124,
+        "ROI_by_wavelength": [
+          0.8361505898875589,
+          0.924190619996286,
+          0.829990768919365
+        ]
+      },
+      {
+        "iteration": 119,
+        "soft_min_ROI": 0.8426956134543344,
+        "ROI_by_wavelength": [
+          0.8386509078144427,
+          0.9239715873587744,
+          0.8282009838117477
+        ]
+      },
+      {
+        "iteration": 120,
+        "soft_min_ROI": 0.8427027363791956,
+        "ROI_by_wavelength": [
+          0.8361140066908358,
+          0.9242023555093479,
+          0.8300312465805271
+        ]
+      }
+    ],
+    "ROI-only maximin from shape solution": [
+      {
+        "iteration": 0,
+        "soft_min_ROI": 0.7893965370569025,
+        "ROI_by_wavelength": [
+          0.7776435982251566,
+          0.8691253488462343,
+          0.7817349669666238
+        ]
+      },
+      {
+        "iteration": 1,
+        "soft_min_ROI": 0.7906294146864514,
+        "ROI_by_wavelength": [
+          0.8111166867474967,
+          0.8728798283417032,
+          0.7675022084476348
+        ]
+      },
+      {
+        "iteration": 2,
+        "soft_min_ROI": 0.7990787967226028,
+        "ROI_by_wavelength": [
+          0.8081635308026608,
+          0.879921550734935,
+          0.7786364108948483
+        ]
+      },
+      {
+        "iteration": 3,
+        "soft_min_ROI": 0.8041612736244632,
+        "ROI_by_wavelength": [
+          0.7943915648421109,
+          0.8856886738703027,
+          0.794301034447664
+        ]
+      },
+      {
+        "iteration": 4,
+        "soft_min_ROI": 0.8063222310593109,
+        "ROI_by_wavelength": [
+          0.7929074518399234,
+          0.8898391345615876,
+          0.8006554031562023
+        ]
+      },
+      {
+        "iteration": 5,
+        "soft_min_ROI": 0.8099905700510034,
+        "ROI_by_wavelength": [
+          0.8009437227683482,
+          0.8925034519091801,
+          0.7994060126353296
+        ]
+      },
+      {
+        "iteration": 6,
+        "soft_min_ROI": 0.8115895250465018,
+        "ROI_by_wavelength": [
+          0.8132628375680537,
+          0.8938705044033481,
+          0.7939190186610421
+        ]
+      },
+      {
+        "iteration": 7,
+        "soft_min_ROI": 0.8125476269359642,
+        "ROI_by_wavelength": [
+          0.8162069394053774,
+          0.8953634098188438,
+          0.7940022420742714
+        ]
+      },
+      {
+        "iteration": 8,
+        "soft_min_ROI": 0.8142412445689762,
+        "ROI_by_wavelength": [
+          0.8116774132808544,
+          0.8971496310813973,
+          0.7987844506187189
+        ]
+      },
+      {
+        "iteration": 9,
+        "soft_min_ROI": 0.8146855815046528,
+        "ROI_by_wavelength": [
+          0.8048082063726772,
+          0.8988872778540851,
+          0.8048673286297515
+        ]
+      },
+      {
+        "iteration": 10,
+        "soft_min_ROI": 0.8153595404064854,
+        "ROI_by_wavelength": [
+          0.8050414151573205,
+          0.9000001077915216,
+          0.8059807167301543
+        ]
+      },
+      {
+        "iteration": 11,
+        "soft_min_ROI": 0.8165850915490053,
+        "ROI_by_wavelength": [
+          0.8110745557777707,
+          0.9006122138209666,
+          0.8030458805436067
+        ]
+      },
+      {
+        "iteration": 12,
+        "soft_min_ROI": 0.8168489004222489,
+        "ROI_by_wavelength": [
+          0.8179916076644018,
+          0.9010538337043142,
+          0.7993927002522523
+        ]
+      },
+      {
+        "iteration": 13,
+        "soft_min_ROI": 0.8174010989732965,
+        "ROI_by_wavelength": [
+          0.8186217960371245,
+          0.9018801774788315,
+          0.7999032554614713
+        ]
+      },
+      {
+        "iteration": 14,
+        "soft_min_ROI": 0.8182960415937081,
+        "ROI_by_wavelength": [
+          0.814021052795598,
+          0.9030301941600918,
+          0.8038838013418449
+        ]
+      },
+      {
+        "iteration": 15,
+        "soft_min_ROI": 0.8185328325433695,
+        "ROI_by_wavelength": [
+          0.8097295910867909,
+          0.9041282313215793,
+          0.8076520693250149
+        ]
+      },
+      {
+        "iteration": 16,
+        "soft_min_ROI": 0.8191425835290318,
+        "ROI_by_wavelength": [
+          0.810984274075744,
+          0.9048269325844935,
+          0.8076808372274397
+        ]
+      },
+      {
+        "iteration": 17,
+        "soft_min_ROI": 0.8198151105824483,
+        "ROI_by_wavelength": [
+          0.8166604995094429,
+          0.9051641388602045,
+          0.8046717444584068
+        ]
+      },
+      {
+        "iteration": 18,
+        "soft_min_ROI": 0.8201129524513768,
+        "ROI_by_wavelength": [
+          0.8195832561538778,
+          0.9056395613486862,
+          0.8034697289377283
+        ]
+      },
+      {
+        "iteration": 19,
+        "soft_min_ROI": 0.820717393451174,
+        "ROI_by_wavelength": [
+          0.8177574637055878,
+          0.9064270774274856,
+          0.8054478641648958
+        ]
+      },
+      {
+        "iteration": 20,
+        "soft_min_ROI": 0.8210329212422395,
+        "ROI_by_wavelength": [
+          0.8136191121251792,
+          0.9073193817189596,
+          0.8089246642730974
+        ]
+      },
+      {
+        "iteration": 21,
+        "soft_min_ROI": 0.8214354370128873,
+        "ROI_by_wavelength": [
+          0.8140792113717387,
+          0.9078746783841977,
+          0.809276586325071
+        ]
+      },
+      {
+        "iteration": 22,
+        "soft_min_ROI": 0.8219261467852462,
+        "ROI_by_wavelength": [
+          0.8185499916529293,
+          0.9081402768098802,
+          0.806905570528511
+        ]
+      },
+      {
+        "iteration": 23,
+        "soft_min_ROI": 0.8222274698383762,
+        "ROI_by_wavelength": [
+          0.8205535699362074,
+          0.9085664188425259,
+          0.8061927216031641
+        ]
+      },
+      {
+        "iteration": 24,
+        "soft_min_ROI": 0.8227100934465318,
+        "ROI_by_wavelength": [
+          0.8184188720306045,
+          0.9092817799966753,
+          0.8082751129692289
+        ]
+      },
+      {
+        "iteration": 25,
+        "soft_min_ROI": 0.8229911655492059,
+        "ROI_by_wavelength": [
+          0.8160662759962877,
+          0.9099890890042133,
+          0.8104713365854284
+        ]
+      },
+      {
+        "iteration": 26,
+        "soft_min_ROI": 0.8234156327832047,
+        "ROI_by_wavelength": [
+          0.8178736477300581,
+          0.9104044155121949,
+          0.809842884304071
+        ]
+      },
+      {
+        "iteration": 27,
+        "soft_min_ROI": 0.8236851887415254,
+        "ROI_by_wavelength": [
+          0.8216323876088873,
+          0.9106557192746462,
+          0.8078558489279304
+        ]
+      },
+      {
+        "iteration": 28,
+        "soft_min_ROI": 0.824045955098498,
+        "ROI_by_wavelength": [
+          0.8211023080266365,
+          0.9111826583579752,
+          0.8087420722470497
+        ]
+      },
+      {
+        "iteration": 29,
+        "soft_min_ROI": 0.8243029750942992,
+        "ROI_by_wavelength": [
+          0.8176252491017986,
+          0.9118761195019588,
+          0.8115767543308402
+        ]
+      },
+      {
+        "iteration": 30,
+        "soft_min_ROI": 0.8246073670611125,
+        "ROI_by_wavelength": [
+          0.8183980432108025,
+          0.9122605962887125,
+          0.8115180286655266
+        ]
+      },
+      {
+        "iteration": 31,
+        "soft_min_ROI": 0.8248426304964088,
+        "ROI_by_wavelength": [
+          0.8224439895250242,
+          0.912386259439619,
+          0.8092054551229106
+        ]
+      },
+      {
+        "iteration": 32,
+        "soft_min_ROI": 0.8251029866402981,
+        "ROI_by_wavelength": [
+          0.8222645775412357,
+          0.9127797126089511,
+          0.8097262822398887
+        ]
+      },
+      {
+        "iteration": 33,
+        "soft_min_ROI": 0.8253055434095773,
+        "ROI_by_wavelength": [
+          0.8187270613723532,
+          0.9133787166835745,
+          0.8124927509557139
+        ]
+      },
+      {
+        "iteration": 34,
+        "soft_min_ROI": 0.8255464108885718,
+        "ROI_by_wavelength": [
+          0.8194552432736055,
+          0.9136709069816871,
+          0.8123594444306266
+        ]
+      },
+      {
+        "iteration": 35,
+        "soft_min_ROI": 0.825713020152326,
+        "ROI_by_wavelength": [
+          0.8233910056658165,
+          0.9137151214399604,
+          0.8100235186343054
+        ]
+      },
+      {
+        "iteration": 36,
+        "soft_min_ROI": 0.8259420607378414,
+        "ROI_by_wavelength": [
+          0.8228705516672512,
+          0.9140598358780303,
+          0.8107004601423987
+        ]
+      },
+      {
+        "iteration": 37,
+        "soft_min_ROI": 0.8260714849376467,
+        "ROI_by_wavelength": [
+          0.8191334334718845,
+          0.914604551157417,
+          0.8135343849443978
+        ]
+      },
+      {
+        "iteration": 38,
+        "soft_min_ROI": 0.826294010442798,
+        "ROI_by_wavelength": [
+          0.8201130870766438,
+          0.9148169917594895,
+          0.81316794543863
+        ]
+      },
+      {
+        "iteration": 39,
+        "soft_min_ROI": 0.8263987060188129,
+        "ROI_by_wavelength": [
+          0.824459586426253,
+          0.9147632248901589,
+          0.8104819470821074
+        ]
+      },
+      {
+        "iteration": 40,
+        "soft_min_ROI": 0.8266044562178213,
+        "ROI_by_wavelength": [
+          0.823882568784348,
+          0.9150550439582879,
+          0.8111451348771599
+        ]
+      },
+      {
+        "iteration": 41,
+        "soft_min_ROI": 0.8267003281428429,
+        "ROI_by_wavelength": [
+          0.8194878873827596,
+          0.9155904353341898,
+          0.8143784711306876
+        ]
+      },
+      {
+        "iteration": 42,
+        "soft_min_ROI": 0.8268800085760944,
+        "ROI_by_wavelength": [
+          0.8201241819057099,
+          0.9157677708146705,
+          0.8141920533242012
+        ]
+      },
+      {
+        "iteration": 43,
+        "soft_min_ROI": 0.8269959611225242,
+        "ROI_by_wavelength": [
+          0.8248892308981678,
+          0.9156281237115689,
+          0.8111714118644904
+        ]
+      },
+      {
+        "iteration": 44,
+        "soft_min_ROI": 0.8271475375696996,
+        "ROI_by_wavelength": [
+          0.8247019431161305,
+          0.9158349768550771,
+          0.8115200086481515
+        ]
+      },
+      {
+        "iteration": 45,
+        "soft_min_ROI": 0.827255294406934,
+        "ROI_by_wavelength": [
+          0.8202904136772835,
+          0.9163261571443753,
+          0.8147303181658703
+        ]
+      },
+      {
+        "iteration": 46,
+        "soft_min_ROI": 0.8273971958369061,
+        "ROI_by_wavelength": [
+          0.8207652788193369,
+          0.916461887656045,
+          0.8146089163070425
+        ]
+      },
+      {
+        "iteration": 47,
+        "soft_min_ROI": 0.8274817776865544,
+        "ROI_by_wavelength": [
+          0.8253382936304421,
+          0.9162843456530468,
+          0.8116758808441444
+        ]
+      },
+      {
+        "iteration": 48,
+        "soft_min_ROI": 0.8276215829805675,
+        "ROI_by_wavelength": [
+          0.8249332806839966,
+          0.9164605772784774,
+          0.812136074096391
+        ]
+      },
+      {
+        "iteration": 49,
+        "soft_min_ROI": 0.8276708573078546,
+        "ROI_by_wavelength": [
+          0.8204470871878915,
+          0.9169046714032234,
+          0.8153522815215273
+        ]
+      },
+      {
+        "iteration": 50,
+        "soft_min_ROI": 0.8278059801109997,
+        "ROI_by_wavelength": [
+          0.821107426339989,
+          0.9169817764230991,
+          0.8150680268040821
+        ]
+      },
+      {
+        "iteration": 51,
+        "soft_min_ROI": 0.8278514918518589,
+        "ROI_by_wavelength": [
+          0.8259785829810433,
+          0.9167325675321266,
+          0.8118890805044279
+        ]
+      },
+      {
+        "iteration": 52,
+        "soft_min_ROI": 0.8279655244709115,
+        "ROI_by_wavelength": [
+          0.8256493566670299,
+          0.9168579599936111,
+          0.8122587831880964
+        ]
+      },
+      {
+        "iteration": 53,
+        "soft_min_ROI": 0.8280227176487429,
+        "ROI_by_wavelength": [
+          0.8208824415656558,
+          0.9172850595289529,
+          0.8156357579086974
+        ]
+      },
+      {
+        "iteration": 54,
+        "soft_min_ROI": 0.8281196581343452,
+        "ROI_by_wavelength": [
+          0.8212560723991288,
+          0.9173418518942296,
+          0.8155112967480176
+        ]
+      },
+      {
+        "iteration": 55,
+        "soft_min_ROI": 0.8281777329270842,
+        "ROI_by_wavelength": [
+          0.826048407459972,
+          0.9170674767371441,
+          0.8123623171791127
+        ]
+      },
+      {
+        "iteration": 56,
+        "soft_min_ROI": 0.828271465576272,
+        "ROI_by_wavelength": [
+          0.8257533218276759,
+          0.917159195206783,
+          0.8126837752948699
+        ]
+      },
+      {
+        "iteration": 57,
+        "soft_min_ROI": 0.8283005299811104,
+        "ROI_by_wavelength": [
+          0.821120255478184,
+          0.9175475505173273,
+          0.8159463067945483
+        ]
+      },
+      {
+        "iteration": 58,
+        "soft_min_ROI": 0.828398961969654,
+        "ROI_by_wavelength": [
+          0.8216616998968415,
+          0.917568734383925,
+          0.8156915541558043
+        ]
+      },
+      {
+        "iteration": 59,
+        "soft_min_ROI": 0.8284213942638664,
+        "ROI_by_wavelength": [
+          0.826529031347744,
+          0.9172610955878545,
+          0.8124706874257441
+        ]
+      },
+      {
+        "iteration": 60,
+        "soft_min_ROI": 0.8285133886870781,
+        "ROI_by_wavelength": [
+          0.8261696392966895,
+          0.9173381499120494,
+          0.8128238384644495
+        ]
+      },
+      {
+        "iteration": 61,
+        "soft_min_ROI": 0.8285433905857718,
+        "ROI_by_wavelength": [
+          0.8213370050777931,
+          0.9177239937322859,
+          0.8162115606904181
+        ]
+      },
+      {
+        "iteration": 62,
+        "soft_min_ROI": 0.8286260616236867,
+        "ROI_by_wavelength": [
+          0.8217195571541515,
+          0.9177390093682618,
+          0.8160537266841335
+        ]
+      },
+      {
+        "iteration": 63,
+        "soft_min_ROI": 0.8286705462182283,
+        "ROI_by_wavelength": [
+          0.826594526219327,
+          0.9174215753421509,
+          0.8128264571011403
+        ]
+      },
+      {
+        "iteration": 64,
+        "soft_min_ROI": 0.8287505538866855,
+        "ROI_by_wavelength": [
+          0.8263274192037178,
+          0.9174789982881547,
+          0.8131091473366117
+        ]
+      },
+      {
+        "iteration": 65,
+        "soft_min_ROI": 0.828775423507541,
+        "ROI_by_wavelength": [
+          0.821625057005645,
+          0.9178440401397334,
+          0.816399982868578
+        ]
+      },
+      {
+        "iteration": 66,
+        "soft_min_ROI": 0.8288612673510981,
+        "ROI_by_wavelength": [
+          0.8221058350342474,
+          0.9178449069990434,
+          0.8161713554930203
+        ]
+      },
+      {
+        "iteration": 67,
+        "soft_min_ROI": 0.8288806654601422,
+        "ROI_by_wavelength": [
+          0.8269778423643855,
+          0.9175188746000355,
+          0.8129389817599089
+        ]
+      },
+      {
+        "iteration": 68,
+        "soft_min_ROI": 0.8289633774318891,
+        "ROI_by_wavelength": [
+          0.8266343000827161,
+          0.9175762737989146,
+          0.8132684804251162
+        ]
+      },
+      {
+        "iteration": 69,
+        "soft_min_ROI": 0.8289849085520683,
+        "ROI_by_wavelength": [
+          0.8218030245956368,
+          0.91794267281882,
+          0.8166369928563858
+        ]
+      },
+      {
+        "iteration": 70,
+        "soft_min_ROI": 0.8290611782944485,
+        "ROI_by_wavelength": [
+          0.8221917789972052,
+          0.9179444865999065,
+          0.8164632475931107
+        ]
+      },
+      {
+        "iteration": 71,
+        "soft_min_ROI": 0.8290954217269251,
+        "ROI_by_wavelength": [
+          0.8270804012370625,
+          0.91761834028754,
+          0.8132197196559465
+        ]
+      },
+      {
+        "iteration": 72,
+        "soft_min_ROI": 0.8291684558820462,
+        "ROI_by_wavelength": [
+          0.8268083050645676,
+          0.9176664881636085,
+          0.8134935585375226
+        ]
+      },
+      {
+        "iteration": 73,
+        "soft_min_ROI": 0.8291888192515501,
+        "ROI_by_wavelength": [
+          0.8220672403415346,
+          0.9180230306777404,
+          0.8167941128104158
+        ]
+      },
+      {
+        "iteration": 74,
+        "soft_min_ROI": 0.8292666062168499,
+        "ROI_by_wavelength": [
+          0.822513879641185,
+          0.9180199191543857,
+          0.8165785242001576
+        ]
+      },
+      {
+        "iteration": 75,
+        "soft_min_ROI": 0.8292831020817977,
+        "ROI_by_wavelength": [
+          0.8273862265309413,
+          0.9176920621658531,
+          0.8133415388269827
+        ]
+      },
+      {
+        "iteration": 76,
+        "soft_min_ROI": 0.8293588946904601,
+        "ROI_by_wavelength": [
+          0.8270574783894808,
+          0.917743436065065,
+          0.8136513402545326
+        ]
+      },
+      {
+        "iteration": 77,
+        "soft_min_ROI": 0.829377635589408,
+        "ROI_by_wavelength": [
+          0.8222328488081994,
+          0.9181035781494538,
+          0.8170036329710881
+        ]
+      },
+      {
+        "iteration": 78,
+        "soft_min_ROI": 0.8294487203397397,
+        "ROI_by_wavelength": [
+          0.8226144443332979,
+          0.9181022855134684,
+          0.816826874179434
+        ]
+      },
+      {
+        "iteration": 79,
+        "soft_min_ROI": 0.8294749394168287,
+        "ROI_by_wavelength": [
+          0.827486964598116,
+          0.9177735205227808,
+          0.8135871750733852
+        ]
+      },
+      {
+        "iteration": 80,
+        "soft_min_ROI": 0.8295424313850905,
+        "ROI_by_wavelength": [
+          0.8272012414783272,
+          0.9178170201970579,
+          0.8138598867016476
+        ]
+      },
+      {
+        "iteration": 81,
+        "soft_min_ROI": 0.8295560387885008,
+        "ROI_by_wavelength": [
+          0.82244139424546,
+          0.918167361897233,
+          0.8171596213901628
+        ]
+      },
+      {
+        "iteration": 82,
+        "soft_min_ROI": 0.8296245954422355,
+        "ROI_by_wavelength": [
+          0.8228615089959606,
+          0.91815754280853,
+          0.8169485153140036
+        ]
+      },
+      {
+        "iteration": 83,
+        "soft_min_ROI": 0.8296349231382592,
+        "ROI_by_wavelength": [
+          0.8277189953887072,
+          0.917820357952549,
+          0.8137076870166252
+        ]
+      },
+      {
+        "iteration": 84,
+        "soft_min_ROI": 0.8296992367200184,
+        "ROI_by_wavelength": [
+          0.8273954850288281,
+          0.9178585834697793,
+          0.8139965665223052
+        ]
+      },
+      {
+        "iteration": 85,
+        "soft_min_ROI": 0.8297074771344571,
+        "ROI_by_wavelength": [
+          0.8225811765875279,
+          0.9182036151824529,
+          0.8173225317545887
+        ]
+      },
+      {
+        "iteration": 86,
+        "soft_min_ROI": 0.8297670887515314,
+        "ROI_by_wavelength": [
+          0.8229524364894352,
+          0.9181863666612862,
+          0.8171337798779823
+        ]
+      },
+      {
+        "iteration": 87,
+        "soft_min_ROI": 0.8297807049184964,
+        "ROI_by_wavelength": [
+          0.827800642741884,
+          0.9178400508928107,
+          0.8138921273174804
+        ]
+      },
+      {
+        "iteration": 88,
+        "soft_min_ROI": 0.8298370828037975,
+        "ROI_by_wavelength": [
+          0.8275018204587561,
+          0.9178642837711328,
+          0.8141549492159574
+        ]
+      },
+      {
+        "iteration": 89,
+        "soft_min_ROI": 0.8298397501358479,
+        "ROI_by_wavelength": [
+          0.8227356206182331,
+          0.9181931863163277,
+          0.8174393825843655
+        ]
+      },
+      {
+        "iteration": 90,
+        "soft_min_ROI": 0.8298977370297472,
+        "ROI_by_wavelength": [
+          0.823137272317898,
+          0.9181615509745145,
+          0.8172243096371821
+        ]
+      },
+      {
+        "iteration": 91,
+        "soft_min_ROI": 0.8299015476621565,
+        "ROI_by_wavelength": [
+          0.8279786950334395,
+          0.9178026759301436,
+          0.8139827098543808
+        ]
+      },
+      {
+        "iteration": 92,
+        "soft_min_ROI": 0.829957071378394,
+        "ROI_by_wavelength": [
+          0.8276662128860093,
+          0.9178169190017349,
+          0.8142515879430862
+        ]
+      },
+      {
+        "iteration": 93,
+        "soft_min_ROI": 0.8299611171179011,
+        "ROI_by_wavelength": [
+          0.8228776817147568,
+          0.918137458593248,
+          0.8175471752872495
+        ]
+      },
+      {
+        "iteration": 94,
+        "soft_min_ROI": 0.8300158357915045,
+        "ROI_by_wavelength": [
+          0.8232488429107285,
+          0.9180991535116604,
+          0.8173507593990185
+        ]
+      },
+      {
+        "iteration": 95,
+        "soft_min_ROI": 0.8300231058103891,
+        "ROI_by_wavelength": [
+          0.8280737896637087,
+          0.9177360720690797,
+          0.8141223703225684
+        ]
+      },
+      {
+        "iteration": 96,
+        "soft_min_ROI": 0.8300767129854393,
+        "ROI_by_wavelength": [
+          0.8277705339378835,
+          0.9177448760649293,
+          0.8143832496522906
+        ]
+      },
+      {
+        "iteration": 97,
+        "soft_min_ROI": 0.830077879794465,
+        "ROI_by_wavelength": [
+          0.8230107186707556,
+          0.9180596282887465,
+          0.8176542893526211
+        ]
+      },
+      {
+        "iteration": 98,
+        "soft_min_ROI": 0.8301324681207349,
+        "ROI_by_wavelength": [
+          0.8234045176571944,
+          0.9180187388361449,
+          0.8174401098193208
+        ]
+      },
+      {
+        "iteration": 99,
+        "soft_min_ROI": 0.8301330003164328,
+        "ROI_by_wavelength": [
+          0.8282334904977746,
+          0.9176556339119305,
+          0.814206829383851
+        ]
+      },
+      {
+        "iteration": 100,
+        "soft_min_ROI": 0.8301842387224468,
+        "ROI_by_wavelength": [
+          0.8279247546599637,
+          0.917666341348142,
+          0.8144664685067624
+        ]
+      },
+      {
+        "iteration": 101,
+        "soft_min_ROI": 0.8301853451340295,
+        "ROI_by_wavelength": [
+          0.8231454504160903,
+          0.9179847032366181,
+          0.8177430647386192
+        ]
+      },
+      {
+        "iteration": 102,
+        "soft_min_ROI": 0.8302349567653128,
+        "ROI_by_wavelength": [
+          0.8235117340026457,
+          0.9179493736581633,
+          0.8175419607770511
+        ]
+      },
+      {
+        "iteration": 103,
+        "soft_min_ROI": 0.8302354951709807,
+        "ROI_by_wavelength": [
+          0.8283210351870401,
+          0.9175945503402871,
+          0.8143204783768254
+        ]
+      },
+      {
+        "iteration": 104,
+        "soft_min_ROI": 0.8302837602505356,
+        "ROI_by_wavelength": [
+          0.8280119900273186,
+          0.9176117583439809,
+          0.8145756564498932
+        ]
+      },
+      {
+        "iteration": 105,
+        "soft_min_ROI": 0.8302806297132688,
+        "ROI_by_wavelength": [
+          0.8232506413143277,
+          0.9179352026480786,
+          0.81783300430575
+        ]
+      },
+      {
+        "iteration": 106,
+        "soft_min_ROI": 0.8303294792302373,
+        "ROI_by_wavelength": [
+          0.8236319143898579,
+          0.9179079480816316,
+          0.8176187486446767
+        ]
+      },
+      {
+        "iteration": 107,
+        "soft_min_ROI": 0.8303257259016532,
+        "ROI_by_wavelength": [
+          0.8284446445827363,
+          0.9175632393389316,
+          0.8143936195151515
+        ]
+      },
+      {
+        "iteration": 108,
+        "soft_min_ROI": 0.8303719475828668,
+        "ROI_by_wavelength": [
+          0.8281345884461988,
+          0.9175899484407835,
+          0.8146455483785665
+        ]
+      },
+      {
+        "iteration": 109,
+        "soft_min_ROI": 0.8303690547823575,
+        "ROI_by_wavelength": [
+          0.8233629482373207,
+          0.9179225553484587,
+          0.81790406309184
+        ]
+      },
+      {
+        "iteration": 110,
+        "soft_min_ROI": 0.8304144092465062,
+        "ROI_by_wavelength": [
+          0.8237253981027179,
+          0.917905213792733,
+          0.8176985452517602
+        ]
+      },
+      {
+        "iteration": 111,
+        "soft_min_ROI": 0.8304098787333981,
+        "ROI_by_wavelength": [
+          0.8285203910937071,
+          0.9175708641830853,
+          0.8144838025017969
+        ]
+      },
+      {
+        "iteration": 112,
+        "soft_min_ROI": 0.8304542099535136,
+        "ROI_by_wavelength": [
+          0.8282071831703217,
+          0.9176045717848673,
+          0.8147345517229279
+        ]
+      },
+      {
+        "iteration": 113,
+        "soft_min_ROI": 0.8304490055564397,
+        "ROI_by_wavelength": [
+          0.8234486486885593,
+          0.9179415337958758,
+          0.8179805101074187
+        ]
+      },
+      {
+        "iteration": 114,
+        "soft_min_ROI": 0.83049456682992,
+        "ROI_by_wavelength": [
+          0.8238199947040212,
+          0.9179296412189961,
+          0.8177683757631741
+        ]
+      },
+      {
+        "iteration": 115,
+        "soft_min_ROI": 0.8304887080502015,
+        "ROI_by_wavelength": [
+          0.8286141987081015,
+          0.9176010499114908,
+          0.8145548805633309
+        ]
+      },
+      {
+        "iteration": 116,
+        "soft_min_ROI": 0.8305333470131357,
+        "ROI_by_wavelength": [
+          0.8283047387748078,
+          0.9176395477495782,
+          0.8148036713677835
+        ]
+      },
+      {
+        "iteration": 117,
+        "soft_min_ROI": 0.830530896572952,
+        "ROI_by_wavelength": [
+          0.8235484653340874,
+          0.9179814672403572,
+          0.8180487763252676
+        ]
+      },
+      {
+        "iteration": 118,
+        "soft_min_ROI": 0.8305763051625636,
+        "ROI_by_wavelength": [
+          0.8239132250479231,
+          0.9179750883590709,
+          0.8178417571777158
+        ]
+      },
+      {
+        "iteration": 119,
+        "soft_min_ROI": 0.8305698993050514,
+        "ROI_by_wavelength": [
+          0.8286970753313929,
+          0.917652420439597,
+          0.8146355952568062
+        ]
+      },
+      {
+        "iteration": 120,
+        "soft_min_ROI": 0.8306145370032048,
+        "ROI_by_wavelength": [
+          0.8283802527250061,
+          0.9176963606519941,
+          0.8148885683658552
+        ]
+      }
+    ],
+    "ROI-only maximin from ROI soft penalty solution": [
+      {
+        "iteration": 0,
+        "soft_min_ROI": 0.8254457779283737,
+        "ROI_by_wavelength": [
+          0.8238233912688471,
+          0.9113672055242111,
+          0.8093890789182949
+        ]
+      },
+      {
+        "iteration": 1,
+        "soft_min_ROI": 0.8090226991440155,
+        "ROI_by_wavelength": [
+          0.7852858280303117,
+          0.9115091174858966,
+          0.8319883980145546
+        ]
+      },
+      {
+        "iteration": 2,
+        "soft_min_ROI": 0.8181030182641541,
+        "ROI_by_wavelength": [
+          0.7979327982005229,
+          0.9126675953845435,
+          0.8257494991760985
+        ]
+      },
+      {
+        "iteration": 3,
+        "soft_min_ROI": 0.8260305272055359,
+        "ROI_by_wavelength": [
+          0.8217391503796286,
+          0.9126340791066562,
+          0.811595090066838
+        ]
+      },
+      {
+        "iteration": 4,
+        "soft_min_ROI": 0.8232014446041639,
+        "ROI_by_wavelength": [
+          0.8390641953849673,
+          0.9121779024132981,
+          0.8008877762953002
+        ]
+      },
+      {
+        "iteration": 5,
+        "soft_min_ROI": 0.8230232384216392,
+        "ROI_by_wavelength": [
+          0.8401087619501852,
+          0.9124130966964684,
+          0.8004470084785065
+        ]
+      },
+      {
+        "iteration": 6,
+        "soft_min_ROI": 0.8260917507556919,
+        "ROI_by_wavelength": [
+          0.8313587057745928,
+          0.913577396341752,
+          0.8068419321916305
+        ]
+      },
+      {
+        "iteration": 7,
+        "soft_min_ROI": 0.8263488544208054,
+        "ROI_by_wavelength": [
+          0.8155019001432406,
+          0.9147541745416286,
+          0.81744818564229
+        ]
+      },
+      {
+        "iteration": 8,
+        "soft_min_ROI": 0.8246916878236026,
+        "ROI_by_wavelength": [
+          0.8096648489247602,
+          0.9150862556756214,
+          0.8212187756417033
+        ]
+      },
+      {
+        "iteration": 9,
+        "soft_min_ROI": 0.8256727768729926,
+        "ROI_by_wavelength": [
+          0.8123332032927512,
+          0.915202204364042,
+          0.819753979656372
+        ]
+      },
+      {
+        "iteration": 10,
+        "soft_min_ROI": 0.8274101302788286,
+        "ROI_by_wavelength": [
+          0.8214208113216943,
+          0.9149971926780389,
+          0.8141561699923802
+        ]
+      },
+      {
+        "iteration": 11,
+        "soft_min_ROI": 0.8265862011972106,
+        "ROI_by_wavelength": [
+          0.8323618143331628,
+          0.9144791014275151,
+          0.8071426347545799
+        ]
+      },
+      {
+        "iteration": 12,
+        "soft_min_ROI": 0.8259578430452514,
+        "ROI_by_wavelength": [
+          0.8354243920468931,
+          0.9144318570303593,
+          0.8052857915637157
+        ]
+      },
+      {
+        "iteration": 13,
+        "soft_min_ROI": 0.8270260858552447,
+        "ROI_by_wavelength": [
+          0.8322164787215559,
+          0.9149848488363969,
+          0.8077984798888415
+        ]
+      },
+      {
+        "iteration": 14,
+        "soft_min_ROI": 0.8281176866411415,
+        "ROI_by_wavelength": [
+          0.8236781856312628,
+          0.9158211261398124,
+          0.8137624851192361
+        ]
+      },
+      {
+        "iteration": 15,
+        "soft_min_ROI": 0.8274784844383435,
+        "ROI_by_wavelength": [
+          0.816341696006645,
+          0.9165049245038417,
+          0.8188822703660263
+        ]
+      },
+      {
+        "iteration": 16,
+        "soft_min_ROI": 0.8273542272679221,
+        "ROI_by_wavelength": [
+          0.8154826946891947,
+          0.9166928820639232,
+          0.8195908909846323
+        ]
+      },
+      {
+        "iteration": 17,
+        "soft_min_ROI": 0.8282222455729757,
+        "ROI_by_wavelength": [
+          0.82021383946725,
+          0.9165299514841303,
+          0.816579074475164
+        ]
+      },
+      {
+        "iteration": 18,
+        "soft_min_ROI": 0.8280787963815256,
+        "ROI_by_wavelength": [
+          0.8290213552339372,
+          0.9159337845102561,
+          0.810659919225166
+        ]
+      },
+      {
+        "iteration": 19,
+        "soft_min_ROI": 0.8276326567961405,
+        "ROI_by_wavelength": [
+          0.8318342020482489,
+          0.9157617571545955,
+          0.8087854038194194
+        ]
+      },
+      {
+        "iteration": 20,
+        "soft_min_ROI": 0.828202742453215,
+        "ROI_by_wavelength": [
+          0.8294323125384799,
+          0.9161426850646883,
+          0.8106460770439194
+        ]
+      },
+      {
+        "iteration": 21,
+        "soft_min_ROI": 0.8286740458321997,
+        "ROI_by_wavelength": [
+          0.8224711807955511,
+          0.9168416416843322,
+          0.8155707552109954
+        ]
+      },
+      {
+        "iteration": 22,
+        "soft_min_ROI": 0.8285495732311956,
+        "ROI_by_wavelength": [
+          0.819737135853182,
+          0.9172050769831702,
+          0.8176165901255454
+        ]
+      },
+      {
+        "iteration": 23,
+        "soft_min_ROI": 0.8288919514001819,
+        "ROI_by_wavelength": [
+          0.8220920624014636,
+          0.9172234988251371,
+          0.8162484935976732
+        ]
+      },
+      {
+        "iteration": 24,
+        "soft_min_ROI": 0.8288470584050757,
+        "ROI_by_wavelength": [
+          0.8283633664996735,
+          0.9168787654013948,
+          0.8121397623291825
+        ]
+      },
+      {
+        "iteration": 25,
+        "soft_min_ROI": 0.8287733707146185,
+        "ROI_by_wavelength": [
+          0.8293509440460707,
+          0.9168695197171096,
+          0.8115279260037273
+        ]
+      },
+      {
+        "iteration": 26,
+        "soft_min_ROI": 0.829121791950001,
+        "ROI_by_wavelength": [
+          0.8256512460857413,
+          0.9172467122423907,
+          0.8141285169729873
+        ]
+      },
+      {
+        "iteration": 27,
+        "soft_min_ROI": 0.8288885844712092,
+        "ROI_by_wavelength": [
+          0.8199710070899164,
+          0.9177477500709649,
+          0.8180487911210031
+        ]
+      },
+      {
+        "iteration": 28,
+        "soft_min_ROI": 0.8289080707353392,
+        "ROI_by_wavelength": [
+          0.8196398331003545,
+          0.9178900544971416,
+          0.818395130465384
+        ]
+      },
+      {
+        "iteration": 29,
+        "soft_min_ROI": 0.8293646097719908,
+        "ROI_by_wavelength": [
+          0.824110719561111,
+          0.9177351886615414,
+          0.8155611113634996
+        ]
+      },
+      {
+        "iteration": 30,
+        "soft_min_ROI": 0.8290412869568572,
+        "ROI_by_wavelength": [
+          0.8303417053057336,
+          0.9173721261564305,
+          0.811445579739924
+        ]
+      },
+      {
+        "iteration": 31,
+        "soft_min_ROI": 0.8289579754659724,
+        "ROI_by_wavelength": [
+          0.8312116780011558,
+          0.9173876443821428,
+          0.810925434327084
+        ]
+      },
+      {
+        "iteration": 32,
+        "soft_min_ROI": 0.8294778843254202,
+        "ROI_by_wavelength": [
+          0.8273537521681332,
+          0.9178102018481025,
+          0.8136680186512615
+        ]
+      },
+      {
+        "iteration": 33,
+        "soft_min_ROI": 0.8291842081856077,
+        "ROI_by_wavelength": [
+          0.8198161442658681,
+          0.91838664802783,
+          0.8187624997932129
+        ]
+      },
+      {
+        "iteration": 34,
+        "soft_min_ROI": 0.8288357914253206,
+        "ROI_by_wavelength": [
+          0.8177339278023225,
+          0.9185717131227207,
+          0.8201869091860574
+        ]
+      },
+      {
+        "iteration": 35,
+        "soft_min_ROI": 0.829421122744636,
+        "ROI_by_wavelength": [
+          0.8207479523640813,
+          0.9185339484254409,
+          0.8183524850572041
+        ]
+      },
+      {
+        "iteration": 36,
+        "soft_min_ROI": 0.829675558216981,
+        "ROI_by_wavelength": [
+          0.8279773082607098,
+          0.9181441739608809,
+          0.8136205304130577
+        ]
+      },
+      {
+        "iteration": 37,
+        "soft_min_ROI": 0.8294901653133784,
+        "ROI_by_wavelength": [
+          0.8302376809886048,
+          0.9180428656657195,
+          0.8121551641663778
+        ]
+      },
+      {
+        "iteration": 38,
+        "soft_min_ROI": 0.8298141193438326,
+        "ROI_by_wavelength": [
+          0.8277680329034557,
+          0.9183480522006429,
+          0.8139561097913945
+        ]
+      },
+      {
+        "iteration": 39,
+        "soft_min_ROI": 0.8296924833654272,
+        "ROI_by_wavelength": [
+          0.821387665720478,
+          0.9188532702141792,
+          0.8182929319746317
+        ]
+      },
+      {
+        "iteration": 40,
+        "soft_min_ROI": 0.8295545738122332,
+        "ROI_by_wavelength": [
+          0.820177425090969,
+          0.9189800019189673,
+          0.8191374496920568
+        ]
+      },
+      {
+        "iteration": 41,
+        "soft_min_ROI": 0.8299696109729384,
+        "ROI_by_wavelength": [
+          0.8237900011131369,
+          0.9188450012815994,
+          0.8168365518787026
+        ]
+      },
+      {
+        "iteration": 42,
+        "soft_min_ROI": 0.8296683583024471,
+        "ROI_by_wavelength": [
+          0.830698396564416,
+          0.9183712676941271,
+          0.8121952780202812
+        ]
+      },
+      {
+        "iteration": 43,
+        "soft_min_ROI": 0.8294231746378184,
+        "ROI_by_wavelength": [
+          0.8323191723611721,
+          0.9182678578491701,
+          0.8111047704279893
+        ]
+      },
+      {
+        "iteration": 44,
+        "soft_min_ROI": 0.8299249549171539,
+        "ROI_by_wavelength": [
+          0.8292670231344317,
+          0.918612291805782,
+          0.8132993619537355
+        ]
+      },
+      {
+        "iteration": 45,
+        "soft_min_ROI": 0.8299516454984691,
+        "ROI_by_wavelength": [
+          0.8220497429102431,
+          0.9191720418486827,
+          0.818200365101424
+        ]
+      },
+      {
+        "iteration": 46,
+        "soft_min_ROI": 0.8296902828052368,
+        "ROI_by_wavelength": [
+          0.8199841925120444,
+          0.919326054928522,
+          0.8195889072428891
+        ]
+      },
+      {
+        "iteration": 47,
+        "soft_min_ROI": 0.8300869143755553,
+        "ROI_by_wavelength": [
+          0.8228486529386749,
+          0.919230116231208,
+          0.8177817277097439
+        ]
+      },
+      {
+        "iteration": 48,
+        "soft_min_ROI": 0.8300077979899879,
+        "ROI_by_wavelength": [
+          0.8296667397059915,
+          0.9187731613536284,
+          0.813215363823581
+        ]
+      },
+      {
+        "iteration": 49,
+        "soft_min_ROI": 0.8297978763768225,
+        "ROI_by_wavelength": [
+          0.8313203370808302,
+          0.9186557526751695,
+          0.8120910680154065
+        ]
+      },
+      {
+        "iteration": 50,
+        "soft_min_ROI": 0.8301849141627269,
+        "ROI_by_wavelength": [
+          0.8283469540984315,
+          0.9189666107122897,
+          0.8142041343202218
+        ]
+      },
+      {
+        "iteration": 51,
+        "soft_min_ROI": 0.8300181364180542,
+        "ROI_by_wavelength": [
+          0.8214149320146519,
+          0.919471915858316,
+          0.8188799537907642
+        ]
+      },
+      {
+        "iteration": 52,
+        "soft_min_ROI": 0.8297627689910536,
+        "ROI_by_wavelength": [
+          0.8196827803003405,
+          0.9195878280614153,
+          0.8200314270798638
+        ]
+      },
+      {
+        "iteration": 53,
+        "soft_min_ROI": 0.8302141981775929,
+        "ROI_by_wavelength": [
+          0.8228367021211762,
+          0.9194620669257888,
+          0.81802146679471
+        ]
+      },
+      {
+        "iteration": 54,
+        "soft_min_ROI": 0.8301229553196185,
+        "ROI_by_wavelength": [
+          0.8299137956974889,
+          0.9189674114449686,
+          0.8132613340886226
+        ]
+      },
+      {
+        "iteration": 55,
+        "soft_min_ROI": 0.8298635981937154,
+        "ROI_by_wavelength": [
+          0.8317965628730114,
+          0.9188146943951707,
+          0.811967524317516
+        ]
+      },
+      {
+        "iteration": 56,
+        "soft_min_ROI": 0.830260531666985,
+        "ROI_by_wavelength": [
+          0.8290430323565493,
+          0.9191031375769955,
+          0.8139331872218025
+        ]
+      },
+      {
+        "iteration": 57,
+        "soft_min_ROI": 0.8302167875005324,
+        "ROI_by_wavelength": [
+          0.822182305767153,
+          0.9196100292516942,
+          0.8185766804708036
+        ]
+      },
+      {
+        "iteration": 58,
+        "soft_min_ROI": 0.829989390803555,
+        "ROI_by_wavelength": [
+          0.8204330855567209,
+          0.9197216239945636,
+          0.8197396796352687
+        ]
+      },
+      {
+        "iteration": 59,
+        "soft_min_ROI": 0.8303757216140526,
+        "ROI_by_wavelength": [
+          0.8235303016090907,
+          0.9195827488849027,
+          0.817753191436759
+        ]
+      },
+      {
+        "iteration": 60,
+        "soft_min_ROI": 0.8301835144475839,
+        "ROI_by_wavelength": [
+          0.8303984910400828,
+          0.9190765047182736,
+          0.8131060758722137
+        ]
+      },
+      {
+        "iteration": 61,
+        "soft_min_ROI": 0.8299333353391184,
+        "ROI_by_wavelength": [
+          0.8320814597280088,
+          0.9189281021174501,
+          0.811939920319668
+        ]
+      },
+      {
+        "iteration": 62,
+        "soft_min_ROI": 0.8303603142339763,
+        "ROI_by_wavelength": [
+          0.8291590756056444,
+          0.9192262148809878,
+          0.8140237426638439
+        ]
+      },
+      {
+        "iteration": 63,
+        "soft_min_ROI": 0.8303020430199934,
+        "ROI_by_wavelength": [
+          0.8221298458141832,
+          0.9197374684689336,
+          0.8187810267630193
+        ]
+      },
+      {
+        "iteration": 64,
+        "soft_min_ROI": 0.8300384826012526,
+        "ROI_by_wavelength": [
+          0.8202305280551277,
+          0.9198441231061331,
+          0.820034634399029
+        ]
+      },
+      {
+        "iteration": 65,
+        "soft_min_ROI": 0.8304377779487875,
+        "ROI_by_wavelength": [
+          0.8231999146150468,
+          0.919704820425627,
+          0.8181301310879443
+        ]
+      },
+      {
+        "iteration": 66,
+        "soft_min_ROI": 0.8303252128981167,
+        "ROI_by_wavelength": [
+          0.8300872454116466,
+          0.9191975454805501,
+          0.8134779970474864
+        ]
+      },
+      {
+        "iteration": 67,
+        "soft_min_ROI": 0.8300835725803455,
+        "ROI_by_wavelength": [
+          0.8318216701233758,
+          0.9190370454454801,
+          0.8122761272769734
+        ]
+      },
+      {
+        "iteration": 68,
+        "soft_min_ROI": 0.8304741452021386,
+        "ROI_by_wavelength": [
+          0.8289595039787002,
+          0.9193153368834707,
+          0.8143106865250784
+        ]
+      },
+      {
+        "iteration": 69,
+        "soft_min_ROI": 0.8303676409787141,
+        "ROI_by_wavelength": [
+          0.8220431466188686,
+          0.919799862698075,
+          0.8189806502433575
+        ]
+      },
+      {
+        "iteration": 70,
+        "soft_min_ROI": 0.8301155741718361,
+        "ROI_by_wavelength": [
+          0.8202700037040326,
+          0.9198886048749153,
+          0.8201497074547619
+        ]
+      },
+      {
+        "iteration": 71,
+        "soft_min_ROI": 0.8305273448268702,
+        "ROI_by_wavelength": [
+          0.8233494179831972,
+          0.9197329598042245,
+          0.8181719248933506
+        ]
+      },
+      {
+        "iteration": 72,
+        "soft_min_ROI": 0.8303889703068761,
+        "ROI_by_wavelength": [
+          0.8303053790987983,
+          0.9192029789184973,
+          0.8134635308454788
+        ]
+      },
+      {
+        "iteration": 73,
+        "soft_min_ROI": 0.8301287993586405,
+        "ROI_by_wavelength": [
+          0.8320970761549242,
+          0.9190227952598966,
+          0.8122175619023162
+        ]
+      },
+      {
+        "iteration": 74,
+        "soft_min_ROI": 0.8305329067628322,
+        "ROI_by_wavelength": [
+          0.829295932709202,
+          0.9192896125527104,
+          0.8142174920125338
+        ]
+      },
+      {
+        "iteration": 75,
+        "soft_min_ROI": 0.8304849483940956,
+        "ROI_by_wavelength": [
+          0.8223960901417317,
+          0.9197734789885034,
+          0.818893858039323
+        ]
+      },
+      {
+        "iteration": 76,
+        "soft_min_ROI": 0.8302435212179605,
+        "ROI_by_wavelength": [
+          0.8205933117513905,
+          0.9198542351727677,
+          0.8200877261755389
+        ]
+      },
+      {
+        "iteration": 77,
+        "soft_min_ROI": 0.8306310657802112,
+        "ROI_by_wavelength": [
+          0.823626389815264,
+          0.9196856596281887,
+          0.8181382750059291
+        ]
+      },
+      {
+        "iteration": 78,
+        "soft_min_ROI": 0.8304663572880386,
+        "ROI_by_wavelength": [
+          0.8304849941229211,
+          0.9191449217246463,
+          0.8134909323342047
+        ]
+      },
+      {
+        "iteration": 79,
+        "soft_min_ROI": 0.8302178295062085,
+        "ROI_by_wavelength": [
+          0.8321960827827809,
+          0.918960709725323,
+          0.812304203273124
+        ]
+      },
+      {
+        "iteration": 80,
+        "soft_min_ROI": 0.8306316006238594,
+        "ROI_by_wavelength": [
+          0.8293303066037456,
+          0.9192239795258715,
+          0.8143539137668107
+        ]
+      },
+      {
+        "iteration": 81,
+        "soft_min_ROI": 0.8305678384301663,
+        "ROI_by_wavelength": [
+          0.822382486141642,
+          0.9196992767591572,
+          0.8190637282097577
+        ]
+      },
+      {
+        "iteration": 82,
+        "soft_min_ROI": 0.8303157180067343,
+        "ROI_by_wavelength": [
+          0.8205462992862421,
+          0.919770805671187,
+          0.820280199563982
+        ]
+      },
+      {
+        "iteration": 83,
+        "soft_min_ROI": 0.8307147770127381,
+        "ROI_by_wavelength": [
+          0.8235541452644078,
+          0.919596459890968,
+          0.818350913671183
+        ]
+      },
+      {
+        "iteration": 84,
+        "soft_min_ROI": 0.830581463279767,
+        "ROI_by_wavelength": [
+          0.830435900068926,
+          0.9190498047290061,
+          0.8136927526499311
+        ]
+      },
+      {
+        "iteration": 85,
+        "soft_min_ROI": 0.8303343630804861,
+        "ROI_by_wavelength": [
+          0.8321794368656374,
+          0.9188562709384922,
+          0.8124841933583838
+        ]
+      },
+      {
+        "iteration": 86,
+        "soft_min_ROI": 0.8307360636670563,
+        "ROI_by_wavelength": [
+          0.8293493345534527,
+          0.919110014212752,
+          0.8145087468257951
+        ]
+      },
+      {
+        "iteration": 87,
+        "soft_min_ROI": 0.83066221744396,
+        "ROI_by_wavelength": [
+          0.8224494711356605,
+          0.9195763601389468,
+          0.819186021363902
+        ]
+      },
+      {
+        "iteration": 88,
+        "soft_min_ROI": 0.8304157257461932,
+        "ROI_by_wavelength": [
+          0.820656408854434,
+          0.9196416908937106,
+          0.8203745176908432
+        ]
+      },
+      {
+        "iteration": 89,
+        "soft_min_ROI": 0.8308164299548597,
+        "ROI_by_wavelength": [
+          0.8236980205419466,
+          0.9194624218310528,
+          0.8184224513020164
+        ]
+      },
+      {
+        "iteration": 90,
+        "soft_min_ROI": 0.8306715165855243,
+        "ROI_by_wavelength": [
+          0.8305940737242057,
+          0.9189111362319065,
+          0.8137514025175897
+        ]
+      },
+      {
+        "iteration": 91,
+        "soft_min_ROI": 0.8304192248198116,
+        "ROI_by_wavelength": [
+          0.8323502537259806,
+          0.9187158092591227,
+          0.8125332649073804
+        ]
+      },
+      {
+        "iteration": 92,
+        "soft_min_ROI": 0.8308263654019875,
+        "ROI_by_wavelength": [
+          0.8295361723025022,
+          0.9189705494468509,
+          0.8145493987248131
+        ]
+      },
+      {
+        "iteration": 93,
+        "soft_min_ROI": 0.8307716948470443,
+        "ROI_by_wavelength": [
+          0.8226397258294134,
+          0.9194408546259145,
+          0.819229248232524
+        ]
+      },
+      {
+        "iteration": 94,
+        "soft_min_ROI": 0.8305291008777413,
+        "ROI_by_wavelength": [
+          0.8208385620606574,
+          0.9195073556761698,
+          0.8204247543243481
+        ]
+      },
+      {
+        "iteration": 95,
+        "soft_min_ROI": 0.8309222004238465,
+        "ROI_by_wavelength": [
+          0.8238680007193736,
+          0.9193268753134958,
+          0.8184806000106821
+        ]
+      },
+      {
+        "iteration": 96,
+        "soft_min_ROI": 0.8307674285976319,
+        "ROI_by_wavelength": [
+          0.8307363194217667,
+          0.9187725790884396,
+          0.8138272328943778
+        ]
+      },
+      {
+        "iteration": 97,
+        "soft_min_ROI": 0.8305180375049384,
+        "ROI_by_wavelength": [
+          0.8324706077883292,
+          0.9185751293102464,
+          0.8126257741749517
+        ]
+      },
+      {
+        "iteration": 98,
+        "soft_min_ROI": 0.8309294854784091,
+        "ROI_by_wavelength": [
+          0.8296412753586277,
+          0.918827035603103,
+          0.8146552339156068
+        ]
+      },
+      {
+        "iteration": 99,
+        "soft_min_ROI": 0.830874594075724,
+        "ROI_by_wavelength": [
+          0.8227348202679106,
+          0.9192914061102708,
+          0.8193435667932105
+        ]
+      },
+      {
+        "iteration": 100,
+        "soft_min_ROI": 0.8306306589084844,
+        "ROI_by_wavelength": [
+          0.8209256631559767,
+          0.919348382321779,
+          0.820545519493233
+        ]
+      },
+      {
+        "iteration": 101,
+        "soft_min_ROI": 0.8310263394619144,
+        "ROI_by_wavelength": [
+          0.8239501926987626,
+          0.9191573782781846,
+          0.8186073210631037
+        ]
+      },
+      {
+        "iteration": 102,
+        "soft_min_ROI": 0.8308785770364828,
+        "ROI_by_wavelength": [
+          0.8308242859305153,
+          0.9185918481219648,
+          0.8139545913858366
+        ]
+      },
+      {
+        "iteration": 103,
+        "soft_min_ROI": 0.83062990667307,
+        "ROI_by_wavelength": [
+          0.8325680980613396,
+          0.9183831930178797,
+          0.812748561414953
+        ]
+      },
+      {
+        "iteration": 104,
+        "soft_min_ROI": 0.8310389640944277,
+        "ROI_by_wavelength": [
+          0.8297483920081312,
+          0.9186252617821643,
+          0.8147708651282606
+        ]
+      },
+      {
+        "iteration": 105,
+        "soft_min_ROI": 0.8309822082949264,
+        "ROI_by_wavelength": [
+          0.822850870116401,
+          0.9190816816553116,
+          0.8194496782698932
+        ]
+      },
+      {
+        "iteration": 106,
+        "soft_min_ROI": 0.8307383615719465,
+        "ROI_by_wavelength": [
+          0.8210496752657206,
+          0.9191335326612438,
+          0.8206434036818255
+        ]
+      },
+      {
+        "iteration": 107,
+        "soft_min_ROI": 0.8311321278563182,
+        "ROI_by_wavelength": [
+          0.8240810503933282,
+          0.9189407424411333,
+          0.8186986926369311
+        ]
+      },
+      {
+        "iteration": 108,
+        "soft_min_ROI": 0.8309783184132457,
+        "ROI_by_wavelength": [
+          0.8309603054606104,
+          0.9183790077741218,
+          0.8140406604326185
+        ]
+      },
+      {
+        "iteration": 109,
+        "soft_min_ROI": 0.8307253731895753,
+        "ROI_by_wavelength": [
+          0.8326997822918286,
+          0.9181788003672817,
+          0.8128320613461317
+        ]
+      },
+      {
+        "iteration": 110,
+        "soft_min_ROI": 0.8311315456250373,
+        "ROI_by_wavelength": [
+          0.8298689334370601,
+          0.9184321715982864,
+          0.8148526094779681
+        ]
+      },
+      {
+        "iteration": 111,
+        "soft_min_ROI": 0.8310686012089618,
+        "ROI_by_wavelength": [
+          0.8229446952251733,
+          0.9189033587946536,
+          0.819534531845034
+        ]
+      },
+      {
+        "iteration": 112,
+        "soft_min_ROI": 0.8308156298843459,
+        "ROI_by_wavelength": [
+          0.8211234930428574,
+          0.9189749845219206,
+          0.8207286781515934
+        ]
+      },
+      {
+        "iteration": 113,
+        "soft_min_ROI": 0.8312043439639938,
+        "ROI_by_wavelength": [
+          0.824140081136923,
+          0.9188070882479557,
+          0.818785296834238
+        ]
+      },
+      {
+        "iteration": 114,
+        "soft_min_ROI": 0.831049845085008,
+        "ROI_by_wavelength": [
+          0.8310252522543106,
+          0.9182754141522254,
+          0.8141182384112076
+        ]
+      },
+      {
+        "iteration": 115,
+        "soft_min_ROI": 0.8307909432831364,
+        "ROI_by_wavelength": [
+          0.8327632308662108,
+          0.9181021707902332,
+          0.8129006989732941
+        ]
+      },
+      {
+        "iteration": 116,
+        "soft_min_ROI": 0.8311895681795222,
+        "ROI_by_wavelength": [
+          0.8299266617798793,
+          0.9183787200184558,
+          0.8149125667664501
+        ]
+      },
+      {
+        "iteration": 117,
+        "soft_min_ROI": 0.8311188904421156,
+        "ROI_by_wavelength": [
+          0.8229962841087088,
+          0.9188709374694392,
+          0.8195852433850033
+        ]
+      },
+      {
+        "iteration": 118,
+        "soft_min_ROI": 0.830862414224089,
+        "ROI_by_wavelength": [
+          0.8211746827813622,
+          0.9189659357868982,
+          0.8207722248649727
+        ]
+      },
+      {
+        "iteration": 119,
+        "soft_min_ROI": 0.8312493794666118,
+        "ROI_by_wavelength": [
+          0.8241930816601123,
+          0.9188209332676129,
+          0.8188244758630627
+        ]
+      },
+      {
+        "iteration": 120,
+        "soft_min_ROI": 0.8310927009066819,
+        "ROI_by_wavelength": [
+          0.8310805286063303,
+          0.9183094500803677,
+          0.8141549174833156
+        ]
+      }
+    ]
+  },
+  "figures": [
+    "fourier_optics_step10_band_robustness.png"
+  ]
+}

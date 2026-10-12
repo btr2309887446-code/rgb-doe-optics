@@ -1,0 +1,234 @@
+{
+  "warm_start_results": {
+    "augmented Lagrange: soft-penalty solution": {
+      "initialization": "soft-penalty solution",
+      "rows": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2_to_target": 0.27245097473038754,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7941063101685522,
+          "power_fraction_in_target_1pct_ROI": 0.8240489369714579
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2_to_target": 0.26068520801957584,
+          "squared_Bhattacharyya_fidelity_to_target": 0.8816528267909914,
+          "power_fraction_in_target_1pct_ROI": 0.9149414062531145
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2_to_target": 0.2886269713850613,
+          "squared_Bhattacharyya_fidelity_to_target": 0.787387280940724,
+          "power_fraction_in_target_1pct_ROI": 0.8131820898192319
+        }
+      ],
+      "max_height_um": 3.4457399887225955,
+      "mean_neighbor_step_um": 0.22582989134806358,
+      "minimum_ROI_power": 0.8131820898192319,
+      "minimum_L2": 0.26068520801957584,
+      "mean_L2": 0.2739210513783416
+    },
+    "augmented Lagrange: shape solution + 0.10-cycle noise": {
+      "initialization": "shape solution + 0.10-cycle noise",
+      "rows": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2_to_target": 0.27399840161187566,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7949309907479788,
+          "power_fraction_in_target_1pct_ROI": 0.8244776685598327
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2_to_target": 0.2624936658978738,
+          "squared_Bhattacharyya_fidelity_to_target": 0.8794345184927015,
+          "power_fraction_in_target_1pct_ROI": 0.9125448069512925
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2_to_target": 0.2902199710435253,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7852161274936628,
+          "power_fraction_in_target_1pct_ROI": 0.8113191350061686
+        }
+      ],
+      "max_height_um": 3.2985988567969837,
+      "mean_neighbor_step_um": 0.22346949907543884,
+      "minimum_ROI_power": 0.8113191350061686,
+      "minimum_L2": 0.2624936658978738,
+      "mean_L2": 0.2755706795177583
+    },
+    "augmented Lagrange: principal branch + 0.10-cycle noise": {
+      "initialization": "principal branch + 0.10-cycle noise",
+      "rows": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2_to_target": 0.2776783863757331,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7997840102618577,
+          "power_fraction_in_target_1pct_ROI": 0.8317327436542932
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2_to_target": 0.26442346869095673,
+          "squared_Bhattacharyya_fidelity_to_target": 0.8828586614824236,
+          "power_fraction_in_target_1pct_ROI": 0.9175724522648819
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2_to_target": 0.31338683452482674,
+          "squared_Bhattacharyya_fidelity_to_target": 0.7937044844689598,
+          "power_fraction_in_target_1pct_ROI": 0.8219932604792826
+        }
+      ],
+      "max_height_um": 1.8480227384778642,
+      "mean_neighbor_step_um": 0.19020324856990037,
+      "minimum_ROI_power": 0.8219932604792826,
+      "minimum_L2": 0.26442346869095673,
+      "mean_L2": 0.2851628965305055
+    }
+  },
+  "dense_band_summary": {
+    "principal minimum-height": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.5761779525064431,
+        "squared_Bhattacharyya_fidelity_to_target": 0.731377098183946,
+        "power_fraction_in_target_1pct_ROI": 0.7319198744441215
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.5068705267730145,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5848491919212797,
+        "power_fraction_in_target_1pct_ROI": 0.5863931171250143
+      },
+      "band_mean_L2": 0.3323883740604861,
+      "band_mean_ROI": 0.8193223828541876
+    },
+    "joint shape only": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.42383024306059897,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5667643028404521,
+        "power_fraction_in_target_1pct_ROI": 0.5642234525088403
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.42383024306059897,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5667643028404521,
+        "power_fraction_in_target_1pct_ROI": 0.5642234525088403
+      },
+      "band_mean_L2": 0.21342346992912262,
+      "band_mean_ROI": 0.7876615341318369
+    },
+    "ROI soft penalty": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.44092069458682853,
+        "squared_Bhattacharyya_fidelity_to_target": 0.6969510030953356,
+        "power_fraction_in_target_1pct_ROI": 0.7142275321286129
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.43216918583643515,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5888536304082743,
+        "power_fraction_in_target_1pct_ROI": 0.6037059005817198
+      },
+      "band_mean_L2": 0.27924781522845216,
+      "band_mean_ROI": 0.8241356305217593
+    },
+    "augmented Lagrange: soft-penalty solution": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.45236559458433256,
+        "squared_Bhattacharyya_fidelity_to_target": 0.6968980644458567,
+        "power_fraction_in_target_1pct_ROI": 0.7171790507552108
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.44480645428144455,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5823332767018009,
+        "power_fraction_in_target_1pct_ROI": 0.6012543377872263
+      },
+      "band_mean_L2": 0.2988917345876861,
+      "band_mean_ROI": 0.826575956649304
+    },
+    "augmented Lagrange: shape solution + 0.10-cycle noise": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.45142498090698685,
+        "squared_Bhattacharyya_fidelity_to_target": 0.6954042884137789,
+        "power_fraction_in_target_1pct_ROI": 0.7160728371941936
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.440478486490584,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5862979735968543,
+        "power_fraction_in_target_1pct_ROI": 0.6050464559945135
+      },
+      "band_mean_L2": 0.29993844534100383,
+      "band_mean_ROI": 0.8254991288726885
+    },
+    "augmented Lagrange: principal branch + 0.10-cycle noise": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.5171223187964382,
+        "squared_Bhattacharyya_fidelity_to_target": 0.7037824328245008,
+        "power_fraction_in_target_1pct_ROI": 0.7268196520192778
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.4321853987084642,
+        "squared_Bhattacharyya_fidelity_to_target": 0.6050004396780307,
+        "power_fraction_in_target_1pct_ROI": 0.6275380832338253
+      },
+      "band_mean_L2": 0.3132931647620874,
+      "band_mean_ROI": 0.8344133814897766
+    },
+    "ROI-only maximin from principal branch": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.6357434657761069,
+        "squared_Bhattacharyya_fidelity_to_target": 0.6774341933743757,
+        "power_fraction_in_target_1pct_ROI": 0.7346892992906071
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.630380952544663,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5272715025092217,
+        "power_fraction_in_target_1pct_ROI": 0.6316967294156316
+      },
+      "band_mean_L2": 0.5949096249841641,
+      "band_mean_ROI": 0.8409139189338543
+    },
+    "ROI-only maximin from shape solution": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 700.0,
+        "relative_L2_to_target": 0.5253411673005656,
+        "squared_Bhattacharyya_fidelity_to_target": 0.6808939739209408,
+        "power_fraction_in_target_1pct_ROI": 0.71748466566091
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.5180355759192202,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5614883443145131,
+        "power_fraction_in_target_1pct_ROI": 0.6092385390831592
+      },
+      "band_mean_L2": 0.4317779542364739,
+      "band_mean_ROI": 0.8295056393985932
+    },
+    "ROI-only maximin from ROI soft penalty solution": {
+      "worst_sampled_L2": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.5225974171479532,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5566186127579211,
+        "power_fraction_in_target_1pct_ROI": 0.5995805182121521
+      },
+      "worst_sampled_ROI": {
+        "wavelength_nm": 400.0,
+        "relative_L2_to_target": 0.5225974171479532,
+        "squared_Bhattacharyya_fidelity_to_target": 0.5566186127579211,
+        "power_fraction_in_target_1pct_ROI": 0.5995805182121521
+      },
+      "band_mean_L2": 0.4169439137801451,
+      "band_mean_ROI": 0.8298697011468912
+    }
+  }
+}
