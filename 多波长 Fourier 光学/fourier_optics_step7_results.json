@@ -1,0 +1,244 @@
+{
+  "method": "GS-style shared-spectrum amplitude consensus: arithmetic mean of the three normalized target amplitudes on each wavelength's natural FFT plane, then phase-only pupil projection",
+  "status": "preliminary heuristic; not guaranteed to minimize the reported common-grid error or reach a global optimum",
+  "model": {
+    "wavelengths_m": [
+      4.5e-07,
+      5.32e-07,
+      6.33e-07
+    ],
+    "focal_length_m": 0.2,
+    "screen_assumed_wavelength_independent": true,
+    "screen_pitch_m": 5e-06,
+    "screen_width_m": 0.00512,
+    "pupil_samples": 51433,
+    "iterations": 180,
+    "random_seed": 260931,
+    "output_comparison_grid": "common physical coordinate grid of the 532 nm Fourier plane; spectra are cubic-interpolated",
+    "natural_grid_note": "at each wavelength the same DFT bins map to different physical focal-plane coordinates for an ordinary fixed-f lens"
+  },
+  "pairwise_target_amplitude_constraint_spread": {
+    "450nm_vs_532nm": 0.5956905551137702,
+    "450nm_vs_633nm": 1.1684597161224948,
+    "532nm_vs_633nm": 0.6181441475798578
+  },
+  "single_screen_vs_joint_screen_common_grid_relative_L2": {
+    "single_532nm_screen": [
+      0.852071196821021,
+      0.25091666652807004,
+      0.7670265727693065
+    ],
+    "joint_three_wavelength_screen": [
+      0.8110243484190286,
+      0.3714081666867815,
+      0.6472648508709025
+    ],
+    "mean_single_screen_error": 0.6233381453727992,
+    "mean_joint_screen_error": 0.6098991219922375,
+    "worst_single_screen_error": 0.852071196821021,
+    "worst_joint_screen_error": 0.8110243484190286
+  },
+  "wavelength_results": [
+    {
+      "wavelength_nm": 450.0,
+      "natural_focal_plane_pixel_pitch_m": 1.7578125e-05,
+      "target_amplitude_constraint_spread_to_532nm": 0.5956905551137702,
+      "joint_screen_native_grid_metrics": {
+        "normalized_intensity_relative_L2": 0.8109753210775384,
+        "normalized_intensity_RMSE_per_pixel": 1.8938086038190187e-05,
+        "intensity_correlation_global": 0.6765466462471487,
+        "squared_Bhattacharyya_fidelity": 0.6690696516521125
+      },
+      "joint_screen_common_532nm_physical_grid_metrics": {
+        "normalized_intensity_relative_L2": 0.8110243484190286,
+        "normalized_intensity_RMSE_per_pixel": 2.2390379680191154e-05,
+        "intensity_correlation_global": 0.6766680820906629,
+        "squared_Bhattacharyya_fidelity": 0.6691388400690972
+      },
+      "single_532nm_screen_common_grid_metrics": {
+        "normalized_intensity_relative_L2": 0.852071196821021,
+        "normalized_intensity_RMSE_per_pixel": 2.3523581811776232e-05,
+        "intensity_correlation_global": 0.6854114120562745,
+        "squared_Bhattacharyya_fidelity": 0.661012039613183
+      }
+    },
+    {
+      "wavelength_nm": 532.0,
+      "natural_focal_plane_pixel_pitch_m": 2.078125e-05,
+      "target_amplitude_constraint_spread_to_532nm": 0.0,
+      "joint_screen_native_grid_metrics": {
+        "normalized_intensity_relative_L2": 0.3714081669800149,
+        "normalized_intensity_RMSE_per_pixel": 1.0253662412027818e-05,
+        "intensity_correlation_global": 0.9310364586430261,
+        "squared_Bhattacharyya_fidelity": 0.8555459990947244
+      },
+      "joint_screen_common_532nm_physical_grid_metrics": {
+        "normalized_intensity_relative_L2": 0.3714081666867815,
+        "normalized_intensity_RMSE_per_pixel": 1.0253662401938308e-05,
+        "intensity_correlation_global": 0.9310364587559831,
+        "squared_Bhattacharyya_fidelity": 0.8555459990926467
+      },
+      "single_532nm_screen_common_grid_metrics": {
+        "normalized_intensity_relative_L2": 0.25091666652807004,
+        "normalized_intensity_RMSE_per_pixel": 6.9271895999214545e-06,
+        "intensity_correlation_global": 0.9680624528217527,
+        "squared_Bhattacharyya_fidelity": 0.8986112669197841
+      }
+    },
+    {
+      "wavelength_nm": 633.0,
+      "natural_focal_plane_pixel_pitch_m": 2.47265625e-05,
+      "target_amplitude_constraint_spread_to_532nm": 0.6181441475798578,
+      "joint_screen_native_grid_metrics": {
+        "normalized_intensity_relative_L2": 0.6473460399994485,
+        "normalized_intensity_RMSE_per_pixel": 2.1264547170873662e-05,
+        "intensity_correlation_global": 0.7629977837898527,
+        "squared_Bhattacharyya_fidelity": 0.6441764512191921
+      },
+      "joint_screen_common_532nm_physical_grid_metrics": {
+        "normalized_intensity_relative_L2": 0.6472648508709025,
+        "normalized_intensity_RMSE_per_pixel": 1.786938430750304e-05,
+        "intensity_correlation_global": 0.7629327596238488,
+        "squared_Bhattacharyya_fidelity": 0.6447358265059216
+      },
+      "single_532nm_screen_common_grid_metrics": {
+        "normalized_intensity_relative_L2": 0.7670265727693065,
+        "normalized_intensity_RMSE_per_pixel": 2.1175709733719765e-05,
+        "intensity_correlation_global": 0.6573878049079264,
+        "squared_Bhattacharyya_fidelity": 0.6118189221251068
+      }
+    }
+  ],
+  "convergence": {
+    "iteration": [
+      0,
+      3,
+      6,
+      9,
+      12,
+      15,
+      18,
+      21,
+      24,
+      27,
+      30,
+      33,
+      36,
+      39,
+      42,
+      45,
+      48,
+      51,
+      54,
+      57,
+      60,
+      63,
+      66,
+      69,
+      72,
+      75,
+      78,
+      81,
+      84,
+      87,
+      90,
+      93,
+      96,
+      99,
+      102,
+      105,
+      108,
+      111,
+      114,
+      117,
+      120,
+      123,
+      126,
+      129,
+      132,
+      135,
+      138,
+      141,
+      144,
+      147,
+      150,
+      153,
+      156,
+      159,
+      162,
+      165,
+      168,
+      171,
+      174,
+      177,
+      180
+    ],
+    "mean_native_grid_relative_L2": [
+      0.9998560488830192,
+      0.6916809198480194,
+      0.665566577476621,
+      0.6489239027494355,
+      0.638672035500741,
+      0.6346340420742584,
+      0.6321549090233272,
+      0.630307065297398,
+      0.6290144883406591,
+      0.6280145405870509,
+      0.6269367840764738,
+      0.626020770959398,
+      0.62505448203066,
+      0.624097164922154,
+      0.6233908460656585,
+      0.6229189284336133,
+      0.6226583287689723,
+      0.6226166059519267,
+      0.6228674731008418,
+      0.6229101045507661,
+      0.6225902803185881,
+      0.6217821694113077,
+      0.6209388741858303,
+      0.62018229960082,
+      0.6195715524229962,
+      0.6186701577927881,
+      0.6175330005828815,
+      0.6166124540707892,
+      0.616022131179766,
+      0.6155918643414365,
+      0.6152123408206833,
+      0.6148485576864385,
+      0.6144815424522337,
+      0.6141019467231924,
+      0.613767938537034,
+      0.6134954673071914,
+      0.6132543113541638,
+      0.6130885342884073,
+      0.6130747752330835,
+      0.6131732538193678,
+      0.6130308143568383,
+      0.6129797068308891,
+      0.61298110786291,
+      0.6130390859771202,
+      0.6131740235745533,
+      0.6132220483547318,
+      0.6131755758134391,
+      0.6130292817179327,
+      0.6129722406343487,
+      0.613318080209133,
+      0.613268793549636,
+      0.6130244022608884,
+      0.612808326886451,
+      0.6125627807478059,
+      0.6122934779592291,
+      0.6119767434991296,
+      0.61167248620906,
+      0.6113120129722168,
+      0.6109616701957051,
+      0.6104857937576756,
+      0.6099098426856672
+    ]
+  },
+  "figures": [
+    "fourier_optics_step7_joint_multicolor.png",
+    "fourier_optics_step7_convergence.png"
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "scope": "post-process a single-wavelength continuous GS phase screen; no re-optimization at each hardware setting",
+  "model": {
+    "wavelength_m": 5.32e-07,
+    "focal_length_m": 0.2,
+    "screen_samples_per_axis": 1024,
+    "screen_pixel_pitch_m": 5e-06,
+    "screen_width_m": 0.00512,
+    "pupil_diameter_m_nominal": 0.00128,
+    "target_ROI": "target intensity >= 1% of maximum",
+    "target_ROI_max_spatial_frequency_per_m": 11538.32459979838,
+    "minimum_NA_to_include_every_ROI_sample": 0.0061383886870927384,
+    "NA_model": "hard circular cutoff sqrt(fx^2+fy^2) <= NA/lambda in the Fourier plane",
+    "phase_quantization": "nearest of Q equally spaced levels in [-pi, pi)",
+    "pixel_pitch_model": "sample the saved phase at each coarse pixel center, then hold it over that pixel; preserve the original circular pupil mask"
+  },
+  "continuous_reference": {
+    "case": "continuous reference",
+    "normalized_intensity_relative_L2": 0.250916666601973,
+    "normalized_intensity_RMSE_per_pixel": 6.927189601961714e-06,
+    "intensity_correlation_global": 0.9680624528027714,
+    "squared_Bhattacharyya_fidelity": 0.8986112669301068,
+    "reconstructed_energy_fraction_in_target_ROI": 0.9017711547339315,
+    "screen_power_relative_to_continuous": 1.0
+  },
+  "phase_quantization_sweep": [
+    {
+      "case": "2 phase levels",
+      "normalized_intensity_relative_L2": 0.7437705004302205,
+      "normalized_intensity_RMSE_per_pixel": 2.053366700028372e-05,
+      "intensity_correlation_global": 0.6816507117804517,
+      "squared_Bhattacharyya_fidelity": 0.3711102802662236,
+      "reconstructed_energy_fraction_in_target_ROI": 0.37031399215850763,
+      "screen_power_relative_to_continuous": 1.0,
+      "phase_levels": 2,
+      "maximum_phase_rounding_error_rad": 1.5707963267948966
+    },
+    {
+      "case": "4 phase levels",
+      "normalized_intensity_relative_L2": 0.3195126329665109,
+      "normalized_intensity_RMSE_per_pixel": 8.820954856267099e-06,
+      "intensity_correlation_global": 0.9664506715538004,
+      "squared_Bhattacharyya_fidelity": 0.7294481408841648,
+      "reconstructed_energy_fraction_in_target_ROI": 0.7317997825660257,
+      "screen_power_relative_to_continuous": 1.0,
+      "phase_levels": 4,
+      "maximum_phase_rounding_error_rad": 0.7853981633974483
+    },
+    {
+      "case": "8 phase levels",
+      "normalized_intensity_relative_L2": 0.2580591460959138,
+      "normalized_intensity_RMSE_per_pixel": 7.1243758245937035e-06,
+      "intensity_correlation_global": 0.9680018275188242,
+      "squared_Bhattacharyya_fidelity": 0.8534837243920766,
+      "reconstructed_energy_fraction_in_target_ROI": 0.8566181770357189,
+      "screen_power_relative_to_continuous": 1.0,
+      "phase_levels": 8,
+      "maximum_phase_rounding_error_rad": 0.39269908169872414
+    },
+    {
+      "case": "16 phase levels",
+      "normalized_intensity_relative_L2": 0.25189264999824373,
+      "normalized_intensity_RMSE_per_pixel": 6.95413409363656e-06,
+      "intensity_correlation_global": 0.9680554478666235,
+      "squared_Bhattacharyya_fidelity": 0.8870977704525569,
+      "reconstructed_energy_fraction_in_target_ROI": 0.8901718684110305,
+      "screen_power_relative_to_continuous": 1.0,
+      "phase_levels": 16,
+      "maximum_phase_rounding_error_rad": 0.19634954084936207
+    },
+    {
+      "case": "32 phase levels",
+      "normalized_intensity_relative_L2": 0.2513272963216662,
+      "normalized_intensity_RMSE_per_pixel": 6.938526074596428e-06,
+      "intensity_correlation_global": 0.9680016013011019,
+      "squared_Bhattacharyya_fidelity": 0.895733833308605,
+      "reconstructed_energy_fraction_in_target_ROI": 0.8988582432096325,
+      "screen_power_relative_to_continuous": 1.0,
+      "phase_levels": 32,
+      "maximum_phase_rounding_error_rad": 0.09817477042468103
+    },
+    {
+      "case": "64 phase levels",
+      "normalized_intensity_relative_L2": 0.2509834646753165,
+      "normalized_intensity_RMSE_per_pixel": 6.929033731829103e-06,
+      "intensity_correlation_global": 0.9680557304269783,
+      "squared_Bhattacharyya_fidelity": 0.8978937865780334,
+      "reconstructed_energy_fraction_in_target_ROI": 0.901060109032895,
+      "screen_power_relative_to_continuous": 1.0,
+      "phase_levels": 64,
+      "maximum_phase_rounding_error_rad": 0.04908738521234052
+    }
+  ],
+  "phase_pixel_pitch_sweep": [
+    {
+      "case": "5 um phase pixel",
+      "normalized_intensity_relative_L2": 0.250916666601973,
+      "normalized_intensity_RMSE_per_pixel": 6.927189601961714e-06,
+      "intensity_correlation_global": 0.9680624528027714,
+      "squared_Bhattacharyya_fidelity": 0.8986112669301068,
+      "reconstructed_energy_fraction_in_target_ROI": 0.9017711547339315,
+      "screen_power_relative_to_continuous": 1.0,
+      "effective_phase_pixel_pitch_m": 5e-06,
+      "phase_pixel_pitch_nyquist_per_m": 99999.99999999999
+    },
+    {
+      "case": "10 um phase pixel",
+      "normalized_intensity_relative_L2": 0.2527192866206029,
+      "normalized_intensity_RMSE_per_pixel": 6.9769554896504816e-06,
+      "intensity_correlation_global": 0.9680085807500864,
+      "squared_Bhattacharyya_fidelity": 0.8828581345779103,
+      "reconstructed_energy_fraction_in_target_ROI": 0.8860062924775975,
+      "screen_power_relative_to_continuous": 1.0,
+      "effective_phase_pixel_pitch_m": 1e-05,
+      "phase_pixel_pitch_nyquist_per_m": 49999.99999999999
+    },
+    {
+      "case": "20 um phase pixel",
+      "normalized_intensity_relative_L2": 0.2670622024818304,
+      "normalized_intensity_RMSE_per_pixel": 7.37292798108052e-06,
+      "intensity_correlation_global": 0.9675465245182772,
+      "squared_Bhattacharyya_fidelity": 0.8282483896310219,
+      "reconstructed_energy_fraction_in_target_ROI": 0.8312425776873894,
+      "screen_power_relative_to_continuous": 1.0,
+      "effective_phase_pixel_pitch_m": 2e-05,
+      "phase_pixel_pitch_nyquist_per_m": 24999.999999999996
+    },
+    {
+      "case": "40 um phase pixel",
+      "normalized_intensity_relative_L2": 0.40405564585909703,
+      "normalized_intensity_RMSE_per_pixel": 1.1154978688797346e-05,
+      "intensity_correlation_global": 0.9507630197068098,
+      "squared_Bhattacharyya_fidelity": 0.6437169420618907,
+      "reconstructed_energy_fraction_in_target_ROI": 0.6469373710744415,
+      "screen_power_relative_to_continuous": 1.0,
+      "effective_phase_pixel_pitch_m": 4e-05,
+      "phase_pixel_pitch_nyquist_per_m": 12499.999999999998
+    },
+    {
+      "case": "80 um phase pixel",
+      "normalized_intensity_relative_L2": 0.7849568015527524,
+      "normalized_intensity_RMSE_per_pixel": 2.167071907714662e-05,
+      "intensity_correlation_global": 0.6191492938914812,
+      "squared_Bhattacharyya_fidelity": 0.3574116000275374,
+      "reconstructed_energy_fraction_in_target_ROI": 0.4316362691688804,
+      "screen_power_relative_to_continuous": 1.0,
+      "effective_phase_pixel_pitch_m": 8e-05,
+      "phase_pixel_pitch_nyquist_per_m": 6249.999999999999
+    }
+  ],
+  "NA_sweep": [
+    {
+      "NA": 0.0025,
+      "cutoff_spatial_frequency_per_m": 4699.248120300752,
+      "fraction_of_target_ROI_inside_cutoff": 0.028198801550934086,
+      "transmitted_power_fraction_relative_to_no_NA_cutoff": 0.02010598346600753,
+      "normalized_intensity_relative_L2": 1.8485041957687354,
+      "normalized_intensity_RMSE_per_pixel": 5.103263652240445e-05,
+      "intensity_correlation_global": 0.015937005205633688,
+      "squared_Bhattacharyya_fidelity": 0.0026901674083684344,
+      "reconstructed_energy_fraction_in_target_ROI": 0.22444996119380595
+    },
+    {
+      "NA": 0.003,
+      "cutoff_spatial_frequency_per_m": 5639.097744360902,
+      "fraction_of_target_ROI_inside_cutoff": 0.11279520620373634,
+      "transmitted_power_fraction_relative_to_no_NA_cutoff": 0.05579132113802233,
+      "normalized_intensity_relative_L2": 2.05903322908718,
+      "normalized_intensity_RMSE_per_pixel": 5.684482329446927e-05,
+      "intensity_correlation_global": 0.1040067069190369,
+      "squared_Bhattacharyya_fidelity": 0.02916318673381496,
+      "reconstructed_energy_fraction_in_target_ROI": 0.6350574681607069
+    },
+    {
+      "NA": 0.004,
+      "cutoff_spatial_frequency_per_m": 7518.796992481202,
+      "fraction_of_target_ROI_inside_cutoff": 0.41557983785689107,
+      "transmitted_power_fraction_relative_to_no_NA_cutoff": 0.3807901650132493,
+      "normalized_intensity_relative_L2": 1.1991159531846254,
+      "normalized_intensity_RMSE_per_pixel": 3.310463061277438e-05,
+      "intensity_correlation_global": 0.5998274266214444,
+      "squared_Bhattacharyya_fidelity": 0.3723560299297643,
+      "reconstructed_energy_fraction_in_target_ROI": 0.9260565940144768
+    },
+    {
+      "NA": 0.005,
+      "cutoff_spatial_frequency_per_m": 9398.496240601504,
+      "fraction_of_target_ROI_inside_cutoff": 0.7666549171660204,
+      "transmitted_power_fraction_relative_to_no_NA_cutoff": 0.8471806575995591,
+      "normalized_intensity_relative_L2": 0.3491777850465068,
+      "normalized_intensity_RMSE_per_pixel": 9.63993645606311e-06,
+      "intensity_correlation_global": 0.9495037501839518,
+      "squared_Bhattacharyya_fidelity": 0.8525815308463258,
+      "reconstructed_energy_fraction_in_target_ROI": 0.9589753248532654
+    },
+    {
+      "NA": 0.007,
+      "cutoff_spatial_frequency_per_m": 13157.894736842105,
+      "fraction_of_target_ROI_inside_cutoff": 1.0,
+      "transmitted_power_fraction_relative_to_no_NA_cutoff": 0.9582288146999594,
+      "normalized_intensity_relative_L2": 0.25191655396689966,
+      "normalized_intensity_RMSE_per_pixel": 6.95479402318753e-06,
+      "intensity_correlation_global": 0.9681195287695565,
+      "squared_Bhattacharyya_fidelity": 0.9376629071987409,
+      "reconstructed_energy_fraction_in_target_ROI": 0.9410812333130415
+    },
+    {
+      "NA": 0.01,
+      "cutoff_spatial_frequency_per_m": 18796.992481203008,
+      "fraction_of_target_ROI_inside_cutoff": 1.0,
+      "transmitted_power_fraction_relative_to_no_NA_cutoff": 0.9712962862795685,
+      "normalized_intensity_relative_L2": 0.25088798723342487,
+      "normalized_intensity_RMSE_per_pixel": 6.92639783541116e-06,
+      "intensity_correlation_global": 0.9680904487699362,
+      "squared_Bhattacharyya_fidelity": 0.9251669955119356,
+      "reconstructed_energy_fraction_in_target_ROI": 0.9284202642100645
+    }
+  ],
+  "combined_examples": [
+    {
+      "phase_levels": 8,
+      "phase_pixel_pitch_m": 5e-06,
+      "NA": 0.01,
+      "transmitted_power_fraction": 0.923241393948555,
+      "normalized_intensity_relative_L2": 0.2510699384952801,
+      "normalized_intensity_RMSE_per_pixel": 6.931421060477301e-06,
+      "intensity_correlation_global": 0.9680402411757361,
+      "squared_Bhattacharyya_fidelity": 0.9244426538772266,
+      "reconstructed_energy_fraction_in_target_ROI": 0.9278377059894387
+    },
+    {
+      "phase_levels": 8,
+      "phase_pixel_pitch_m": 2e-05,
+      "NA": 0.007,
+      "transmitted_power_fraction": 0.8491921785334805,
+      "normalized_intensity_relative_L2": 0.25093185412068075,
+      "normalized_intensity_RMSE_per_pixel": 6.9276088918522665e-06,
+      "intensity_correlation_global": 0.9680870088230951,
+      "squared_Bhattacharyya_fidelity": 0.9283568601817807,
+      "reconstructed_energy_fraction_in_target_ROI": 0.9327405776052725
+    },
+    {
+      "phase_levels": 8,
+      "phase_pixel_pitch_m": 2e-05,
+      "NA": 0.005,
+      "transmitted_power_fraction": 0.7515101871150287,
+      "normalized_intensity_relative_L2": 0.3426497433421418,
+      "normalized_intensity_RMSE_per_pixel": 9.459713343632785e-06,
+      "intensity_correlation_global": 0.9496773828241529,
+      "squared_Bhattacharyya_fidelity": 0.8480219350471145,
+      "reconstructed_energy_fraction_in_target_ROI": 0.9542383001899333
+    },
+    {
+      "phase_levels": 4,
+      "phase_pixel_pitch_m": 2e-05,
+      "NA": 0.005,
+      "transmitted_power_fraction": 0.6444823001102356,
+      "normalized_intensity_relative_L2": 0.3536239192470346,
+      "normalized_intensity_RMSE_per_pixel": 9.76268324295423e-06,
+      "intensity_correlation_global": 0.9468117929766923,
+      "squared_Bhattacharyya_fidelity": 0.8407026383251244,
+      "reconstructed_energy_fraction_in_target_ROI": 0.9465906119107963
+    }
+  ],
+  "figure": "fourier_optics_step6_hardware_limits.png"
+}

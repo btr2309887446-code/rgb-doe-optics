@@ -1,0 +1,383 @@
+{
+  "definition": {
+    "discrete_complex_field_space": "C^(65536)",
+    "fourier_basis": "unitary 2-D DFT basis on a periodic rectangular sample grid",
+    "finite_aperture_modes": "pupil(x,y)*exp(2*pi*i*(m*x/L+n*y/L))",
+    "inner_product": "discrete sum over sampled pupil; modes individually normalized"
+  },
+  "sampling": {
+    "N": 256,
+    "pixel_pitch_m": 1e-05,
+    "window_width_m": 0.00256,
+    "nyquist_frequency_per_m": 49999.99999999999,
+    "circular_pupil_diameter_m": 0.00128,
+    "circular_pupil_samples_across_nominal_diameter": 128.0,
+    "wavelength_m": 5.32e-07,
+    "focal_length_m": 0.2,
+    "padded_fft_factor": 4,
+    "padded_fourier_plane_pixel_pitch_m": 1.0390625000000417e-05
+  },
+  "complete_discrete_dft_basis_check": {
+    "random_complex_field_relative_reconstruction_error": 3.8200437123759807e-16,
+    "unitary_parseval_relative_error": 3.3396726805162443e-16
+  },
+  "selected_modes": {
+    "integer_orders_m_n": [
+      [
+        -4,
+        -4
+      ],
+      [
+        -3,
+        -4
+      ],
+      [
+        -2,
+        -4
+      ],
+      [
+        -1,
+        -4
+      ],
+      [
+        0,
+        -4
+      ],
+      [
+        1,
+        -4
+      ],
+      [
+        2,
+        -4
+      ],
+      [
+        3,
+        -4
+      ],
+      [
+        4,
+        -4
+      ],
+      [
+        -4,
+        -3
+      ],
+      [
+        -3,
+        -3
+      ],
+      [
+        -2,
+        -3
+      ],
+      [
+        -1,
+        -3
+      ],
+      [
+        0,
+        -3
+      ],
+      [
+        1,
+        -3
+      ],
+      [
+        2,
+        -3
+      ],
+      [
+        3,
+        -3
+      ],
+      [
+        4,
+        -3
+      ],
+      [
+        -4,
+        -2
+      ],
+      [
+        -3,
+        -2
+      ],
+      [
+        -2,
+        -2
+      ],
+      [
+        -1,
+        -2
+      ],
+      [
+        0,
+        -2
+      ],
+      [
+        1,
+        -2
+      ],
+      [
+        2,
+        -2
+      ],
+      [
+        3,
+        -2
+      ],
+      [
+        4,
+        -2
+      ],
+      [
+        -4,
+        -1
+      ],
+      [
+        -3,
+        -1
+      ],
+      [
+        -2,
+        -1
+      ],
+      [
+        -1,
+        -1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        3,
+        -1
+      ],
+      [
+        4,
+        -1
+      ],
+      [
+        -4,
+        0
+      ],
+      [
+        -3,
+        0
+      ],
+      [
+        -2,
+        0
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        -4,
+        1
+      ],
+      [
+        -3,
+        1
+      ],
+      [
+        -2,
+        1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        -4,
+        2
+      ],
+      [
+        -3,
+        2
+      ],
+      [
+        -2,
+        2
+      ],
+      [
+        -1,
+        2
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        -4,
+        3
+      ],
+      [
+        -3,
+        3
+      ],
+      [
+        -2,
+        3
+      ],
+      [
+        -1,
+        3
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        -4,
+        4
+      ],
+      [
+        -3,
+        4
+      ],
+      [
+        -2,
+        4
+      ],
+      [
+        -1,
+        4
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "sampled_full_rectangle_gram_stats": {
+      "max_absolute_off_diagonal_inner_product": 1.5115372775653668e-07,
+      "median_absolute_off_diagonal_inner_product": 0.0,
+      "mean_adjacent_mode_coherence": 8.98725877360482e-09
+    },
+    "sampled_circular_pupil_gram_stats": {
+      "max_absolute_off_diagonal_inner_product": 0.7219642996788025,
+      "median_absolute_off_diagonal_inner_product": 0.05330992490053177,
+      "mean_adjacent_mode_coherence": 0.721964203649097
+    },
+    "circular_pupil_area_fraction_of_square": 0.1961212158203125
+  },
+  "finite_aperture_single_mode": {
+    "grating_orders_m_n": [
+      3,
+      -2
+    ],
+    "predicted_peak_position_m": [
+      0.00012468750000000002,
+      -8.3125e-05
+    ],
+    "measured_peak_position_m": [
+      0.0001246875,
+      -8.3125e-05
+    ],
+    "peak_position_error_pixels": 2.6086067307920864e-15,
+    "analytic_circular_aperture_first_zero_offset_m": 0.0001014125,
+    "measured_first_axis_minimum_offset_m": 0.00010390625,
+    "first_minimum_offset_error_pixels": 0.23999999999998936,
+    "parseval_relative_error_for_screen": 4.245676659641772e-16
+  },
+  "figure": "fourier_optics_step5_basis_and_finite_aperture.png"
+}
