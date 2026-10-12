@@ -1,0 +1,23 @@
+[
+  {
+    "target": "annular_ring",
+    "models": [
+      {
+        "name": "phase",
+        "training_RMS_L2": 0.53203337278767
+      },
+      {
+        "name": "complex",
+        "training_RMS_L2": 0.49024467161789187
+      },
+      {
+        "name": "spectral_degree_1",
+        "training_RMS_L2": 0.03562012077172206
+      },
+      {
+        "name": "spectral_degree_2",
+        "training_RMS_L2": 0.0010426306683176023
+      }
+    ]
+  }
+]

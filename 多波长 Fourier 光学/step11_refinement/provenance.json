@@ -1,0 +1,25 @@
+{
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "numpy": "2.3.5",
+  "scipy": "1.16.3",
+  "source_sha256": "f4495ce42e7554b291aab261425978049572d30e0e69143a9321d01434dfb5af",
+  "configuration": {
+    "archive": "C:\\Users\\yu\\Desktop\\26秋\\光学\\荣誉课题\\多波长 Fourier 光学\\多波长 Fourier 光学研究资料\\fourier_optics_step3_phase_screens.npz",
+    "targets": "annular_ring",
+    "target_npy": null,
+    "grid": 512,
+    "detector_grid": 256,
+    "grid_wavelength_nm": 400.0,
+    "focal_m": 0.2,
+    "train_nm": "450,532,633",
+    "band_nm": "400,700",
+    "scan_step_nm": 10.0,
+    "degrees": "1,2",
+    "starts": 1,
+    "iterations": 200,
+    "seed": 20261009,
+    "warm_start": "step11_comparison\\annular_ring\\designs.npz",
+    "check_only": false,
+    "output": "step11_refinement"
+  }
+}

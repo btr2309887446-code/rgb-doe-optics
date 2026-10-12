@@ -1,0 +1,160 @@
+{
+  "operators": [
+    {
+      "N": 16,
+      "M": 16,
+      "wavelength_nm": 400.0,
+      "matrix_relative_error": 9.510029451929683e-15,
+      "adjoint_relative_error": 1.021955411550488e-15
+    },
+    {
+      "N": 16,
+      "M": 16,
+      "wavelength_nm": 450.0,
+      "matrix_relative_error": 6.859757383463977e-15,
+      "adjoint_relative_error": 1.6493170586629499e-15
+    },
+    {
+      "N": 16,
+      "M": 16,
+      "wavelength_nm": 532.0,
+      "matrix_relative_error": 9.227083343266407e-15,
+      "adjoint_relative_error": 2.1043097640566787e-15
+    },
+    {
+      "N": 16,
+      "M": 16,
+      "wavelength_nm": 700.0,
+      "matrix_relative_error": 1.893725752956385e-15,
+      "adjoint_relative_error": 1.612398922356284e-15
+    },
+    {
+      "N": 24,
+      "M": 16,
+      "wavelength_nm": 400.0,
+      "matrix_relative_error": 6.773388064724173e-15,
+      "adjoint_relative_error": 2.2532820208427395e-15
+    },
+    {
+      "N": 24,
+      "M": 16,
+      "wavelength_nm": 450.0,
+      "matrix_relative_error": 8.584875738821594e-15,
+      "adjoint_relative_error": 3.836507946171875e-15
+    },
+    {
+      "N": 24,
+      "M": 16,
+      "wavelength_nm": 532.0,
+      "matrix_relative_error": 6.863420780134195e-15,
+      "adjoint_relative_error": 5.165516090013066e-16
+    },
+    {
+      "N": 24,
+      "M": 16,
+      "wavelength_nm": 700.0,
+      "matrix_relative_error": 5.0829511718496935e-15,
+      "adjoint_relative_error": 2.6712403871088464e-15
+    }
+  ],
+  "gradients": [
+    {
+      "kind": "phase",
+      "degree": 0,
+      "trial": 0,
+      "analytic": -0.0006491722039270871,
+      "finite_difference": -0.0006491722076562567,
+      "absolute_error": 3.7291696423566445e-12
+    },
+    {
+      "kind": "phase",
+      "degree": 0,
+      "trial": 1,
+      "analytic": 0.0008552641355516692,
+      "finite_difference": 0.0008552641372894242,
+      "absolute_error": 1.7377550136712938e-12
+    },
+    {
+      "kind": "phase",
+      "degree": 0,
+      "trial": 2,
+      "analytic": -0.0041787985116376195,
+      "finite_difference": -0.004178798512777249,
+      "absolute_error": 1.1396291896281774e-12
+    },
+    {
+      "kind": "complex",
+      "degree": 0,
+      "trial": 0,
+      "analytic": 0.017401660402625474,
+      "finite_difference": 0.017401660401539232,
+      "absolute_error": 1.0862422072932532e-12
+    },
+    {
+      "kind": "complex",
+      "degree": 0,
+      "trial": 1,
+      "analytic": 0.003686196959142342,
+      "finite_difference": 0.0036861969476831287,
+      "absolute_error": 1.1459213352521536e-11
+    },
+    {
+      "kind": "complex",
+      "degree": 0,
+      "trial": 2,
+      "analytic": -0.00871954992724477,
+      "finite_difference": -0.008719549904334656,
+      "absolute_error": 2.2910114777507928e-11
+    },
+    {
+      "kind": "spectral",
+      "degree": 1,
+      "trial": 0,
+      "analytic": -0.005017031414972317,
+      "finite_difference": -0.005017031390330828,
+      "absolute_error": 2.4641488502452624e-11
+    },
+    {
+      "kind": "spectral",
+      "degree": 1,
+      "trial": 1,
+      "analytic": 0.0023399203670667937,
+      "finite_difference": 0.0023399203685769976,
+      "absolute_error": 1.5102038543324259e-12
+    },
+    {
+      "kind": "spectral",
+      "degree": 1,
+      "trial": 2,
+      "analytic": 0.0021616864121638867,
+      "finite_difference": 0.002161686385449002,
+      "absolute_error": 2.6714884644729597e-11
+    },
+    {
+      "kind": "spectral",
+      "degree": 2,
+      "trial": 0,
+      "analytic": -0.0019106407294796203,
+      "finite_difference": -0.0019106407345148566,
+      "absolute_error": 5.03523633378633e-12
+    },
+    {
+      "kind": "spectral",
+      "degree": 2,
+      "trial": 1,
+      "analytic": -0.0018476645844716817,
+      "finite_difference": -0.0018476645990972427,
+      "absolute_error": 1.4625560961975537e-11
+    },
+    {
+      "kind": "spectral",
+      "degree": 2,
+      "trial": 2,
+      "analytic": -0.0005338229301253708,
+      "finite_difference": -0.0005338229303042397,
+      "absolute_error": 1.7886885549101006e-13
+    }
+  ],
+  "full_aperture_single_wave_inverse_DFT_relative_L2": 9.58615794141515e-16,
+  "normalization_scale_invariance_and_model_nesting": "passed"
+}

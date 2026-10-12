@@ -1,0 +1,1403 @@
+{
+  "metadata": {
+    "target": "three_spots",
+    "screen_N": 256,
+    "detector_M": 256,
+    "input_pitch_m": 2e-05,
+    "detector_pitch_m": 1.5625e-05,
+    "focal_length_m": 0.2,
+    "aperture_pixels": 3209,
+    "original_aperture_area_m2": 1.2858250000000003e-06,
+    "sampled_aperture_area_m2": 1.2836000000000003e-06,
+    "target_retained_mass": 1.0000019421465038
+  },
+  "configuration": {
+    "archive": "C:\\Users\\yu\\Desktop\\26秋\\光学\\荣誉课题\\多波长 Fourier 光学\\多波长 Fourier 光学研究资料\\fourier_optics_step3_phase_screens.npz",
+    "targets": "three_spots",
+    "target_npy": null,
+    "grid": 256,
+    "detector_grid": 256,
+    "grid_wavelength_nm": 400.0,
+    "focal_m": 0.2,
+    "train_nm": "450,532,633",
+    "band_nm": "400,700",
+    "scan_step_nm": 10.0,
+    "degrees": "1,2",
+    "starts": 1,
+    "iterations": 5,
+    "seed": 20261009,
+    "warm_start": null,
+    "check_only": false,
+    "output": "step11_smoke"
+  },
+  "models": [
+    {
+      "name": "phase",
+      "degree": 0,
+      "loss": 0.16798773080036655,
+      "parameters": 3209,
+      "basis_rank": 1,
+      "training": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.6189406562455563,
+          "captured_power": 0.9885769181997942,
+          "roi_power": 0.8449968699903582,
+          "renormalized_detector_L2_diagnostic": 0.6208124491584801,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.3626781646307459,
+          "captured_power": 0.9647709147263158,
+          "roi_power": 0.8297458813398912,
+          "renormalized_detector_L2_diagnostic": 0.34886686975609216,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.7023556063338521,
+          "captured_power": 0.94367759477752,
+          "roi_power": 0.6525709627398288,
+          "renormalized_detector_L2_diagnostic": 0.6992043502851295,
+          "peak_transmission_amplitude": 1.0000000388648205
+        }
+      ],
+      "scan": [
+        {
+          "wavelength_nm": 400.0,
+          "relative_L2": 0.9873184270716322,
+          "captured_power": 1.0000000000019262,
+          "roi_power": 0.8056843111941288,
+          "renormalized_detector_L2_diagnostic": 0.9873184270706588,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 410.0,
+          "relative_L2": 0.9121429697961142,
+          "captured_power": 0.9975370527073609,
+          "roi_power": 0.818308733240251,
+          "renormalized_detector_L2_diagnostic": 0.9132362814989762,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 420.0,
+          "relative_L2": 0.8367053353684908,
+          "captured_power": 0.9952216479770327,
+          "roi_power": 0.8283786992807767,
+          "renormalized_detector_L2_diagnostic": 0.838518352524496,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 430.0,
+          "relative_L2": 0.7619631362394067,
+          "captured_power": 0.9931143300913524,
+          "roi_power": 0.8361564595532307,
+          "renormalized_detector_L2_diagnostic": 0.7641080411637029,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 440.0,
+          "relative_L2": 0.6889851014622469,
+          "captured_power": 0.9908748591361816,
+          "roi_power": 0.8417682243849617,
+          "renormalized_detector_L2_diagnostic": 0.6911741241145565,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.6189406562455563,
+          "captured_power": 0.9885769181997942,
+          "roi_power": 0.8449968699903582,
+          "renormalized_detector_L2_diagnostic": 0.6208124491584801,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 460.0,
+          "relative_L2": 0.5531601766009739,
+          "captured_power": 0.9859675143431468,
+          "roi_power": 0.847112173590076,
+          "renormalized_detector_L2_diagnostic": 0.5543245277775355,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 470.0,
+          "relative_L2": 0.493223196755275,
+          "captured_power": 0.9830684530482847,
+          "roi_power": 0.8482535133538116,
+          "renormalized_detector_L2_diagnostic": 0.4931715160184861,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 480.0,
+          "relative_L2": 0.4410033120775613,
+          "captured_power": 0.9800529662803388,
+          "roi_power": 0.8476895781406484,
+          "renormalized_detector_L2_diagnostic": 0.439138677294385,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 490.0,
+          "relative_L2": 0.3986421158473875,
+          "captured_power": 0.9770649705281038,
+          "roi_power": 0.8463058304042128,
+          "renormalized_detector_L2_diagnostic": 0.3943980289258711,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 500.0,
+          "relative_L2": 0.36829401633572484,
+          "captured_power": 0.9741161440798121,
+          "roi_power": 0.8446728055041144,
+          "renormalized_detector_L2_diagnostic": 0.36129076916194947,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 510.0,
+          "relative_L2": 0.3516251484189897,
+          "captured_power": 0.971059421351371,
+          "roi_power": 0.8418274745626019,
+          "renormalized_detector_L2_diagnostic": 0.3418095744924465,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 520.0,
+          "relative_L2": 0.34903982752515755,
+          "captured_power": 0.9681639388316374,
+          "roi_power": 0.8372045216385899,
+          "renormalized_detector_L2_diagnostic": 0.33691004899438237,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 530.0,
+          "relative_L2": 0.3592938501727472,
+          "captured_power": 0.9653476905437626,
+          "roi_power": 0.8311261986230738,
+          "renormalized_detector_L2_diagnostic": 0.3456783593616101,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.3626781646307459,
+          "captured_power": 0.9647709147263158,
+          "roi_power": 0.8297458813398912,
+          "renormalized_detector_L2_diagnostic": 0.34886686975609216,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 540.0,
+          "relative_L2": 0.3798968172155923,
+          "captured_power": 0.9625384317482389,
+          "roi_power": 0.8235339641816442,
+          "renormalized_detector_L2_diagnostic": 0.36566492975315423,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 550.0,
+          "relative_L2": 0.40797347053947897,
+          "captured_power": 0.9598851839991127,
+          "roi_power": 0.8137340442325904,
+          "renormalized_detector_L2_diagnostic": 0.39390279951644697,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 560.0,
+          "relative_L2": 0.4409265934502922,
+          "captured_power": 0.9570261491680552,
+          "roi_power": 0.8011208498569167,
+          "renormalized_detector_L2_diagnostic": 0.427464004638686,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 570.0,
+          "relative_L2": 0.4767279234131525,
+          "captured_power": 0.9544360727396617,
+          "roi_power": 0.7855782079145801,
+          "renormalized_detector_L2_diagnostic": 0.46429611485404837,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 580.0,
+          "relative_L2": 0.5138910626242063,
+          "captured_power": 0.9523131321088182,
+          "roi_power": 0.7674885225064094,
+          "renormalized_detector_L2_diagnostic": 0.5028016192329657,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 590.0,
+          "relative_L2": 0.5513605211878728,
+          "captured_power": 0.95047741659848,
+          "roi_power": 0.7476260217008194,
+          "renormalized_detector_L2_diagnostic": 0.5417578771513518,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 600.0,
+          "relative_L2": 0.5884042945731637,
+          "captured_power": 0.9489375225194137,
+          "roi_power": 0.7268019731027706,
+          "renormalized_detector_L2_diagnostic": 0.5803554956055635,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 610.0,
+          "relative_L2": 0.6245153820827015,
+          "captured_power": 0.9473346025183553,
+          "roi_power": 0.7053777384844122,
+          "renormalized_detector_L2_diagnostic": 0.6179910552322673,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 620.0,
+          "relative_L2": 0.6593484800589022,
+          "captured_power": 0.9456145887074869,
+          "roi_power": 0.6831536040875439,
+          "renormalized_detector_L2_diagnostic": 0.6543074562415782,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 630.0,
+          "relative_L2": 0.6926752401622754,
+          "captured_power": 0.9440989149894559,
+          "roi_power": 0.6598017299695564,
+          "renormalized_detector_L2_diagnostic": 0.6890942403650083,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.7023556063338521,
+          "captured_power": 0.94367759477752,
+          "roi_power": 0.6525709627398288,
+          "renormalized_detector_L2_diagnostic": 0.6992043502851295,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 640.0,
+          "relative_L2": 0.7243466691261213,
+          "captured_power": 0.9426832970360259,
+          "roi_power": 0.6353820731762327,
+          "renormalized_detector_L2_diagnostic": 0.722177840280055,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 650.0,
+          "relative_L2": 0.754272723342305,
+          "captured_power": 0.9412313283690452,
+          "roi_power": 0.6104175699499823,
+          "renormalized_detector_L2_diagnostic": 0.7534585760509523,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 660.0,
+          "relative_L2": 0.7824093368677622,
+          "captured_power": 0.9399580538551264,
+          "roi_power": 0.585516956905523,
+          "renormalized_detector_L2_diagnostic": 0.7828884284666046,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 670.0,
+          "relative_L2": 0.8087448987227763,
+          "captured_power": 0.938906276163389,
+          "roi_power": 0.5609679410349462,
+          "renormalized_detector_L2_diagnostic": 0.8104422244044117,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 680.0,
+          "relative_L2": 0.8332920410845219,
+          "captured_power": 0.937877159853822,
+          "roi_power": 0.5366676574466838,
+          "renormalized_detector_L2_diagnostic": 0.8361337665683227,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 690.0,
+          "relative_L2": 0.8560833319387644,
+          "captured_power": 0.9368410932649369,
+          "roi_power": 0.5123863500752566,
+          "renormalized_detector_L2_diagnostic": 0.8599989312355658,
+          "peak_transmission_amplitude": 1.0000000388648205
+        },
+        {
+          "wavelength_nm": 700.0,
+          "relative_L2": 0.8771672753338337,
+          "captured_power": 0.9358860963826395,
+          "roi_power": 0.488082992627871,
+          "renormalized_detector_L2_diagnostic": 0.8820804112701549,
+          "peak_transmission_amplitude": 1.0000000388648205
+        }
+      ],
+      "runs": [
+        {
+          "restart": 0,
+          "best_loss": 0.16798773080036655,
+          "success": false,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "iterations": 5,
+          "evaluations": 8,
+          "seconds": 0.6972533000225667,
+          "history": [
+            {
+              "iteration": 0,
+              "loss": 0.22995042650902214,
+              "gradient_inf": 0.00045220745960250497
+            },
+            {
+              "iteration": 1,
+              "loss": 0.20236332200090743,
+              "gradient_inf": 0.00031110523227726047
+            },
+            {
+              "iteration": 2,
+              "loss": 0.17811438614738975,
+              "gradient_inf": 0.00011117445489825369
+            },
+            {
+              "iteration": 3,
+              "loss": 0.1738632868922833,
+              "gradient_inf": 8.062992166338669e-05
+            },
+            {
+              "iteration": 4,
+              "loss": 0.16943599377272378,
+              "gradient_inf": 4.925655501148891e-05
+            },
+            {
+              "iteration": 5,
+              "loss": 0.1679877308323135,
+              "gradient_inf": 4.3152926180330695e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "complex",
+      "degree": 0,
+      "loss": 0.1595441156898656,
+      "parameters": 6418,
+      "basis_rank": 1,
+      "training": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.5900075492513654,
+          "captured_power": 0.993469043733272,
+          "roi_power": 0.9153480182416194,
+          "renormalized_detector_L2_diagnostic": 0.5915481256389019,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.3425466807291759,
+          "captured_power": 0.9814612960894231,
+          "roi_power": 0.899894445709031,
+          "renormalized_detector_L2_diagnostic": 0.3367059388011461,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.7012970536705647,
+          "captured_power": 0.9711249945583064,
+          "roi_power": 0.6876451749242107,
+          "renormalized_detector_L2_diagnostic": 0.7007023587781318,
+          "peak_transmission_amplitude": 1.7329358404767734
+        }
+      ],
+      "scan": [
+        {
+          "wavelength_nm": 400.0,
+          "relative_L2": 0.9837934505328736,
+          "captured_power": 1.00000000000192,
+          "roi_power": 0.87026472697879,
+          "renormalized_detector_L2_diagnostic": 0.9837934505317654,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 410.0,
+          "relative_L2": 0.9021902313068277,
+          "captured_power": 0.9985641580920257,
+          "roi_power": 0.8833706910003926,
+          "renormalized_detector_L2_diagnostic": 0.9029287401408673,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 420.0,
+          "relative_L2": 0.8209637475131628,
+          "captured_power": 0.9972104670235682,
+          "roi_power": 0.8943611165305702,
+          "renormalized_detector_L2_diagnostic": 0.8222170513864696,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 430.0,
+          "relative_L2": 0.7411149515183759,
+          "captured_power": 0.9959956393663469,
+          "roi_power": 0.9033319470326957,
+          "renormalized_detector_L2_diagnostic": 0.7426428494450998,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 440.0,
+          "relative_L2": 0.6637328178179813,
+          "captured_power": 0.9947168097593753,
+          "roi_power": 0.9104513448014331,
+          "renormalized_detector_L2_diagnostic": 0.6653744581490572,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.5900075492513654,
+          "captured_power": 0.993469043733272,
+          "roi_power": 0.9153480182416194,
+          "renormalized_detector_L2_diagnostic": 0.5915481256389019,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 460.0,
+          "relative_L2": 0.5213022665516406,
+          "captured_power": 0.9921027713658476,
+          "roi_power": 0.9187183320373618,
+          "renormalized_detector_L2_diagnostic": 0.5225362541087487,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 470.0,
+          "relative_L2": 0.4592631018747557,
+          "captured_power": 0.9906371572067258,
+          "roi_power": 0.9208224905084798,
+          "renormalized_detector_L2_diagnostic": 0.45992905431804465,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 480.0,
+          "relative_L2": 0.4059109282722162,
+          "captured_power": 0.9891272037908937,
+          "roi_power": 0.9212920764277854,
+          "renormalized_detector_L2_diagnostic": 0.4057029688472175,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 490.0,
+          "relative_L2": 0.36363521703398105,
+          "captured_power": 0.9875993562965091,
+          "roi_power": 0.9205328237028838,
+          "renormalized_detector_L2_diagnostic": 0.3622548564279892,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 500.0,
+          "relative_L2": 0.3348894110184378,
+          "captured_power": 0.9861556085625259,
+          "roi_power": 0.9187225227128863,
+          "renormalized_detector_L2_diagnostic": 0.33215380979468384,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 510.0,
+          "relative_L2": 0.32140280177066505,
+          "captured_power": 0.9846310641486601,
+          "roi_power": 0.9152121713599632,
+          "renormalized_detector_L2_diagnostic": 0.3173183363895636,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 520.0,
+          "relative_L2": 0.32318498150185393,
+          "captured_power": 0.983172957524556,
+          "roi_power": 0.9095715096642161,
+          "renormalized_detector_L2_diagnostic": 0.31804043442406144,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 530.0,
+          "relative_L2": 0.33822399752075627,
+          "captured_power": 0.9817520626549328,
+          "roi_power": 0.9017458028522061,
+          "renormalized_detector_L2_diagnostic": 0.33245696873347,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.3425466807291759,
+          "captured_power": 0.9814612960894231,
+          "roi_power": 0.899894445709031,
+          "renormalized_detector_L2_diagnostic": 0.3367059388011461,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 540.0,
+          "relative_L2": 0.36330349961484687,
+          "captured_power": 0.9803606579334243,
+          "roi_power": 0.8913677566737745,
+          "renormalized_detector_L2_diagnostic": 0.3573425196846011,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 550.0,
+          "relative_L2": 0.3951490831417227,
+          "captured_power": 0.9791080426907377,
+          "roi_power": 0.8778183706635851,
+          "renormalized_detector_L2_diagnostic": 0.3893548641704377,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 560.0,
+          "relative_L2": 0.4310868684662593,
+          "captured_power": 0.9777445231525401,
+          "roi_power": 0.8608616001790059,
+          "renormalized_detector_L2_diagnostic": 0.4256450896741231,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 570.0,
+          "relative_L2": 0.469173074190106,
+          "captured_power": 0.9765067210529814,
+          "roi_power": 0.840917803460431,
+          "renormalized_detector_L2_diagnostic": 0.4642505593272289,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 580.0,
+          "relative_L2": 0.5080652982686745,
+          "captured_power": 0.9754923330709778,
+          "roi_power": 0.8188437311098729,
+          "renormalized_detector_L2_diagnostic": 0.503781768570128,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 590.0,
+          "relative_L2": 0.5468549412979284,
+          "captured_power": 0.9745819210150526,
+          "roi_power": 0.7955356389423225,
+          "renormalized_detector_L2_diagnostic": 0.5432608340847066,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 600.0,
+          "relative_L2": 0.5849318814044079,
+          "captured_power": 0.9738074670477125,
+          "roi_power": 0.7715697299595287,
+          "renormalized_detector_L2_diagnostic": 0.5820528833050067,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 610.0,
+          "relative_L2": 0.6218861567948109,
+          "captured_power": 0.9730014769022457,
+          "roi_power": 0.7470503306295131,
+          "renormalized_detector_L2_diagnostic": 0.6197134732687459,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 620.0,
+          "relative_L2": 0.6574442940127295,
+          "captured_power": 0.972119005537365,
+          "roi_power": 0.721782628262259,
+          "renormalized_detector_L2_diagnostic": 0.6559639945805875,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 630.0,
+          "relative_L2": 0.6914274994905488,
+          "captured_power": 0.9713395742648059,
+          "roi_power": 0.6956396100613247,
+          "renormalized_detector_L2_diagnostic": 0.6906309610559342,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.7012970536705647,
+          "captured_power": 0.9711249945583064,
+          "roi_power": 0.6876451749242107,
+          "renormalized_detector_L2_diagnostic": 0.7007023587781318,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 640.0,
+          "relative_L2": 0.7237224276522828,
+          "captured_power": 0.9706187270244664,
+          "roi_power": 0.6688059520578906,
+          "renormalized_detector_L2_diagnostic": 0.7235909536355732,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 650.0,
+          "relative_L2": 0.7542630260640046,
+          "captured_power": 0.9698635106806666,
+          "roi_power": 0.6417111320000151,
+          "renormalized_detector_L2_diagnostic": 0.7547748673902681,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 660.0,
+          "relative_L2": 0.7830192000893144,
+          "captured_power": 0.9691791257183111,
+          "roi_power": 0.614764348317152,
+          "renormalized_detector_L2_diagnostic": 0.7841487107567789,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 670.0,
+          "relative_L2": 0.8099874102412845,
+          "captured_power": 0.9686054928618784,
+          "roi_power": 0.5881528931401299,
+          "renormalized_detector_L2_diagnostic": 0.8117015654026165,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 680.0,
+          "relative_L2": 0.8351841807861712,
+          "captured_power": 0.968036116548423,
+          "roi_power": 0.5618548285402118,
+          "renormalized_detector_L2_diagnostic": 0.8374527575930589,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 690.0,
+          "relative_L2": 0.8586423137814497,
+          "captured_power": 0.967446602890488,
+          "roi_power": 0.5358056084140863,
+          "renormalized_detector_L2_diagnostic": 0.8614375190822767,
+          "peak_transmission_amplitude": 1.7329358404767734
+        },
+        {
+          "wavelength_nm": 700.0,
+          "relative_L2": 0.880407719998308,
+          "captured_power": 0.9668949185686538,
+          "roi_power": 0.5100496469034025,
+          "renormalized_detector_L2_diagnostic": 0.8836965930364467,
+          "peak_transmission_amplitude": 1.7329358404767734
+        }
+      ],
+      "runs": [
+        {
+          "restart": 0,
+          "best_loss": 0.1595441156898656,
+          "success": false,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "iterations": 5,
+          "evaluations": 7,
+          "seconds": 0.593169100000523,
+          "history": [
+            {
+              "iteration": 0,
+              "loss": 0.16798773080036655,
+              "gradient_inf": 7.734742916422006e-05
+            },
+            {
+              "iteration": 1,
+              "loss": 0.16671100539478043,
+              "gradient_inf": 5.760657779023198e-05
+            },
+            {
+              "iteration": 2,
+              "loss": 0.16373158776767519,
+              "gradient_inf": 4.958279009221109e-05
+            },
+            {
+              "iteration": 3,
+              "loss": 0.16213765542483133,
+              "gradient_inf": 5.2957575147203987e-05
+            },
+            {
+              "iteration": 4,
+              "loss": 0.1606291229284602,
+              "gradient_inf": 4.000334461929842e-05
+            },
+            {
+              "iteration": 5,
+              "loss": 0.1595441156898656,
+              "gradient_inf": 3.0094617196249966e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spectral_degree_1",
+      "degree": 1,
+      "loss": 0.03009236111149815,
+      "parameters": 12836,
+      "basis_rank": 2,
+      "training": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.20662477094521217,
+          "captured_power": 0.9942433818598444,
+          "roi_power": 0.9366552839574451,
+          "renormalized_detector_L2_diagnostic": 0.20869138674916268,
+          "peak_transmission_amplitude": 2.071768074064773
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.28200105242990375,
+          "captured_power": 0.9840301973241755,
+          "roi_power": 0.9049714165702485,
+          "renormalized_detector_L2_diagnostic": 0.2756838729112954,
+          "peak_transmission_amplitude": 1.7381611450431516
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.2415280048550355,
+          "captured_power": 0.9832511258520582,
+          "roi_power": 0.9145385035351243,
+          "renormalized_detector_L2_diagnostic": 0.24367111456085802,
+          "peak_transmission_amplitude": 2.213687978749759
+        }
+      ],
+      "scan": [
+        {
+          "wavelength_nm": 400.0,
+          "relative_L2": 0.797049433543768,
+          "captured_power": 1.000000000001879,
+          "roi_power": 0.9386440253434783,
+          "renormalized_detector_L2_diagnostic": 0.7970494335422522,
+          "peak_transmission_amplitude": 2.297204717734335
+        },
+        {
+          "wavelength_nm": 410.0,
+          "relative_L2": 0.6622299143673096,
+          "captured_power": 0.9988227893357713,
+          "roi_power": 0.9392544064213895,
+          "renormalized_detector_L2_diagnostic": 0.663094150014178,
+          "peak_transmission_amplitude": 2.263271668541266
+        },
+        {
+          "wavelength_nm": 420.0,
+          "relative_L2": 0.5319140404191199,
+          "captured_power": 0.9976370538686916,
+          "roi_power": 0.9391340788646982,
+          "renormalized_detector_L2_diagnostic": 0.5334758486587999,
+          "peak_transmission_amplitude": 2.224153257788112
+        },
+        {
+          "wavelength_nm": 430.0,
+          "relative_L2": 0.4093926716845617,
+          "captured_power": 0.996571434871803,
+          "roi_power": 0.9385280108603368,
+          "renormalized_detector_L2_diagnostic": 0.411393447103548,
+          "peak_transmission_amplitude": 2.179431694747664
+        },
+        {
+          "wavelength_nm": 440.0,
+          "relative_L2": 0.2987865881407146,
+          "captured_power": 0.9953964113478067,
+          "roi_power": 0.9377564824451059,
+          "renormalized_detector_L2_diagnostic": 0.3010535750888316,
+          "peak_transmission_amplitude": 2.1287357720503923
+        },
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.20662477094521217,
+          "captured_power": 0.9942433818598444,
+          "roi_power": 0.9366552839574451,
+          "renormalized_detector_L2_diagnostic": 0.20869138674916268,
+          "peak_transmission_amplitude": 2.071768074064773
+        },
+        {
+          "wavelength_nm": 460.0,
+          "relative_L2": 0.14606781380375478,
+          "captured_power": 0.9929482985687254,
+          "roi_power": 0.9355301738668242,
+          "renormalized_detector_L2_diagnostic": 0.14691762564033317,
+          "peak_transmission_amplitude": 2.008335162508124
+        },
+        {
+          "wavelength_nm": 470.0,
+          "relative_L2": 0.13487311136406843,
+          "captured_power": 0.9915859633973285,
+          "roi_power": 0.9342494126025443,
+          "renormalized_detector_L2_diagnostic": 0.1332608340727352,
+          "peak_transmission_amplitude": 1.9400128732805617
+        },
+        {
+          "wavelength_nm": 480.0,
+          "relative_L2": 0.16283281736194274,
+          "captured_power": 0.9901871313863232,
+          "roi_power": 0.9322501332946261,
+          "renormalized_detector_L2_diagnostic": 0.15930193159689954,
+          "peak_transmission_amplitude": 1.867504712246603
+        },
+        {
+          "wavelength_nm": 490.0,
+          "relative_L2": 0.20105212760462515,
+          "captured_power": 0.9887937849109154,
+          "roi_power": 0.9295129917652152,
+          "renormalized_detector_L2_diagnostic": 0.19647229278322392,
+          "peak_transmission_amplitude": 1.797648750339788
+        },
+        {
+          "wavelength_nm": 500.0,
+          "relative_L2": 0.2350920015673049,
+          "captured_power": 0.9875669926994963,
+          "roi_power": 0.9257504191979447,
+          "renormalized_detector_L2_diagnostic": 0.22989580574397736,
+          "peak_transmission_amplitude": 1.7558519146629261
+        },
+        {
+          "wavelength_nm": 510.0,
+          "relative_L2": 0.26038653116541255,
+          "captured_power": 0.9862948284799469,
+          "roi_power": 0.920339415124096,
+          "renormalized_detector_L2_diagnostic": 0.25469975752813956,
+          "peak_transmission_amplitude": 1.754756231625167
+        },
+        {
+          "wavelength_nm": 520.0,
+          "relative_L2": 0.27588680916612346,
+          "captured_power": 0.9851860342968926,
+          "roi_power": 0.913559950710766,
+          "renormalized_detector_L2_diagnostic": 0.2698486977939672,
+          "peak_transmission_amplitude": 1.7501559507526443
+        },
+        {
+          "wavelength_nm": 530.0,
+          "relative_L2": 0.2818742464268664,
+          "captured_power": 0.9842149796467723,
+          "roi_power": 0.9063923525650656,
+          "renormalized_detector_L2_diagnostic": 0.2755948911767682,
+          "peak_transmission_amplitude": 1.740643237619848
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.28200105242990375,
+          "captured_power": 0.9840301973241755,
+          "roi_power": 0.9049714165702485,
+          "renormalized_detector_L2_diagnostic": 0.2756838729112954,
+          "peak_transmission_amplitude": 1.7381611450431516
+        },
+        {
+          "wavelength_nm": 540.0,
+          "relative_L2": 0.27923192357140214,
+          "captured_power": 0.9833906024232711,
+          "roi_power": 0.8993800370663105,
+          "renormalized_detector_L2_diagnostic": 0.2728266322338425,
+          "peak_transmission_amplitude": 1.7263572287246092
+        },
+        {
+          "wavelength_nm": 550.0,
+          "relative_L2": 0.26918557561966133,
+          "captured_power": 0.9828028555833701,
+          "roi_power": 0.8927891962413214,
+          "renormalized_detector_L2_diagnostic": 0.2628137640979945,
+          "peak_transmission_amplitude": 1.759263683106919
+        },
+        {
+          "wavelength_nm": 560.0,
+          "relative_L2": 0.2532571217750387,
+          "captured_power": 0.9822660195361967,
+          "roi_power": 0.887493880028663,
+          "renormalized_detector_L2_diagnostic": 0.24703241303391538,
+          "peak_transmission_amplitude": 1.8366346038420986
+        },
+        {
+          "wavelength_nm": 570.0,
+          "relative_L2": 0.23338125421458272,
+          "captured_power": 0.9819241272042836,
+          "roi_power": 0.8848113940463246,
+          "renormalized_detector_L2_diagnostic": 0.22750878668551303,
+          "peak_transmission_amplitude": 1.9087823558452626
+        },
+        {
+          "wavelength_nm": 580.0,
+          "relative_L2": 0.21217696115838203,
+          "captured_power": 0.9818576541174855,
+          "roi_power": 0.8854657430027408,
+          "renormalized_detector_L2_diagnostic": 0.20695054924764172,
+          "peak_transmission_amplitude": 1.9741367267247463
+        },
+        {
+          "wavelength_nm": 590.0,
+          "relative_L2": 0.1933520670319631,
+          "captured_power": 0.9819577397158836,
+          "roi_power": 0.8890706744165977,
+          "renormalized_detector_L2_diagnostic": 0.18912984184868675,
+          "peak_transmission_amplitude": 2.032726824602399
+        },
+        {
+          "wavelength_nm": 600.0,
+          "relative_L2": 0.18189825567716486,
+          "captured_power": 0.9822008946419503,
+          "roi_power": 0.8945557220125467,
+          "renormalized_detector_L2_diagnostic": 0.17910507341581314,
+          "peak_transmission_amplitude": 2.0847243809213527
+        },
+        {
+          "wavelength_nm": 610.0,
+          "relative_L2": 0.18305105553832893,
+          "captured_power": 0.982479213427074,
+          "roi_power": 0.9008393039303838,
+          "renormalized_detector_L2_diagnostic": 0.1819767272394528,
+          "peak_transmission_amplitude": 2.130415487528415
+        },
+        {
+          "wavelength_nm": 620.0,
+          "relative_L2": 0.19956501114555963,
+          "captured_power": 0.9827527311046885,
+          "roi_power": 0.9071402057189486,
+          "renormalized_detector_L2_diagnostic": 0.20014019830667343,
+          "peak_transmission_amplitude": 2.1701711536863697
+        },
+        {
+          "wavelength_nm": 630.0,
+          "relative_L2": 0.23013806710573245,
+          "captured_power": 0.9831220900997752,
+          "roi_power": 0.9129473549766123,
+          "renormalized_detector_L2_diagnostic": 0.23198509373909174,
+          "peak_transmission_amplitude": 2.204419243652556
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.2415280048550355,
+          "captured_power": 0.9832511258520582,
+          "roi_power": 0.9145385035351243,
+          "renormalized_detector_L2_diagnostic": 0.24367111456085802,
+          "peak_transmission_amplitude": 2.213687978749759
+        },
+        {
+          "wavelength_nm": 640.0,
+          "relative_L2": 0.2711871257339304,
+          "captured_power": 0.9835558677237859,
+          "roi_power": 0.9179154218690886,
+          "renormalized_detector_L2_diagnostic": 0.2738918358106144,
+          "peak_transmission_amplitude": 2.233619557810295
+        },
+        {
+          "wavelength_nm": 650.0,
+          "relative_L2": 0.3191650380968743,
+          "captured_power": 0.9839638703587026,
+          "roi_power": 0.9218007861400888,
+          "renormalized_detector_L2_diagnostic": 0.3224382640159278,
+          "peak_transmission_amplitude": 2.2582430308756503
+        },
+        {
+          "wavelength_nm": 660.0,
+          "relative_L2": 0.3713737640245175,
+          "captured_power": 0.9843800906079466,
+          "roi_power": 0.9244099706918143,
+          "renormalized_detector_L2_diagnostic": 0.3750289222657681,
+          "peak_transmission_amplitude": 2.278755358665212
+        },
+        {
+          "wavelength_nm": 670.0,
+          "relative_L2": 0.42588781185614927,
+          "captured_power": 0.9848434808908964,
+          "roi_power": 0.9255522223329654,
+          "renormalized_detector_L2_diagnostic": 0.4297983243725261,
+          "peak_transmission_amplitude": 2.295604882876227
+        },
+        {
+          "wavelength_nm": 680.0,
+          "relative_L2": 0.4813175577626231,
+          "captured_power": 0.9853021778895966,
+          "roi_power": 0.9250368965978173,
+          "renormalized_detector_L2_diagnostic": 0.48541124873699404,
+          "peak_transmission_amplitude": 2.3092142629472687
+        },
+        {
+          "wavelength_nm": 690.0,
+          "relative_L2": 0.5366296832779284,
+          "captured_power": 0.9857097096106553,
+          "roi_power": 0.9227261911249951,
+          "renormalized_detector_L2_diagnostic": 0.5408723542087346,
+          "peak_transmission_amplitude": 2.319975316875934
+        },
+        {
+          "wavelength_nm": 700.0,
+          "relative_L2": 0.5910361673046929,
+          "captured_power": 0.9860789025322985,
+          "roi_power": 0.9185872463524873,
+          "renormalized_detector_L2_diagnostic": 0.5954041690372385,
+          "peak_transmission_amplitude": 2.3282463784819774
+        }
+      ],
+      "runs": [
+        {
+          "restart": 0,
+          "best_loss": 0.03009236111149815,
+          "success": false,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "iterations": 5,
+          "evaluations": 8,
+          "seconds": 0.6847063000022899,
+          "history": [
+            {
+              "iteration": 0,
+              "loss": 0.1595441156898656,
+              "gradient_inf": 0.0002622867817918439
+            },
+            {
+              "iteration": 1,
+              "loss": 0.12939734788401897,
+              "gradient_inf": 0.0002107397267676917
+            },
+            {
+              "iteration": 2,
+              "loss": 0.06049604650990037,
+              "gradient_inf": 0.0002765591378432517
+            },
+            {
+              "iteration": 3,
+              "loss": 0.048516285265612115,
+              "gradient_inf": 0.00017564631764933832
+            },
+            {
+              "iteration": 4,
+              "loss": 0.03443638349227183,
+              "gradient_inf": 7.960640417188275e-05
+            },
+            {
+              "iteration": 5,
+              "loss": 0.03009236111149815,
+              "gradient_inf": 5.0687199530950327e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spectral_degree_2",
+      "degree": 2,
+      "loss": 0.009991933518556078,
+      "parameters": 19254,
+      "basis_rank": 3,
+      "training": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.13781691037683272,
+          "captured_power": 0.9944496872066114,
+          "roi_power": 0.9390806108050249,
+          "renormalized_detector_L2_diagnostic": 0.13774470583048073,
+          "peak_transmission_amplitude": 2.1326037291409703
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.09969463430296015,
+          "captured_power": 0.9906283466274047,
+          "roi_power": 0.9430548555180925,
+          "renormalized_detector_L2_diagnostic": 0.09923475949078296,
+          "peak_transmission_amplitude": 1.8422904478025932
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.17612234445611816,
+          "captured_power": 0.9880895908740173,
+          "roi_power": 0.943770384675933,
+          "renormalized_detector_L2_diagnostic": 0.1762134319148268,
+          "peak_transmission_amplitude": 2.3616982961224813
+        }
+      ],
+      "scan": [
+        {
+          "wavelength_nm": 400.0,
+          "relative_L2": 0.5787433745220865,
+          "captured_power": 1.0000000000018905,
+          "roi_power": 0.9296639010428069,
+          "renormalized_detector_L2_diagnostic": 0.5787433745206789,
+          "peak_transmission_amplitude": 2.2786204463129516
+        },
+        {
+          "wavelength_nm": 410.0,
+          "relative_L2": 0.4511947023163915,
+          "captured_power": 0.9985933049271551,
+          "roi_power": 0.9315111621847609,
+          "renormalized_detector_L2_diagnostic": 0.4520989245964263,
+          "peak_transmission_amplitude": 2.2706048916830097
+        },
+        {
+          "wavelength_nm": 420.0,
+          "relative_L2": 0.3391030646389439,
+          "captured_power": 0.9973125522919208,
+          "roi_power": 0.9332984475292654,
+          "renormalized_detector_L2_diagnostic": 0.34051903745328127,
+          "peak_transmission_amplitude": 2.252818539486588
+        },
+        {
+          "wavelength_nm": 430.0,
+          "relative_L2": 0.2465047857223081,
+          "captured_power": 0.9963031261216233,
+          "roi_power": 0.9351334652609191,
+          "renormalized_detector_L2_diagnostic": 0.24792743564209516,
+          "peak_transmission_amplitude": 2.2242650254740712
+        },
+        {
+          "wavelength_nm": 440.0,
+          "relative_L2": 0.17797006467515286,
+          "captured_power": 0.9952878189588923,
+          "roi_power": 0.9371381833254124,
+          "renormalized_detector_L2_diagnostic": 0.17892195925937845,
+          "peak_transmission_amplitude": 2.1842708377839855
+        },
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.13781691037683272,
+          "captured_power": 0.9944496872066114,
+          "roi_power": 0.9390806108050249,
+          "renormalized_detector_L2_diagnostic": 0.13774470583048073,
+          "peak_transmission_amplitude": 2.1326037291409703
+        },
+        {
+          "wavelength_nm": 460.0,
+          "relative_L2": 0.12432826431738467,
+          "captured_power": 0.9936091662143597,
+          "roi_power": 0.941223979933529,
+          "renormalized_detector_L2_diagnostic": 0.12317880673704217,
+          "peak_transmission_amplitude": 2.069560294533016
+        },
+        {
+          "wavelength_nm": 470.0,
+          "relative_L2": 0.12554448194240764,
+          "captured_power": 0.9928816115448194,
+          "roi_power": 0.9431135789282991,
+          "renormalized_detector_L2_diagnostic": 0.12384902583031453,
+          "peak_transmission_amplitude": 1.9960011981702972
+        },
+        {
+          "wavelength_nm": 480.0,
+          "relative_L2": 0.1289315346182397,
+          "captured_power": 0.9922377172462974,
+          "roi_power": 0.944459085193194,
+          "renormalized_detector_L2_diagnostic": 0.1272074361815917,
+          "peak_transmission_amplitude": 1.946729813661528
+        },
+        {
+          "wavelength_nm": 490.0,
+          "relative_L2": 0.128492006544204,
+          "captured_power": 0.9917227948190284,
+          "roi_power": 0.9452804603833767,
+          "renormalized_detector_L2_diagnostic": 0.12703111195285013,
+          "peak_transmission_amplitude": 1.9105106270381358
+        },
+        {
+          "wavelength_nm": 500.0,
+          "relative_L2": 0.12318566044984654,
+          "captured_power": 0.9913994877722212,
+          "roi_power": 0.9451764181723179,
+          "renormalized_detector_L2_diagnostic": 0.12210607129124185,
+          "peak_transmission_amplitude": 1.8685387606103028
+        },
+        {
+          "wavelength_nm": 510.0,
+          "relative_L2": 0.11460057450393053,
+          "captured_power": 0.9910598560456706,
+          "roi_power": 0.9442005198300458,
+          "renormalized_detector_L2_diagnostic": 0.11387414469614457,
+          "peak_transmission_amplitude": 1.834788203722825
+        },
+        {
+          "wavelength_nm": 520.0,
+          "relative_L2": 0.10575355519110591,
+          "captured_power": 0.9908268621802925,
+          "roi_power": 0.9432007596519476,
+          "renormalized_detector_L2_diagnostic": 0.10526592921867023,
+          "peak_transmission_amplitude": 1.799950628637438
+        },
+        {
+          "wavelength_nm": 530.0,
+          "relative_L2": 0.10016142779932732,
+          "captured_power": 0.990661852514425,
+          "roi_power": 0.9429753859517304,
+          "renormalized_detector_L2_diagnostic": 0.09971837322000579,
+          "peak_transmission_amplitude": 1.8342190307461521
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.09969463430296015,
+          "captured_power": 0.9906283466274047,
+          "roi_power": 0.9430548555180925,
+          "renormalized_detector_L2_diagnostic": 0.09923475949078296,
+          "peak_transmission_amplitude": 1.8422904478025932
+        },
+        {
+          "wavelength_nm": 540.0,
+          "relative_L2": 0.1003536913968929,
+          "captured_power": 0.9905182602835572,
+          "roi_power": 0.9437737532390715,
+          "renormalized_detector_L2_diagnostic": 0.09975449541604127,
+          "peak_transmission_amplitude": 1.8721036451337238
+        },
+        {
+          "wavelength_nm": 550.0,
+          "relative_L2": 0.10635763647968502,
+          "captured_power": 0.9904240106249758,
+          "roi_power": 0.9453664637775034,
+          "renormalized_detector_L2_diagnostic": 0.10549042374249247,
+          "peak_transmission_amplitude": 1.9105744609594535
+        },
+        {
+          "wavelength_nm": 560.0,
+          "relative_L2": 0.11598199787168513,
+          "captured_power": 0.990247391016915,
+          "roi_power": 0.9472692473590593,
+          "renormalized_detector_L2_diagnostic": 0.1148382560487393,
+          "peak_transmission_amplitude": 1.940357581349972
+        },
+        {
+          "wavelength_nm": 570.0,
+          "relative_L2": 0.12656076984153822,
+          "captured_power": 0.9900352671490948,
+          "roi_power": 0.9489971054476549,
+          "renormalized_detector_L2_diagnostic": 0.12519670998004326,
+          "peak_transmission_amplitude": 1.968852164035137
+        },
+        {
+          "wavelength_nm": 580.0,
+          "relative_L2": 0.13616805446928384,
+          "captured_power": 0.9898624728109597,
+          "roi_power": 0.9502149220046734,
+          "renormalized_detector_L2_diagnostic": 0.13467828663467651,
+          "peak_transmission_amplitude": 2.0469035521491037
+        },
+        {
+          "wavelength_nm": 590.0,
+          "relative_L2": 0.14393702687121443,
+          "captured_power": 0.9896662945956293,
+          "roi_power": 0.9507203979578766,
+          "renormalized_detector_L2_diagnostic": 0.142430167336554,
+          "peak_transmission_amplitude": 2.1192048102199768
+        },
+        {
+          "wavelength_nm": 600.0,
+          "relative_L2": 0.15002476283397803,
+          "captured_power": 0.989421376337551,
+          "roi_power": 0.9503927076446244,
+          "renormalized_detector_L2_diagnostic": 0.14862825818289452,
+          "peak_transmission_amplitude": 2.1856439442356264
+        },
+        {
+          "wavelength_nm": 610.0,
+          "relative_L2": 0.15550345096417337,
+          "captured_power": 0.9890985169236831,
+          "roi_power": 0.949202513626463,
+          "renormalized_detector_L2_diagnostic": 0.15436792607767724,
+          "peak_transmission_amplitude": 2.2460963952935105
+        },
+        {
+          "wavelength_nm": 620.0,
+          "relative_L2": 0.162171942558315,
+          "captured_power": 0.9886822680045755,
+          "roi_power": 0.9472313295674212,
+          "renormalized_detector_L2_diagnostic": 0.16146749614725117,
+          "peak_transmission_amplitude": 2.3004290494801567
+        },
+        {
+          "wavelength_nm": 630.0,
+          "relative_L2": 0.17217257464774763,
+          "captured_power": 0.9882290686424016,
+          "roi_power": 0.9446409038260838,
+          "renormalized_detector_L2_diagnostic": 0.17206168409095415,
+          "peak_transmission_amplitude": 2.3485106553382846
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.17612234445611816,
+          "captured_power": 0.9880895908740173,
+          "roi_power": 0.943770384675933,
+          "renormalized_detector_L2_diagnostic": 0.1762134319148268,
+          "peak_transmission_amplitude": 2.3616982961224813
+        },
+        {
+          "wavelength_nm": 640.0,
+          "relative_L2": 0.1873908230639376,
+          "captured_power": 0.9877446819074505,
+          "roi_power": 0.9416101314311374,
+          "renormalized_detector_L2_diagnostic": 0.18797797159826693,
+          "peak_transmission_amplitude": 2.3902262830206533
+        },
+        {
+          "wavelength_nm": 650.0,
+          "relative_L2": 0.20888726382583797,
+          "captured_power": 0.9871800589666571,
+          "roi_power": 0.9382792111160801,
+          "renormalized_detector_L2_diagnostic": 0.21020053704280364,
+          "peak_transmission_amplitude": 2.425493485636734
+        },
+        {
+          "wavelength_nm": 660.0,
+          "relative_L2": 0.2367164073457173,
+          "captured_power": 0.9865676454737329,
+          "roi_power": 0.9347137599132133,
+          "renormalized_detector_L2_diagnostic": 0.2387156254244177,
+          "peak_transmission_amplitude": 2.454277984789865
+        },
+        {
+          "wavelength_nm": 670.0,
+          "relative_L2": 0.2701715407334029,
+          "captured_power": 0.9859697156644508,
+          "roi_power": 0.9308895316902638,
+          "renormalized_detector_L2_diagnostic": 0.27276914312318756,
+          "peak_transmission_amplitude": 2.476606997573444
+        },
+        {
+          "wavelength_nm": 680.0,
+          "relative_L2": 0.30817427723272167,
+          "captured_power": 0.9853602388116259,
+          "roi_power": 0.9267050517963065,
+          "renormalized_detector_L2_diagnostic": 0.3112787365873001,
+          "peak_transmission_amplitude": 2.492578748059286
+        },
+        {
+          "wavelength_nm": 690.0,
+          "relative_L2": 0.3495701779699026,
+          "captured_power": 0.9846866644855841,
+          "roi_power": 0.9220217349145773,
+          "renormalized_detector_L2_diagnostic": 0.3531123260654752,
+          "peak_transmission_amplitude": 2.5023672386907583
+        },
+        {
+          "wavelength_nm": 700.0,
+          "relative_L2": 0.3932816245388588,
+          "captured_power": 0.9839672756340723,
+          "roi_power": 0.9167063038846237,
+          "renormalized_detector_L2_diagnostic": 0.3972036806239966,
+          "peak_transmission_amplitude": 2.5062219457900765
+        }
+      ],
+      "runs": [
+        {
+          "restart": 0,
+          "best_loss": 0.009991933518556078,
+          "success": false,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "iterations": 5,
+          "evaluations": 8,
+          "seconds": 0.6709248999832198,
+          "history": [
+            {
+              "iteration": 0,
+              "loss": 0.03009236111149815,
+              "gradient_inf": 9.81916030161651e-05
+            },
+            {
+              "iteration": 1,
+              "loss": 0.027757717474187024,
+              "gradient_inf": 8.591694091648704e-05
+            },
+            {
+              "iteration": 2,
+              "loss": 0.019530624891738083,
+              "gradient_inf": 7.798090502360655e-05
+            },
+            {
+              "iteration": 3,
+              "loss": 0.014450287673854263,
+              "gradient_inf": 5.872397189057812e-05
+            },
+            {
+              "iteration": 4,
+              "loss": 0.012151335235577456,
+              "gradient_inf": 7.301917800041604e-05
+            },
+            {
+              "iteration": 5,
+              "loss": 0.009991933518556078,
+              "gradient_inf": 2.3437504569470345e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

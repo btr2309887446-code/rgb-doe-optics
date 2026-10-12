@@ -1,0 +1,23 @@
+[
+  {
+    "target": "three_spots",
+    "models": [
+      {
+        "name": "phase",
+        "training_RMS_L2": 0.5796339030808438
+      },
+      {
+        "name": "complex",
+        "training_RMS_L2": 0.5648789528560355
+      },
+      {
+        "name": "spectral_degree_1",
+        "training_RMS_L2": 0.24532574716689706
+      },
+      {
+        "name": "spectral_degree_2",
+        "training_RMS_L2": 0.14136430609284706
+      }
+    ]
+  }
+]

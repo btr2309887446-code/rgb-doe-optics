@@ -1,0 +1,65 @@
+[
+  {
+    "target": "annular_ring",
+    "models": [
+      {
+        "name": "phase",
+        "training_RMS_L2": 0.535937295632633
+      },
+      {
+        "name": "complex",
+        "training_RMS_L2": 0.49285234622776064
+      },
+      {
+        "name": "spectral_degree_1",
+        "training_RMS_L2": 0.03797405645183739
+      },
+      {
+        "name": "spectral_degree_2",
+        "training_RMS_L2": 0.0013987023887312368
+      }
+    ]
+  },
+  {
+    "target": "letter_A",
+    "models": [
+      {
+        "name": "phase",
+        "training_RMS_L2": 0.5710621346488178
+      },
+      {
+        "name": "complex",
+        "training_RMS_L2": 0.5467284275969578
+      },
+      {
+        "name": "spectral_degree_1",
+        "training_RMS_L2": 0.25437460891971364
+      },
+      {
+        "name": "spectral_degree_2",
+        "training_RMS_L2": 0.19669146685592495
+      }
+    ]
+  },
+  {
+    "target": "three_spots",
+    "models": [
+      {
+        "name": "phase",
+        "training_RMS_L2": 0.5597727444019097
+      },
+      {
+        "name": "complex",
+        "training_RMS_L2": 0.5529467178653931
+      },
+      {
+        "name": "spectral_degree_1",
+        "training_RMS_L2": 0.05449890850809537
+      },
+      {
+        "name": "spectral_degree_2",
+        "training_RMS_L2": 0.0015204950693410433
+      }
+    ]
+  }
+]
