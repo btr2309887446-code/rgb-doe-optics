@@ -1,0 +1,966 @@
+你现在接手一个正在进行的“多波长 Fourier 光学任意衍射图案生成”研究项目。
+
+请把下面内容视为此前 Agent 已经完成的研究背景和当前工作状态。你的任务不是简单重复已有内容，而是继续推进这个问题，并尽可能给出可以实际运行、验证和扩展的数学模型与 Python 仿真。
+
+============================================================
+一、项目总目标
+============================================================
+
+研究如下问题：
+
+给定一个输入光场，以及一个可以设计的二维光学屏/衍射器件和若干光学元件，能否构造一个光学系统，使得：
+
+1. 输入任意指定的目标衍射图案；
+2. 自动计算所需要的屏函数；
+3. 对不同波长的入射光，都得到相同的目标衍射图案；
+4. 最终建立“任意衍射图案 = 若干基本图案的组合”的严格数学描述；
+5. 找到这些基本图案以及对应的屏函数；
+6. 用 Python，优先考虑 PyOptica，对整个过程进行数值模拟；
+7. 最终形成一个可以输入任意目标图案、输出屏函数并模拟不同波长衍射结果的程序。
+
+研究重点是 Fourier optics，而不是几何光学。
+
+============================================================
+二、此前已经得到的核心理论
+============================================================
+
+对于单色平面波：
+
+    U_in(x,y) = U0
+
+经过一个复振幅屏：
+
+    t(x,y) = A(x,y) exp[i phi(x,y)]
+
+之后：
+
+    U0(x,y) = U0 t(x,y)
+
+如果后面放置理想薄透镜，焦距为 f，则后焦平面近似为输入场的 Fourier transform：
+
+    U_f(X,Y; lambda)
+      ∝
+    F[t]( X/(lambda f), Y/(lambda f) )
+
+忽略不影响强度的整体相位因子。
+
+核心坐标关系是：
+
+    xi  = X/(lambda f)
+    eta = Y/(lambda f)
+
+所以普通固定焦距透镜满足：
+
+    f(lambda) = f0
+
+时，不同波长会导致 Fourier 图案在物理坐标上发生缩放：
+
+    I_lambda(X,Y)
+      ~
+    I_lambda0(
+        lambda0/lambda * X,
+        lambda0/lambda * Y
+    )
+
+因此：
+
+    同一个屏函数
+    +
+    普通固定焦距 Fourier lens
+    =>
+    不同波长通常不会得到完全相同的物理尺寸图案。
+
+============================================================
+三、目前最重要的理论猜想
+============================================================
+
+考虑一个色散 Fourier optical element，使有效焦距满足：
+
+    f(lambda) = f0 lambda0/lambda
+
+那么：
+
+    lambda f(lambda)
+      =
+    lambda0 f0
+
+因此：
+
+    U_f(X,Y;lambda)
+      ∝
+    F[t](
+        X/(lambda0 f0),
+        Y/(lambda0 f0)
+    )
+
+于是 Fourier 平面坐标不再显式依赖 lambda。
+
+因此在理想标量 Fourier optics 模型中：
+
+    不同波长
+    +
+    同一个屏函数
+    +
+    f(lambda) ∝ 1/lambda
+    =>
+    相同的 Fourier 图案。
+
+这是当前项目最重要的理论命题之一。
+
+请你严格检查这个推导，而不是直接接受它。
+
+特别需要检查：
+
+1. 傅里叶透镜相位：
+       phi_L =
+       - pi/(lambda f(lambda)) (x^2+y^2)
+
+2. 当
+       f(lambda)=f0 lambda0/lambda
+   时：
+       lambda f(lambda)=lambda0 f0
+
+3. 因此透镜相位可以变成波长无关形式。
+
+4. 但真实 diffractive optical element 是否真的能实现这个有效焦距关系？
+
+5. 需要区分：
+   - ideal mathematical lens
+   - refractive lens
+   - diffractive lens
+   - metasurface
+   - phase-only DOE
+   - achromatic / dispersion-engineered optical system
+
+6. 真实系统是否还存在：
+   - diffraction efficiency
+   - material dispersion
+   - finite aperture
+   - finite NA
+   - phase quantization
+   - polarization dependence
+   - higher diffraction orders
+   - chromatic aberration
+   - scalar approximation breakdown
+
+============================================================
+四、必须严格区分两个问题
+============================================================
+
+A. 任意复振幅目标：
+
+给定：
+
+    U_target(X,Y)
+
+可以直接反 Fourier：
+
+    t(x,y)
+      =
+    F^{-1}[U_target]
+
+原则上得到复振幅屏函数。
+
+B. 任意强度目标：
+
+给定：
+
+    I_target(X,Y)
+
+只能知道：
+
+    |U_target| = sqrt(I_target)
+
+但未知相位：
+
+    U_target =
+    sqrt(I_target) exp[i phi(X,Y)]
+
+因此需要求相位。
+
+这变成：
+
+    phase retrieval
+    / computer-generated holography
+
+可考虑：
+
+    Gerchberg-Saxton
+    Fienup
+    IFTA
+    Wirtinger flow
+    double-phase encoding
+    Lee hologram
+    complex-amplitude encoding
+
+请不要把“任意强度图案”与“任意复振幅图案”混为一谈。
+
+============================================================
+五、当前需要优先完成的数值实验
+============================================================
+
+第一阶段：
+
+验证：
+
+    arbitrary screen function
+        ->
+    Fourier diffraction pattern
+
+输入：
+
+    t(x,y)
+
+输出：
+
+    I(X,Y)
+
+必须明确：
+
+1. 空间坐标 x,y；
+2. pixel size；
+3. aperture；
+4. wavelength；
+5. focal length；
+6. Fourier-plane coordinates；
+7. FFT normalization；
+8. sampling condition；
+9. Nyquist condition。
+
+至少测试：
+
+1. circular aperture
+2. rectangular aperture
+3. phase grating
+4. arbitrary phase function
+5. arbitrary amplitude function
+
+并比较数值结果与解析结果。
+
+例如：
+
+    circular aperture
+        ->
+    Airy pattern
+
+以及：
+
+    t(x)=exp(i 2 pi x/Lambda)
+        ->
+    Fourier plane 中的离散 diffraction order。
+
+============================================================
+六、第二阶段：任意复振幅目标
+============================================================
+
+构造：
+
+    U_target(X,Y)
+
+例如：
+
+1. Gaussian
+2. multiple Gaussian spots
+3. ring
+4. letters / arbitrary binary image
+5. random complex field
+
+然后计算：
+
+    t = F^{-1}[U_target]
+
+再正向 Fourier：
+
+    U_reconstructed = F[t]
+
+比较：
+
+    error =
+    ||U_reconstructed-U_target||
+
+必须验证误差来自：
+
+1. numerical discretization
+2. finite aperture
+3. FFT sampling
+4. normalization
+
+而不是理论本身。
+
+============================================================
+七、第三阶段：任意强度目标
+============================================================
+
+输入：
+
+    I_target(X,Y)
+
+构造：
+
+    amplitude_target = sqrt(I_target)
+
+采用 Gerchberg-Saxton：
+
+初始：
+
+    U_target =
+    sqrt(I_target) exp(i random_phase)
+
+反复：
+
+    Fourier transform
+    ->
+    impose screen constraint
+    ->
+    inverse Fourier
+    ->
+    impose target amplitude
+    ->
+    repeat
+
+如果采用 phase-only SLM，则约束：
+
+    |t(x,y)| = 1
+
+即：
+
+    t(x,y)=exp(i phi(x,y))
+
+最终得到：
+
+    phi(x,y)
+
+并验证：
+
+    |F[exp(i phi)]|^2
+       ≈
+    I_target
+
+需要输出：
+
+1. target image
+2. calculated phase screen
+3. reconstructed image
+4. error metric
+5. convergence curve
+
+至少给出：
+
+    RMSE
+    normalized MSE
+    correlation coefficient
+
+============================================================
+八、第四阶段：多波长实验
+============================================================
+
+固定一个屏函数：
+
+    t(x,y)
+
+选择：
+
+    lambda1 = 450 nm
+    lambda2 = 532 nm
+    lambda3 = 633 nm
+
+先使用：
+
+    f(lambda)=f0
+
+模拟：
+
+    I_450
+    I_532
+    I_633
+
+验证理论预测：
+
+不同波长导致 Fourier pattern 在物理坐标上的缩放。
+
+然后使用理想色散透镜：
+
+    f(lambda)=f0 lambda0/lambda
+
+再次模拟：
+
+    I_450
+    I_532
+    I_633
+
+比较：
+
+    I_450 vs I_target
+    I_532 vs I_target
+    I_633 vs I_target
+
+并计算误差：
+
+    E(lambda)
+      =
+    ||I_lambda-I_target||
+
+最好画：
+
+1. 三个波长的 diffraction pattern；
+2. 三者叠加/差分；
+3. scaling error；
+4. compensated error。
+
+============================================================
+九、第五阶段：研究“基本图案”
+============================================================
+
+这是项目的数学核心之一。
+
+注意：
+
+“图案”如果指 intensity：
+
+    I=|U|^2
+
+一般不是线性空间。
+
+真正适合做线性分解的是复振幅：
+
+    U(X,Y)
+
+因此应首先研究：
+
+    H_image
+      =
+    space of complex optical fields
+
+离散成：
+
+    N x N
+
+后：
+
+    H_image ≅ C^(N^2)
+
+于是存在有限维基。
+
+最自然的基是 Fourier basis。
+
+定义：
+
+    t_mn(x,y)
+      =
+    exp[
+       2 pi i
+       (m x/Lx + n y/Ly)
+    ]
+
+其 Fourier transform 对应单个空间频率：
+
+    F[t_mn]
+      =
+    delta(
+       xi-xi_m,
+       eta-eta_n
+    )
+
+离散系统中对应 Fourier-plane 的单个像素/spot。
+
+因此：
+
+    任意复场
+      =
+    sum_mn c_mn B_mn
+
+其中：
+
+    B_mn
+      =
+    Fourier basis pattern
+
+而屏函数：
+
+    t(x,y)
+      =
+    sum_mn c_mn t_mn(x,y)
+
+这实际上就是 Fourier series。
+
+请严格研究：
+
+1. 完备性；
+2. 正交性；
+3. Parseval identity；
+4. 离散 Fourier transform；
+5. continuous Fourier basis；
+6. finite aperture 下的修正；
+7. finite pixel / finite SLM 下的修正；
+8. spot 不再是理想 delta，而是 sinc-like pattern；
+9. 空间带宽积；
+10. optical degrees of freedom。
+
+============================================================
+十、必须进一步研究“基本图案”的其他选择
+============================================================
+
+不要直接宣称 Fourier basis 是唯一的“全部基本图案”。
+
+需要区分：
+
+1. mathematical basis
+2. physically realizable basis
+3. orthogonal basis
+4. experimentally convenient basis
+5. sparse basis
+
+至少讨论：
+
+A. Fourier basis
+
+B. Cartesian pixel basis
+
+C. sinc basis
+
+D. Hermite-Gaussian basis
+
+E. Laguerre-Gaussian basis
+
+F. Zernike basis
+
+特别对于 circular aperture：
+
+    Zernike basis
+
+可能非常自然。
+
+需要比较不同 basis：
+
+    basis completeness
+    orthogonality
+    numerical stability
+    optical realizability
+    sparsity
+    robustness to wavelength changes
+
+============================================================
+十一、一个非常重要的物理约束
+============================================================
+
+数学上：
+
+    t(x,y)
+      =
+    sum_n c_n t_n(x,y)
+
+没有问题。
+
+但实际光学屏可能只能实现：
+
+A. amplitude-only：
+
+    0 <= |t| <= 1
+
+B. phase-only：
+
+    |t| = 1
+
+因此：
+
+    arbitrary complex field
+        !=
+    arbitrary phase-only screen
+
+需要研究如何从任意复屏转换为：
+
+    phase-only hologram
+
+包括：
+
+1. Gerchberg-Saxton
+2. double-phase encoding
+3. Lee hologram
+4. detour phase
+5. complex-amplitude encoding
+
+如果目标是实际 SLM，应重点研究 phase-only 情况。
+
+============================================================
+十二、PyOptica 要求
+============================================================
+
+优先使用 PyOptica 进行模拟。
+
+但是不要盲目依赖 PyOptica 的高层 API。
+
+先检查当前实际安装版本：
+
+    import pyoptica
+
+查看：
+
+    pyoptica.__version__
+
+并检查实际 API。
+
+如果 PyOptica 无法安装或者 API 与旧文档不一致：
+
+1. 明确说明；
+2. 不要伪造 PyOptica API；
+3. 可以使用 NumPy/SciPy 实现 Fourier propagation；
+4. 但代码结构要尽量保持以后可以替换成 PyOptica。
+
+建议把程序分成：
+
+    optical_system.py
+    fourier_propagation.py
+    holography.py
+    basis.py
+    wavelength.py
+    visualization.py
+    examples/
+
+============================================================
+十三、建议的核心 Python API
+============================================================
+
+最终希望得到类似：
+
+    screen = make_screen(
+        target,
+        wavelength=532e-9,
+        method="gerchberg_saxton",
+        constraint="phase_only"
+    )
+
+然后：
+
+    result = simulate(
+        screen,
+        wavelength=532e-9,
+        focal_length=0.2,
+        aperture=...
+    )
+
+多波长：
+
+    result = simulate_multicolor(
+        screen,
+        wavelengths=[
+            450e-9,
+            532e-9,
+            633e-9
+        ],
+        optical_system="achromatic_fourier"
+    )
+
+其中：
+
+    optical_system="ordinary_fourier"
+
+对应：
+
+    f(lambda)=constant
+
+而：
+
+    optical_system="diffractive_fourier"
+
+对应：
+
+    f(lambda)=f0 lambda0/lambda
+
+============================================================
+十四、必须注意 Fourier optics 的采样问题
+============================================================
+
+不能只调用 np.fft.fft2 然后画图。
+
+必须严格说明：
+
+1. physical aperture size
+2. pixel pitch
+3. number of pixels
+4. spatial-frequency sampling
+5. Fourier-plane sampling
+6. wavelength
+7. focal length
+8. numerical aperture
+9. maximum representable spatial frequency
+10. Nyquist condition
+
+如果：
+
+    dx = L/N
+
+那么：
+
+    df = 1/L
+
+而 Fourier plane：
+
+    dX = lambda f / L
+
+这条关系必须明确写出并用于代码。
+
+============================================================
+十五、需要检查“任意图案”的可实现性边界
+============================================================
+
+“任意”不能不加条件地使用。
+
+需要研究：
+
+1. finite aperture
+2. finite NA
+3. finite SLM resolution
+4. finite phase levels
+5. finite diffraction efficiency
+6. finite propagation distance
+7. scalar diffraction approximation
+8. paraxial approximation
+9. evanescent components
+10. bandwidth limitations
+
+特别需要说明：
+
+如果目标包含空间频率：
+
+    |xi| > NA/lambda
+
+那么普通远场传播系统无法产生它。
+
+因此真正可实现的目标空间应该定义成：
+
+    H_NA
+
+而不是整个：
+
+    L^2(R^2)
+
+这是“任意图案”数学上必须处理的问题。
+
+============================================================
+十六、进一步研究多波长“相同图案”的更一般问题
+============================================================
+
+不要只停留在：
+
+    f(lambda) ∝ 1/lambda
+
+进一步考虑：
+
+一个固定物理屏：
+
+    t(x,y)
+
+对于多个波长：
+
+    lambda_1,...,lambda_M
+
+希望：
+
+    O_lambda_m[t]
+      =
+    U_target
+
+其中：
+
+    O_lambda
+
+是完整 optical operator。
+
+研究：
+
+    O_lambda1
+    O_lambda2
+    ...
+    O_lambdaM
+
+是否可以通过：
+
+1. dispersive lens
+2. diffractive optical element
+3. multiple phase plates
+4. cascaded optical system
+5. spatially varying phase
+6. metasurface
+7. wavelength-dependent routing
+
+实现：
+
+    O_lambda1
+    ≈
+    O_lambda2
+    ≈
+    ...
+    ≈
+    O_lambdaM
+
+并分析：
+
+1. 两个波长；
+2. 三个离散波长；
+3. 连续波段；
+4. 任意宽带光谱。
+
+============================================================
+十七、特别研究一个更深的问题
+============================================================
+
+如果要求：
+
+    对所有 lambda ∈ [lambda_min,lambda_max]
+
+都有：
+
+    I_lambda(X,Y)
+      =
+    I_target(X,Y)
+
+那么是否存在一个固定被动线性光学系统？
+
+需要从 operator theory / Fourier optics / diffraction theory 的角度分析。
+
+不要直接认为一定可以。
+
+需要判断：
+
+1. 数学上是否存在；
+2. 被动光学系统是否存在；
+3. phase-only 元件是否足够；
+4. 是否违反能量守恒；
+5. 是否需要 wavelength-dependent phase；
+6. 是否需要材料色散；
+7. 是否需要主动元件；
+8. 是否只能在有限离散波长集合上实现；
+9. 连续波段是否只能近似实现。
+
+这是整个项目最终最值得研究的理论问题。
+
+============================================================
+十八、输出格式要求
+============================================================
+
+你的回答不要只给概念描述。
+
+每推进一个阶段，都必须给：
+
+1. 数学模型；
+2. 明确定义；
+3. 推导；
+4. 物理假设；
+5. 数值算法；
+6. Python 代码；
+7. 仿真结果应该是什么；
+8. 如何判断仿真正确；
+9. 当前模型的局限；
+10. 下一阶段怎么继续。
+
+如果涉及数学命题，尽量使用：
+
+    Definition
+    Proposition
+    Theorem
+    Proof
+    Corollary
+
+结构。
+
+所有符号第一次出现时必须定义。
+
+============================================================
+十九、严禁的做法
+============================================================
+
+不要：
+
+1. 把 intensity 和 complex amplitude 混为一谈；
+2. 把 arbitrary pattern 说成无条件可实现；
+3. 忽略 finite aperture；
+4. 忽略 NA；
+5. 忽略 sampling；
+6. 直接声称不同波长一定能产生相同图案；
+7. 把 f(lambda) ∝ 1/lambda 当成已经制造出的真实器件；
+8. 伪造 PyOptica API；
+9. 给出未经验证的代码；
+10. 用“Fourier transform 可以做任何事情”作为证明；
+11. 跳过 phase retrieval；
+12. 把 Fourier basis 称为唯一的基本图案。
+
+============================================================
+二十、当前第一任务
+============================================================
+
+现在不要直接跳到最终的多波长系统。
+
+请从：
+
+    Step 1:
+    任意 screen function
+        ->
+    Fourier-plane diffraction
+
+开始。
+
+要求你：
+
+1. 严格推导 thin lens Fourier transform；
+2. 给出连续模型；
+3. 给出离散模型；
+4. 给出 sampling conditions；
+5. 给出 NumPy 实现；
+6. 如果环境有 PyOptica，则实际检查并使用 PyOptica；
+7. 模拟 circular aperture；
+8. 模拟 phase grating；
+9. 模拟 arbitrary complex screen；
+10. 对比解析结果；
+11. 给出误差；
+12. 确认这一层正确以后，再进入 Step 2。
+
+不要一次性跳完所有阶段。
+
+每完成一个阶段，都明确指出：
+
+    VERIFIED:
+    ...
+
+    NOT YET VERIFIED:
+    ...
+
+然后继续下一阶段。
+
+============================================================
+最终目标
+============================================================
+
+最终希望得到一个完整的 computational Fourier-optics framework：
+
+    arbitrary target pattern
+             ↓
+    target complex amplitude
+             ↓
+    phase retrieval / hologram algorithm
+             ↓
+    physical screen function
+             ↓
+    wavelength-dependent optical system
+             ↓
+    diffraction
+             ↓
+    identical target pattern
+    for multiple wavelengths
+
+同时建立：
+
+    Optical image space
+             ↓
+    basis decomposition
+             ↓
+    complete basis
+             ↓
+    elementary screen functions
+             ↓
+    arbitrary target reconstruction
+
+最终请尝试回答一个严格的数学/物理问题：
+
+“在给定有限 aperture、NA、pixel pitch、phase range、phase quantization 和 wavelength bandwidth 的条件下，哪些衍射图案是可实现的？对于有限个离散波长以及连续波长区间，是否存在一个固定的被动光学系统，使所有波长产生相同的目标图案？如果不能严格实现，最佳近似问题是什么？”
+
+请把这个问题作为最终研究目标，而不是简单的“写一个衍射模拟程序”。

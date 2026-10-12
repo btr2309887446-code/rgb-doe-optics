@@ -1,0 +1,216 @@
+{
+  "title": "Fourier-optics reusable pipeline demonstration",
+  "matched_DFT_complex_inverse_demo": {
+    "grid": [
+      64,
+      64
+    ],
+    "maximum_transmission": 0.72,
+    "maximum_absolute_screen_reconstruction_error": 6.497413668604471e-16,
+    "note": "A finite matched DFT target is inverted exactly to numerical precision when the required screen transmission is passive."
+  },
+  "GS_256_three_spot_demo": {
+    "grid": [
+      256,
+      256
+    ],
+    "iterations": 120,
+    "seed": 314159,
+    "final_relative_L2": 0.22175280125306165,
+    "final_ROI_power": 0.9165351762246751
+  },
+  "reused_1024_targets": {
+    "three_spots": {
+      "ideal_wavelength_invariant_screen": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.2509166665280703,
+          "squared_Bhattacharyya_fidelity": 0.8986112669197834,
+          "power_fraction_in_roi": 0.9017711547333982
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.2509166665280703,
+          "squared_Bhattacharyya_fidelity": 0.8986112669197834,
+          "power_fraction_in_roi": 0.9017711547333982
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.2509163366446533,
+          "squared_Bhattacharyya_fidelity": 0.898617091758793,
+          "power_fraction_in_roi": 0.9017770000549438
+        }
+      ],
+      "ordinary_fixed_focal_length": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.8419111787301515,
+          "squared_Bhattacharyya_fidelity": 0.6666017464570668,
+          "power_fraction_in_roi": 0.9000877181392317
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.2509166665280703,
+          "squared_Bhattacharyya_fidelity": 0.8986112669197834,
+          "power_fraction_in_roi": 0.9017711547333982
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.7614035438273369,
+          "squared_Bhattacharyya_fidelity": 0.6162080565033705,
+          "power_fraction_in_roi": 0.7959616661299527
+        }
+      ],
+      "fused_silica_principal_height_relief": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.3100345068453916,
+          "squared_Bhattacharyya_fidelity": 0.7937218167655251,
+          "power_fraction_in_roi": 0.7969923740527556
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.2509166666101031,
+          "squared_Bhattacharyya_fidelity": 0.8986112669301765,
+          "power_fraction_in_roi": 0.9017711547399769
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.3346788679538478,
+          "squared_Bhattacharyya_fidelity": 0.8206311565820108,
+          "power_fraction_in_roi": 0.8220972530305657
+        }
+      ]
+    },
+    "annular_ring": {
+      "ideal_wavelength_invariant_screen": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.38443063373748304,
+          "squared_Bhattacharyya_fidelity": 0.8771518503327308,
+          "power_fraction_in_roi": 0.9232254219502561
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.38443063373748304,
+          "squared_Bhattacharyya_fidelity": 0.8771518503327308,
+          "power_fraction_in_roi": 0.9232254219502561
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.38443181229324497,
+          "squared_Bhattacharyya_fidelity": 0.8771596628312135,
+          "power_fraction_in_roi": 0.923233644810648
+        }
+      ],
+      "ordinary_fixed_focal_length": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.7717572542310567,
+          "squared_Bhattacharyya_fidelity": 0.727259013396523,
+          "power_fraction_in_roi": 0.930706768030024
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.38443063373748304,
+          "squared_Bhattacharyya_fidelity": 0.8771518503327308,
+          "power_fraction_in_roi": 0.9232254219502561
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.6791044255885034,
+          "squared_Bhattacharyya_fidelity": 0.6833736871388305,
+          "power_fraction_in_roi": 0.8538673589290493
+        }
+      ],
+      "fused_silica_principal_height_relief": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.48243973131224516,
+          "squared_Bhattacharyya_fidelity": 0.7857077879337391,
+          "power_fraction_in_roi": 0.8321048658557808
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.3844306337075046,
+          "squared_Bhattacharyya_fidelity": 0.8771518502938634,
+          "power_fraction_in_roi": 0.9232254219080196
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.5901521510630734,
+          "squared_Bhattacharyya_fidelity": 0.8087243927999155,
+          "power_fraction_in_roi": 0.8556039654460335
+        }
+      ]
+    },
+    "letter_A": {
+      "ideal_wavelength_invariant_screen": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.4756295514029517,
+          "squared_Bhattacharyya_fidelity": 0.7613541669694854,
+          "power_fraction_in_roi": 0.820632574374685
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.4756295514029517,
+          "squared_Bhattacharyya_fidelity": 0.7613541669694854,
+          "power_fraction_in_roi": 0.820632574374685
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.475630131144832,
+          "squared_Bhattacharyya_fidelity": 0.7613586476785393,
+          "power_fraction_in_roi": 0.8206374039480494
+        }
+      ],
+      "ordinary_fixed_focal_length": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.8497410036840839,
+          "squared_Bhattacharyya_fidelity": 0.5139332766180036,
+          "power_fraction_in_roi": 0.7271326533606199
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.4756295514029517,
+          "squared_Bhattacharyya_fidelity": 0.7613541669694854,
+          "power_fraction_in_roi": 0.820632574374685
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.749920568602201,
+          "squared_Bhattacharyya_fidelity": 0.44348657078132525,
+          "power_fraction_in_roi": 0.5168145468897212
+        }
+      ],
+      "fused_silica_principal_height_relief": [
+        {
+          "wavelength_nm": 450.0,
+          "relative_L2": 0.5383919271288679,
+          "squared_Bhattacharyya_fidelity": 0.6777613599640682,
+          "power_fraction_in_roi": 0.7374605256620986
+        },
+        {
+          "wavelength_nm": 532.0,
+          "relative_L2": 0.475629551409443,
+          "squared_Bhattacharyya_fidelity": 0.7613541669907227,
+          "power_fraction_in_roi": 0.820632574395695
+        },
+        {
+          "wavelength_nm": 633.0,
+          "relative_L2": 0.5247968723995039,
+          "squared_Bhattacharyya_fidelity": 0.7045099656262273,
+          "power_fraction_in_roi": 0.7631912518054389
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "The three stored phase screens were designed at the reference wavelength; the relief conversion uses the principal 0-to-2pi height branch.",
+    "The Fourier lens is idealized; diffractive mode imposes f proportional to inverse wavelength by definition.",
+    "Each distribution is normalized, so reported ROI fractions are not absolute throughput or diffraction efficiency.",
+    "Scalar paraxial propagation omits vector, polarization, reflection, absorption, fabrication, and feature-size effects."
+  ]
+}

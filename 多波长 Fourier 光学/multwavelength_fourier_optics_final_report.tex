@@ -1,0 +1,191 @@
+\documentclass[UTF8,a4paper,11pt,fontset=fandol]{ctexart}
+
+\usepackage[margin=2.35cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\hypersetup{pdfauthor={},pdftitle={多波长 Fourier 光学终版研究报告}}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{2em}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\arraystretch}{1.18}
+\setlist[itemize]{leftmargin=2em,itemsep=0.2em,topsep=0.2em}
+\setlist[enumerate]{leftmargin=2.3em,itemsep=0.2em,topsep=0.2em}
+\newcommand{\um}{\,\mu\mathrm{m}}
+\newcommand{\Ltwo}{\mathrm{L2}}
+\newcommand{\ROI}{\mathrm{ROI}}
+
+\title{多波长 Fourier 光学：目标强度到相位屏与浮雕的可行性研究\\[0.35em]
+\large 终版研究报告（模型、数值结果与可复用流程）}
+\author{}
+\date{2026 年 9 月 30 日}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+本报告研究给定目标强度时，如何通过相位恢复得到有限孔径屏函数，并评估同一固定屏在多个波长下的 Fourier 衍射表现。研究先区分可逆的复场 DFT 与非凸的强度相位恢复，再检查有限采样、孔径、数值孔径（NA）、相位量化和像素间距造成的限制。为描述实际高度屏的波长依赖，进一步采用熔融石英色散模型，把参考相位映射为浮雕高度，并进行三波长联合高度优化、目标区域功率权衡、多起点搜索及 400--700 nm 的 5 nm 离散扫描。数值结果显示，理想的 $f\propto1/\lambda$ 可在波长无关屏的标量 Fourier 模型内保持物理坐标映射；固定材料浮雕的相位仍随波长变化。联合优化能降低设计波长处的图案误差，但会牺牲目标区域功率或偏离连续波段两端。结果是可复用的标量仿真与优化证据，不代表真实器件的绝对效率或电磁性能。
+\end{abstract}
+
+\noindent\textbf{关键词：} Fourier 光学；相位恢复；多波长衍射；熔融石英浮雕；目标区域功率；数值孔径
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{研究问题与结论摘要}
+
+研究问题是：给定离散目标强度，能否构造单一的屏面复透射函数或物理浮雕，使多个波长在 Fourier 面形成相同或相近目标？答案取决于屏的限制和传播算子。匹配的有限 DFT 上，指定复场可以直接逆变换；指定强度则缺少输出相位，需要迭代估计。进一步加入相位型、被动透射、有限孔径、有限像素和材料色散后，可达集合会缩小，不能从 Fourier 基完备直接推出任意强度都可精确实现。
+
+在理想标量薄透镜模型里，焦平面坐标满足 $X=\lambda f\xi$。令 $f(\lambda)=f_0\lambda_0/\lambda$，则 $\lambda f$ 不变；对同一个波长无关屏函数，所有波长可落在相同物理 Fourier 网格。对固定焦距，图案随 $\lambda f$ 缩放。把相位屏实现为熔融石英固定高度 $h(x,y)$ 后，屏透射率为 $t_\lambda=P\exp[i2\pi(n(\lambda)-1)h/\lambda]$；理想焦距补偿不能抵消浮雕相位的波长依赖。
+
+\begin{itemize}
+  \item 64$\times$64 匹配 DFT 的被动复屏反演最大误差为 $6.5\times10^{-16}$；独立 256$\times$256 三光斑 GS 示例的归一化强度相对 L2 为 0.222，目标 ROI 功率为 0.917。
+  \item 1024$\times$1024 三光斑、圆环和字母 A 的参考波长强度 L2 分别为 0.251、0.384、0.476，展示了同一算法流程对不同目标的处理能力，也体现出目标依赖性。
+  \item 三波长连续高度联合优化将平均 L2 从 0.2985 降至 0.1857，但最小 ROI 功率为 0.778。加入 ROI 软惩罚后，平均 L2 为 0.2528，最低 ROI 为 0.809，仍未达到三色均不低于 0.85 的门槛。
+  \item 三个增广拉格朗日起点中最低 ROI 为 0.811--0.822；只最大化三色最差 ROI 的最佳局部解最低 ROI 为 0.830，但平均 L2 上升到 0.592。该搜索未找到 0.85 解，不是不可行性证明。
+  \item 对三色设计高度进行 400--700 nm、每 5 nm 的离散扫描，目标 ROI 在 400 nm 降至 0.56--0.63。离散扫描不等于连续带宽证明；焦距补偿也只是理想算子设定。
+\end{itemize}
+
+\section{传播模型、采样和目标生成}
+
+\subsection{薄透镜 Fourier 变换}
+
+在标量、傍轴、薄透镜模型下，屏面场 $U_0(x,y)t_\lambda(x,y)$ 在后焦面 $(X,Y)$ 的复振幅正比于
+\begin{equation}
+U_\lambda(X,Y)=\frac{C}{\lambda f}\iint U_0(x,y)t_\lambda(x,y)
+\exp\!\left[-i2\pi\frac{xX+yY}{\lambda f}\right]dxdy,
+\qquad X=\lambda f\xi,\quad Y=\lambda f\eta,
+\label{eq:fourier}
+\end{equation}
+其中 $C$ 是对强度形状比较无关的全局相位/比例常数。对边长为 $N$、输入采样间距为 $\Delta x$ 的方形 DFT 网格，频率采样间隔和焦平面像素间距分别为
+\begin{equation}
+\Delta f=\frac{1}{N\Delta x},\qquad
+\Delta X=\lambda f\Delta f=\frac{\lambda f}{N\Delta x}.
+\label{eq:sampling}
+\end{equation}
+因此普通固定焦距系统中，同一 DFT 像素对应的焦面坐标会随波长变化。系统 NA 会限制可通过的空间频率；屏采样的 Nyquist 上限为 $1/(2\Delta x)$。有限圆孔径会使理想单频率点展宽成 Airy 型点扩散函数。
+
+\subsection{复场反演与强度相位恢复}
+
+在匹配的有限 DFT 网格中，若目标是复场 $V$，所需屏面场可由 $\mathcal F^{-1}V$ 求出，再除以入射场。此离散变换在线性代数意义下可逆，但被动屏还要求透射振幅不超过 1；相位型屏要求模长为 1；孔径外不能生成非零场。因此，代数可逆性并不等于物理屏可无损实现。
+
+若目标只给强度 $I_t$，则输出场为 $\sqrt{I_t}\exp(i\psi)$，其中 $\psi$ 未知。GS 交替执行 Fourier 面的目标振幅替换与屏面的孔径/输入振幅约束。相位屏求解是非凸问题，初相位和迭代预算会影响局部解。研究代码中的 \texttt{make\_screen} 返回一张相位型屏及误差历史，不承诺任意图案都精确实现。
+
+有限采样复场的 DFT 指数函数构成 $\mathbb C^{N^2}$ 的完备正交基；此结论不等于强度图线性叠加。圆孔径截断 DFT 模式后，模式内积显著增大，理想离散点变成有限宽光斑。Cartesian 像素、sinc、Hermite--Gaussian、Laguerre--Gaussian 和 Zernike 基底各自适用于不同边界、场型和内积，Fourier 基并非对所有任务都最稀疏或最合适。
+
+\section{有限屏幕与可实现性边界}
+
+相位量化扫描表明，针对本例连续相位解，2 级相位时强度 L2 为 0.744；4 级为 0.320；8、16、32 和 64 级分别为 0.258、0.252、0.251 和 0.251。输入像素间距从 5\ensuremath{\um} 扩大到 10、20、40、80\ensuremath{\um} 时，L2 依次为 0.251、0.253、0.267、0.404、0.785。NA 扫描中，NA=0.007 已覆盖本例目标 ROI 全部采样点，但连续 GS 屏的基准误差仍约为 0.252，说明频谱覆盖必要但不足以保证重建。
+
+这些数值来自对现成连续屏作量化或降采样，没有针对每种硬件重新优化。因此它们衡量该屏对硬件简化的敏感性，不是特定器件限制下的全局最优性能。真实可达集合还依赖入射场、填充因子、相位灰阶、偏振、表面加工、系统 NA 和器件损耗。
+
+\subsection{固定焦距严格同形的限制}
+
+在屏函数与波长无关时，固定焦距下归一化焦面强度为同一频谱强度的缩放形式。设尺度 $s=\lambda f$，则二维概率密度具有 $p_s(X,Y)=s^{-2}p(X/s,Y/s)$。若两个不同尺度 $s_1,s_2$ 的整平面归一化强度完全相等，令 $a=s_2/s_1\ne1$，半径 $R$ 内的累积能量满足 $F(R)=F(R/a)$。迭代该关系并令 $R/a^k\to0$，会迫使每个有限半径内的能量为零，与总能量为 1 矛盾。因此，非零、可归一化的整平面强度不可能在两个不同 $\lambda f$ 下严格相同。
+
+该限制只针对“波长无关屏、固定焦距 Fourier 算子、按全物理焦平面比较”的模型，不是对任意具有色散自由度、多层结构或波长路由机制的被动器件所作的普遍禁制。对于 $f\propto1/\lambda$ 的实际器件实现，需要将真实透镜材料与结构放入模型。
+
+\section{材料浮雕与多波长结果}
+
+\subsection{熔融石英相位模型}
+
+采用 Malitson 在 20 °C 下的 Sellmeier 拟合，波长单位为 \ensuremath{\um}：
+\begin{equation}
+n^2(\lambda)-1=\sum_{j=1}^{3}\frac{B_j\lambda^2}{\lambda^2-C_j^2},
+\end{equation}
+其中 $B=(0.6961663,0.4079426,0.8974794)$，$C=(0.0684043,0.1162414,9.896161)$\ensuremath{\um}。原始测量覆盖 0.21--3.71\ensuremath{\um}，包含本报告采用的 400--700 nm 波段\cite{malitson}。
+
+在 532 nm 参考波长处，一个 $2\pi$ 相位浮雕高度为
+\begin{equation}
+h_{2\pi}=\frac{\lambda_0}{n(\lambda_0)-1}=1.15475\um.
+\end{equation}
+定义高度周期 $q=h/h_{2\pi}$，三波长屏透射率写为
+\begin{equation}
+t_m(x,y)=P(x,y)\exp\!\left[i2\pi\gamma_mq(x,y)\right],\qquad
+\gamma_m=\frac{[n(\lambda_m)-1]/\lambda_m}{[n(\lambda_0)-1]/\lambda_0}.
+\end{equation}
+比较中人为令每个波长的 Fourier 算子满足 $f(\lambda)=f_0\lambda_0/\lambda$，以隔离屏相位色散与坐标缩放的影响。该焦距规律是仿真条件，并非已设计的实际透镜。
+
+\subsection{设计波长性能}
+
+三波长设置为 450、532、633 nm；输入网格为 1024$\times$1024，间距 5\ensuremath{\um}，圆孔径含 51,433 个样本，参考焦距 0.2 m。误差为归一化强度相对 L2，ROI 定义为目标强度至少达到峰值的 1%。
+
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{4.0cm}XXX>{\centering\arraybackslash}p{1.7cm}}
+\toprule
+设计 & 450 nm：L2 / ROI & 532 nm：L2 / ROI & 633 nm：L2 / ROI & 平均 L2\\
+\midrule
+主值最小高度 & 0.3100 / 0.7970 & 0.2509 / 0.9018 & 0.3347 / 0.8221 & 0.2985\\
+连续高度，只优化形状 & 0.2025 / 0.7776 & 0.1397 / 0.8691 & 0.2149 / 0.7817 & 0.1857\\
+连续高度，ROI 软惩罚 & 0.2498 / 0.8238 & 0.2350 / 0.9114 & 0.2737 / 0.8094 & 0.2528\\
+增广拉格朗日，主值扰动起点 & 0.2777 / 0.8317 & 0.2644 / 0.9176 & 0.3134 / 0.8220 & 0.2852\\
+ROI-only maximin，主值起点 & 0.6229 / 0.8361 & 0.6127 / 0.9242 & 0.5405 / 0.8300 & 0.5921\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+连续高度形状优化把三色平均 L2 从 0.2985 降到 0.1857，下降约 37.8\%；但三色 ROI 功率均值也降低。加入 ROI 软惩罚后，目标能量集中有所提高，最低 ROI 为 0.809，仍低于 0.85。三个增广拉格朗日起点的最低 ROI 为 0.811--0.822，平均 L2 为 0.274--0.285。ROI-only maximin 的三个起点中，最佳最低 ROI 约 0.830，却以平均 L2 约 0.592 为代价。
+
+所有连续高度图限制在 $0\le q\le3$，最大厚度为 $3h_{2\pi}\approx3.464\um$。这类优化没有加入平滑、最小特征尺寸、灰阶量化或加工误差。Adam 结果是局部数值解，不是全局最优或硬约束可行性证明。ROI 功率由整张归一化 Fourier 面强度计算，不能解释为实际总透过率或衍射级次效率。
+
+\subsection{400--700 nm 离散波段扫描}
+
+对固定高度图每 5 nm 重新计算熔融石英相位，共采样 61 个波长；每个采样点仍采用理想 $\lambda f$ 恒定算子。
+
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{3.6cm}cc>{\centering\arraybackslash}p{1.5cm}cc>{\centering\arraybackslash}p{1.5cm}}
+\toprule
+固定高度设计 & 平均 L2 & 最差 L2 & 波长 & 平均 ROI & 最低 ROI & 波长\\
+\midrule
+主值最小高度 & 0.3324 & 0.5762 & 700 nm & 0.8193 & 0.5864 & 400 nm\\
+形状优化 & 0.2134 & 0.4238 & 400 nm & 0.7877 & 0.5642 & 400 nm\\
+ROI 软惩罚 & 0.2792 & 0.4409 & 700 nm & 0.8241 & 0.6037 & 400 nm\\
+ROI-only maximin（三色设计点） & 0.5949 & 0.6357 & 700 nm & 0.8409 & 0.6317 & 400 nm\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+密集采样显示，仅在 450、532、633 nm 设计不能保证带边性能。5 nm 步长结果能定位该网格上的最差采样值，但不是连续波长区间的严格上界或证明。
+
+\section{可复用实现与复现说明}
+
+研究代码采用 NumPy/SciPy FFT；所用 Conda 环境没有 PyOptica，因此没有依赖该库。\texttt{fourier\_optics\_framework.py} 提供以下主要接口：
+\begin{itemize}
+  \item \texttt{make\_screen(target\_intensity, input\_amplitude, iterations, seed)}：用 GS 估计相位型屏；强度目标须为非负、方形且与屏幕 DFT 网格对应。
+  \item \texttt{make\_complex\_screen(target\_field, input\_field)}：逆 DFT 求匹配网格复场；提供被动透射率检查和整体缩放选项。
+  \item \texttt{simulate}、\texttt{simulate\_multicolor}：返回 Fourier 面复场、强度、物理坐标和共同物理网格上的归一化图案；可设置普通固定焦距或理想逆波长焦距。
+  \item \texttt{fused\_silica\_index}、\texttt{relief\_screen}：把实际固定浮雕高度映射为各波长的复透射率。
+  \item \texttt{intensity\_metrics}：计算归一化强度 L2、平方 Bhattacharyya fidelity 与可选 ROI 功率。
+\end{itemize}
+
+示例脚本重新生成一个三光斑强度目标的相位屏，并对三光斑、圆环、字母 A 三个 1024$\times$1024 既有目标比较理想屏、普通固定焦距和熔融石英主值浮雕。理想屏与 $\lambda f$ 恒定组合在共同物理网格上保持目标图案；固定焦距输出按波长缩放；材料浮雕则因相位色散产生形状误差。
+
+\section{适用范围与后续器件验证}
+
+本报告结果限定于相干照明、标量场、薄屏、傍轴 Fourier 透镜与理想化孔径。除明确写入的高度色散模型外，没有计算反射、吸收、基底界面、多次散射、偏振、矢量场、表面斜率、加工公差或实际透镜色散。宽带 DOE 的衍射效率可受结构微尺度影响；已有研究直接比较宽带衍射透镜的标量与电磁效率模型\cite{greisukh}。因此，不能以归一化图案相似度代替绝对效率或器件级性能。
+
+若进入具体器件设计，应先给定材料、层数/透镜拓扑、NA、设计波段权重、容许强度误差、最低绝对效率和最小制造尺度。随后把真实结构传播、制造约束与目标误差/ROI 功率写入同一优化问题，并以 RCWA、FDTD、有限元电磁方法或测量校准。当前没有足够器件规格来给出真实设备的宽带可行/不可行判断；本研究能结束于抽象模型内结论、数值代理性能和未验证边界。
+
+\section{结论}
+
+有限 DFT 复场反演是线性可逆问题；由目标强度反求相位型屏则是受物理条件约束的非凸问题。理想的 $f\propto1/\lambda$ 规律在波长无关屏模型下提供相同的焦面坐标映射，但固定材料浮雕本身具有波长相关相位。直接联合优化浮雕可明显降低离散设计波长处的强度误差，目标区能量约束和更宽带稳定性会引入额外折中。当前三起点 ROI 搜索没有满足 85\% 单色门槛，且没有 400--700 nm 稳定保证；这些是局部标量模型结果，不是普遍不可行性定理或器件性能承诺。
+
+\begin{thebibliography}{9}
+\bibitem{malitson}
+I. H. Malitson, “Interspecimen Comparison of the Refractive Index of Fused Silica,”
+\textit{Journal of the Optical Society of America}, vol. 55, no. 10, pp. 1205--1209, 1965.
+DOI: \href{https://doi.org/10.1364/JOSA.55.001205}{10.1364/JOSA.55.001205}.
+
+\bibitem{greisukh}
+G. I. Greisukh et al., “Comparison of electromagnetic and scalar methods for evaluation of efficiency of diffractive lenses for wide spectral bandwidth,”
+\textit{Optics Communications}, vol. 338, pp. 54--57, 2015.
+DOI: \href{https://doi.org/10.1016/j.optcom.2014.10.037}{10.1016/j.optcom.2014.10.037}.
+\end{thebibliography}
+
+\end{document}

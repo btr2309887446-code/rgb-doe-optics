@@ -1,0 +1,129 @@
+{
+  "runtime": {
+    "python": "3.10.19",
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.8",
+    "pyoptica": "not installed; NumPy/SciPy implementation used"
+  },
+  "model": {
+    "target": "physical complex field in the back focal plane",
+    "screen_inverse": "centered_ifft2(T_required / dx^2)",
+    "screen_samples": 1024,
+    "input_pixel_pitch_m": 5e-06,
+    "finite_screen_width_m": 0.00512,
+    "wavelength_m": 5.32e-07,
+    "focal_length_m": 0.2,
+    "coarse_output_pixel_pitch_m": 2.078125e-05,
+    "coarse_output_frequency_spacing_per_m": 195.31249999999997,
+    "zero_padding_factor": 2,
+    "dense_output_pixel_pitch_m": 1.0390625e-05,
+    "input_screen_constraint": "passive complex transmission, |t| <= 1 by global scaling"
+  },
+  "targets": [
+    {
+      "name": "Gaussian",
+      "target_peak_normalization_before_passive_scaling": 1.0,
+      "screen_peak_before_passive_scaling": 0.9991269995283021,
+      "global_passive_amplitude_scale": 1.0,
+      "screen_peak_after_scaling": 0.9991269995283021,
+      "screen_rms_amplitude": 0.22030912569999025,
+      "phase_only_RMS_amplitude_mismatch": 0.9242525366978555,
+      "transmitted_power_fraction_for_unit_incident_intensity": 0.04853611086669411,
+      "screen_edge_strip_power_fraction_16_pixels": 6.264349525544592e-08,
+      "screen_edge_max_amplitude_over_peak": 0.000632542610370277,
+      "input_screen_power": 1.2723450247038663e-06,
+      "sampled_focal_plane_power": 1.2723450247038663e-06,
+      "power_relative_error": 0.0,
+      "complex_field_relative_L2": 4.2201310373340317e-16,
+      "complex_field_max_error_over_target_peak": 4.71770224815083e-16,
+      "normalized_intensity_RMSE": 1.1446149884121567e-17,
+      "normalized_intensity_correlation": 1.0,
+      "off_grid_zero_padded_comparison": {
+        "zero_padded_output_pixel_pitch_m": 1.0390625e-05,
+        "complex_field_relative_L2_where_target_amplitude_ge_5pct_peak": 2.4135173484875244e-05,
+        "max_complex_error_over_target_peak_in_same_region": 2.8159759508233757e-05,
+        "samples_in_dense_output_grid": 2048
+      }
+    },
+    {
+      "name": "Multiple coherent spots",
+      "target_peak_normalization_before_passive_scaling": 0.949890842841549,
+      "screen_peak_before_passive_scaling": 0.9676199291203862,
+      "global_passive_amplitude_scale": 1.0,
+      "screen_peak_after_scaling": 0.9676199291203862,
+      "screen_rms_amplitude": 0.1312294804416331,
+      "phase_only_RMS_amplitude_mismatch": 0.9671033326963627,
+      "transmitted_power_fraction_for_unit_incident_intensity": 0.017221176536980964,
+      "screen_edge_strip_power_fraction_16_pixels": 7.334975279128179e-18,
+      "screen_edge_max_amplitude_over_peak": 1.7124506680290393e-08,
+      "input_screen_power": 4.5144281021103387e-07,
+      "sampled_focal_plane_power": 4.5144281021103365e-07,
+      "power_relative_error": 4.690699065837054e-16,
+      "complex_field_relative_L2": 4.398373597395171e-16,
+      "complex_field_max_error_over_target_peak": 4.497784234920745e-16,
+      "normalized_intensity_RMSE": 9.673416882484675e-18,
+      "normalized_intensity_correlation": 0.9999999999999998,
+      "off_grid_zero_padded_comparison": {
+        "zero_padded_output_pixel_pitch_m": 1.0390625e-05,
+        "complex_field_relative_L2_where_target_amplitude_ge_5pct_peak": 1.5448786609671357e-10,
+        "max_complex_error_over_target_peak_in_same_region": 2.8265962530896987e-10,
+        "samples_in_dense_output_grid": 2048
+      }
+    },
+    {
+      "name": "Vortex ring",
+      "target_peak_normalization_before_passive_scaling": 0.999998717948492,
+      "screen_peak_before_passive_scaling": 0.9923454399436474,
+      "global_passive_amplitude_scale": 1.0,
+      "screen_peak_after_scaling": 0.9923454399436474,
+      "screen_rms_amplitude": 0.4224192700376,
+      "phase_only_RMS_amplitude_mismatch": 0.818445916351053,
+      "transmitted_power_fraction_for_unit_incident_intensity": 0.17843803969909883,
+      "screen_edge_strip_power_fraction_16_pixels": 8.004198508000631e-08,
+      "screen_edge_max_amplitude_over_peak": 0.0018013576006214367,
+      "input_screen_power": 4.677646147888057e-06,
+      "sampled_focal_plane_power": 4.677646147888055e-06,
+      "power_relative_error": 3.6216204495790395e-16,
+      "complex_field_relative_L2": 4.2495325527013643e-16,
+      "complex_field_max_error_over_target_peak": 5.661048867003677e-16,
+      "normalized_intensity_RMSE": 4.532139031387517e-17,
+      "normalized_intensity_correlation": 1.0,
+      "off_grid_zero_padded_comparison": {
+        "zero_padded_output_pixel_pitch_m": 1.0390625e-05,
+        "complex_field_relative_L2_where_target_amplitude_ge_5pct_peak": 5.956111497412835e-05,
+        "max_complex_error_over_target_peak_in_same_region": 0.00014868478001534902,
+        "samples_in_dense_output_grid": 2048
+      }
+    },
+    {
+      "name": "Random smooth complex field",
+      "target_peak_normalization_before_passive_scaling": 2.436386346387221,
+      "screen_peak_before_passive_scaling": 1.0482758357278656,
+      "global_passive_amplitude_scale": 0.9539473923918645,
+      "screen_peak_after_scaling": 1.0,
+      "screen_rms_amplitude": 0.29166249345753453,
+      "phase_only_RMS_amplitude_mismatch": 0.7564226803895437,
+      "transmitted_power_fraction_for_unit_incident_intensity": 0.08506701008986638,
+      "screen_edge_strip_power_fraction_16_pixels": 0.04141686300811515,
+      "screen_edge_max_amplitude_over_peak": 0.6664429502425131,
+      "input_screen_power": 2.2299806292997935e-06,
+      "sampled_focal_plane_power": 2.2299806292997935e-06,
+      "power_relative_error": 0.0,
+      "complex_field_relative_L2": 4.515168678271789e-16,
+      "complex_field_max_error_over_target_peak": 4.1962125735780356e-16,
+      "normalized_intensity_RMSE": 1.541991920088533e-17,
+      "normalized_intensity_correlation": 1.0,
+      "off_grid_zero_padded_comparison": {
+        "zero_padded_output_pixel_pitch_m": 1.0390625e-05,
+        "complex_field_relative_L2_where_target_amplitude_ge_5pct_peak": 0.5192669195993564,
+        "max_complex_error_over_target_peak_in_same_region": 0.8376947715695249,
+        "samples_in_dense_output_grid": 2048
+      }
+    }
+  ],
+  "figures": [
+    "fourier_optics_step2_complex_targets.png",
+    "fourier_optics_step2_dense_comparison.png"
+  ]
+}

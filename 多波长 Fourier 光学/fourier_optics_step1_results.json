@@ -1,0 +1,55 @@
+{
+  "runtime": {
+    "python": "3.10.19",
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.8",
+    "pyoptica": "not installed in the inspected Miniconda environments"
+  },
+  "parameters": {
+    "N": 1024,
+    "input_pixel_pitch_m": 5e-06,
+    "input_window_width_m": 0.00512,
+    "wavelength_m": 5.32e-07,
+    "focal_length_m": 0.2,
+    "input_frequency_spacing_per_m": 195.31249999999997,
+    "output_pixel_pitch_m": 2.078125e-05,
+    "nyquist_frequency_per_m": 99999.99999999999,
+    "max_focal_plane_coordinate_m": 0.01064,
+    "circular_aperture_diameter_m": 0.00128,
+    "circular_aperture_pixels_across": 256,
+    "paraxial_NA_approx": 0.003199983616125828
+  },
+  "circular_aperture": {
+    "continuous_first_zero_m": 0.00010138505971152818,
+    "nearest_sample_to_first_zero_m": 0.00010390625,
+    "nearest_sample_relative_offset_from_first_zero": 0.024867473527612243,
+    "normalized_intensity_at_nearest_sample": 0.0003678204109570577,
+    "continuous_Airy_intensity_RMSE_u_le_12": 6.919510097633766e-05,
+    "complex_field_relative_L2_u_le_12": 0.0017581075731899019
+  },
+  "phase_grating": {
+    "period_m": 0.00015826893353941267,
+    "samples_per_period": 31.65378670788253,
+    "cycles_across_window": 32.35,
+    "rectangular_aperture_width_m": 0.004005000000000001,
+    "rectangular_aperture_pixels_across": 801,
+    "spatial_frequency_per_m": 6318.359375,
+    "expected_first_order_X_m": 0.0006722734375000001,
+    "sampled_peak_X_m": 0.000665,
+    "sampled_peak_Y_m": 0.0,
+    "peak_position_error_m": 7.273437500000118e-06,
+    "exact_sampled_Dirichlet_field_relative_L2": 6.909002211974961e-15,
+    "continuous_sinc_field_relative_L2_full_Nyquist_band": 0.006548318307093273,
+    "continuous_sinc_field_relative_L2_main_lobe_region": 3.115489873529105e-06,
+    "center_line_normalized_intensity_relative_L2_window": 1.4821135982155722e-06
+  },
+  "complex_screen": {
+    "continuous_shifted_Airy_field_relative_L2_in_carrier_regions": 0.001417822593527852,
+    "max_complex_field_error_over_peak_in_carrier_regions": 0.00047740420048859096,
+    "random_screen_direct_DFT_max_relative_error": 1.048425236195847e-14,
+    "random_screen_parseval_relative_error": 3.975935907202924e-16,
+    "random_screen_fresnel_power_relative_error": 3.975935907202924e-16
+  },
+  "figure": "fourier_optics_step1.png"
+}

@@ -1,0 +1,331 @@
+{
+  "model": {
+    "screen": "fixed, phase-only three-spot screen from Step 3 seed 260930",
+    "screen_is_assumed_wavelength_independent": true,
+    "screen_pitch_m": 5e-06,
+    "screen_samples_per_axis": 1024,
+    "screen_width_m": 0.00512,
+    "pupil_diameter_m": 0.0012850000000000001,
+    "reference_wavelength_m": 5.32e-07,
+    "reference_focal_length_m": 0.2,
+    "reference_fourier_plane_pixel_pitch_m": 2.0781250000000834e-05,
+    "input_nyquist_spatial_frequency_per_m": 99999.99999999999,
+    "dense_fft_zero_padding_factor": 2,
+    "dense_frequency_spacing_per_m": 97.65625,
+    "comparison_coordinates": "all intensity maps resampled onto the 532 nm reference physical X,Y grid",
+    "ideal_compensator": "f(lambda)=f0*lambda0/lambda; an ideal effective operator, not a fabricated lens model"
+  },
+  "conditions": [
+    {
+      "lens_model": "ordinary_fixed_f",
+      "wavelength_nm": 450.0,
+      "effective_focal_length_m": 0.2,
+      "lambda_times_f_m2": 9e-08,
+      "Fourier_transform_argument_scale_relative_to_532nm": 1.1822222222222223,
+      "physical_pattern_coordinate_scale_relative_to_532nm": 0.8458646616541353,
+      "natural_output_pixel_pitch_m": 1.7578125e-05,
+      "metrics_vs_532nm_target": {
+        "normalized_intensity_relative_L2": 0.8520568487394646,
+        "normalized_intensity_RMSE_per_pixel": 2.3523185696672745e-05,
+        "intensity_correlation_global": 0.6854025324135838,
+        "squared_Bhattacharyya_fidelity": 0.6610002731850423,
+        "reconstructed_energy_fraction_in_signal_ROI": 0.9001891573231829,
+        "target_energy_fraction_in_signal_ROI": 0.9890657224121894
+      },
+      "spot_peak_positions": [
+        {
+          "expected_xy_mm": [
+            -0.6090225563909774,
+            -0.4060150375939849
+          ],
+          "observed_peak_xy_mm": [
+            -0.6234375,
+            -0.39484375
+          ]
+        },
+        {
+          "expected_xy_mm": [
+            0.6090225563909774,
+            -0.4060150375939849
+          ],
+          "observed_peak_xy_mm": [
+            0.6234375,
+            -0.41562499999999997
+          ]
+        },
+        {
+          "expected_xy_mm": [
+            0.0,
+            0.62593984962406
+          ],
+          "observed_peak_xy_mm": [
+            -0.02078125,
+            0.6234375
+          ]
+        }
+      ],
+      "scale_law_interpolation_relative_L2": 4.2974368297217274e-05,
+      "fraction_of_target_ROI_within_sampled_frequency_band": 1.0
+    },
+    {
+      "lens_model": "ordinary_fixed_f",
+      "wavelength_nm": 532.0,
+      "effective_focal_length_m": 0.2,
+      "lambda_times_f_m2": 1.0640000000000001e-07,
+      "Fourier_transform_argument_scale_relative_to_532nm": 1.0,
+      "physical_pattern_coordinate_scale_relative_to_532nm": 1.0,
+      "natural_output_pixel_pitch_m": 2.078125e-05,
+      "metrics_vs_532nm_target": {
+        "normalized_intensity_relative_L2": 0.2509166665280701,
+        "normalized_intensity_RMSE_per_pixel": 6.9271895999214545e-06,
+        "intensity_correlation_global": 0.9680624528217527,
+        "squared_Bhattacharyya_fidelity": 0.8986112669197841,
+        "reconstructed_energy_fraction_in_signal_ROI": 0.9017711547333984,
+        "target_energy_fraction_in_signal_ROI": 0.9890657224121894
+      },
+      "spot_peak_positions": [
+        {
+          "expected_xy_mm": [
+            -0.72,
+            -0.48
+          ],
+          "observed_peak_xy_mm": [
+            -0.7273437500000001,
+            -0.45718749999999997
+          ]
+        },
+        {
+          "expected_xy_mm": [
+            0.72,
+            -0.48
+          ],
+          "observed_peak_xy_mm": [
+            0.7481249999999999,
+            -0.49874999999999997
+          ]
+        },
+        {
+          "expected_xy_mm": [
+            0.0,
+            0.74
+          ],
+          "observed_peak_xy_mm": [
+            0.0,
+            0.7481249999999999
+          ]
+        }
+      ],
+      "scale_law_interpolation_relative_L2": 4.823699634378518e-16,
+      "fraction_of_target_ROI_within_sampled_frequency_band": 1.0
+    },
+    {
+      "lens_model": "ordinary_fixed_f",
+      "wavelength_nm": 633.0,
+      "effective_focal_length_m": 0.2,
+      "lambda_times_f_m2": 1.266e-07,
+      "Fourier_transform_argument_scale_relative_to_532nm": 0.8404423380726699,
+      "physical_pattern_coordinate_scale_relative_to_532nm": 1.1898496240601504,
+      "natural_output_pixel_pitch_m": 2.47265625e-05,
+      "metrics_vs_532nm_target": {
+        "normalized_intensity_relative_L2": 0.7670063328373394,
+        "normalized_intensity_RMSE_per_pixel": 2.117515095917453e-05,
+        "intensity_correlation_global": 0.6574012443685407,
+        "squared_Bhattacharyya_fidelity": 0.6118152654518594,
+        "reconstructed_energy_fraction_in_signal_ROI": 0.7968694402314014,
+        "target_energy_fraction_in_signal_ROI": 0.9890657224121894
+      },
+      "spot_peak_positions": [
+        {
+          "expected_xy_mm": [
+            -0.8566917293233083,
+            -0.5711278195488722
+          ],
+          "observed_peak_xy_mm": [
+            -0.8728124999999999,
+            -0.56109375
+          ]
+        },
+        {
+          "expected_xy_mm": [
+            0.8566917293233083,
+            -0.5711278195488722
+          ],
+          "observed_peak_xy_mm": [
+            0.89359375,
+            -0.5818749999999999
+          ]
+        },
+        {
+          "expected_xy_mm": [
+            0.0,
+            0.8804887218045113
+          ],
+          "observed_peak_xy_mm": [
+            -0.02078125,
+            0.8728124999999999
+          ]
+        }
+      ],
+      "scale_law_interpolation_relative_L2": 4.433704466375295e-05,
+      "fraction_of_target_ROI_within_sampled_frequency_band": 1.0
+    },
+    {
+      "lens_model": "ideal_inverse_lambda_f",
+      "wavelength_nm": 450.0,
+      "effective_focal_length_m": 0.23644444444444448,
+      "lambda_times_f_m2": 1.0640000000000001e-07,
+      "Fourier_transform_argument_scale_relative_to_532nm": 1.0,
+      "physical_pattern_coordinate_scale_relative_to_532nm": 1.0,
+      "natural_output_pixel_pitch_m": 2.078125e-05,
+      "metrics_vs_532nm_target": {
+        "normalized_intensity_relative_L2": 0.2509166665280701,
+        "normalized_intensity_RMSE_per_pixel": 6.9271895999214545e-06,
+        "intensity_correlation_global": 0.9680624528217527,
+        "squared_Bhattacharyya_fidelity": 0.8986112669197841,
+        "reconstructed_energy_fraction_in_signal_ROI": 0.9017711547333984,
+        "target_energy_fraction_in_signal_ROI": 0.9890657224121894
+      },
+      "spot_peak_positions": [
+        {
+          "expected_xy_mm": [
+            -0.72,
+            -0.48
+          ],
+          "observed_peak_xy_mm": [
+            -0.7273437500000001,
+            -0.45718749999999997
+          ]
+        },
+        {
+          "expected_xy_mm": [
+            0.72,
+            -0.48
+          ],
+          "observed_peak_xy_mm": [
+            0.7481249999999999,
+            -0.49874999999999997
+          ]
+        },
+        {
+          "expected_xy_mm": [
+            0.0,
+            0.74
+          ],
+          "observed_peak_xy_mm": [
+            0.0,
+            0.7481249999999999
+          ]
+        }
+      ],
+      "scale_law_interpolation_relative_L2": 4.823699634378518e-16,
+      "fraction_of_target_ROI_within_sampled_frequency_band": 1.0
+    },
+    {
+      "lens_model": "ideal_inverse_lambda_f",
+      "wavelength_nm": 532.0,
+      "effective_focal_length_m": 0.2,
+      "lambda_times_f_m2": 1.0640000000000001e-07,
+      "Fourier_transform_argument_scale_relative_to_532nm": 1.0,
+      "physical_pattern_coordinate_scale_relative_to_532nm": 1.0,
+      "natural_output_pixel_pitch_m": 2.078125e-05,
+      "metrics_vs_532nm_target": {
+        "normalized_intensity_relative_L2": 0.2509166665280701,
+        "normalized_intensity_RMSE_per_pixel": 6.9271895999214545e-06,
+        "intensity_correlation_global": 0.9680624528217527,
+        "squared_Bhattacharyya_fidelity": 0.8986112669197841,
+        "reconstructed_energy_fraction_in_signal_ROI": 0.9017711547333984,
+        "target_energy_fraction_in_signal_ROI": 0.9890657224121894
+      },
+      "spot_peak_positions": [
+        {
+          "expected_xy_mm": [
+            -0.72,
+            -0.48
+          ],
+          "observed_peak_xy_mm": [
+            -0.7273437500000001,
+            -0.45718749999999997
+          ]
+        },
+        {
+          "expected_xy_mm": [
+            0.72,
+            -0.48
+          ],
+          "observed_peak_xy_mm": [
+            0.7481249999999999,
+            -0.49874999999999997
+          ]
+        },
+        {
+          "expected_xy_mm": [
+            0.0,
+            0.74
+          ],
+          "observed_peak_xy_mm": [
+            0.0,
+            0.7481249999999999
+          ]
+        }
+      ],
+      "scale_law_interpolation_relative_L2": 4.823699634378518e-16,
+      "fraction_of_target_ROI_within_sampled_frequency_band": 1.0
+    },
+    {
+      "lens_model": "ideal_inverse_lambda_f",
+      "wavelength_nm": 633.0,
+      "effective_focal_length_m": 0.16808846761453397,
+      "lambda_times_f_m2": 1.064e-07,
+      "Fourier_transform_argument_scale_relative_to_532nm": 1.0000000000000002,
+      "physical_pattern_coordinate_scale_relative_to_532nm": 0.9999999999999998,
+      "natural_output_pixel_pitch_m": 2.0781249999999997e-05,
+      "metrics_vs_532nm_target": {
+        "normalized_intensity_relative_L2": 0.250916336644653,
+        "normalized_intensity_RMSE_per_pixel": 6.927180492654876e-06,
+        "intensity_correlation_global": 0.9680624527378374,
+        "squared_Bhattacharyya_fidelity": 0.898617091758793,
+        "reconstructed_energy_fraction_in_signal_ROI": 0.9017770000549439,
+        "target_energy_fraction_in_signal_ROI": 0.9890657224121894
+      },
+      "spot_peak_positions": [
+        {
+          "expected_xy_mm": [
+            -0.72,
+            -0.48
+          ],
+          "observed_peak_xy_mm": [
+            -0.7273437500000001,
+            -0.45718749999999997
+          ]
+        },
+        {
+          "expected_xy_mm": [
+            0.72,
+            -0.48
+          ],
+          "observed_peak_xy_mm": [
+            0.7481249999999999,
+            -0.49874999999999997
+          ]
+        },
+        {
+          "expected_xy_mm": [
+            0.0,
+            0.74
+          ],
+          "observed_peak_xy_mm": [
+            0.0,
+            0.7481249999999999
+          ]
+        }
+      ],
+      "scale_law_interpolation_relative_L2": 8.148089992329217e-16,
+      "fraction_of_target_ROI_within_sampled_frequency_band": 1.0
+    }
+  ],
+  "figures": [
+    "fourier_optics_step4_wavelength_patterns.png",
+    "fourier_optics_step4_wavelength_differences.png",
+    "fourier_optics_step4_scaling_metrics.png"
+  ]
+}
