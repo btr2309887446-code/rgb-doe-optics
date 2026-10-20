@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "target_name": "multiscale_resolution_chart",
+  "grid": 256,
+  "detector_pitch_um": 15.625,
+  "field_width_mm": 4.0,
+  "coordinate_convention": "x,y=(index-grid//2)*detector_pitch; field boundaries are +/-field_width/2",
+  "first_pixel_center_um": [
+    -2000.0,
+    -2000.0
+  ],
+  "last_pixel_center_um": [
+    1984.375,
+    1984.375
+  ],
+  "supersample": 8,
+  "line_widths_um": [
+    160.0,
+    240.0,
+    360.0
+  ],
+  "finest_bar_width_pixels": 10.24,
+  "finest_stripe_period_um": 320.0,
+  "finest_stripe_period_pixels": 20.48,
+  "orientations_deg": [
+    0.0,
+    45.0,
+    90.0
+  ],
+  "equal_energy_per_cell": true,
+  "cell_energy_fraction": 0.1,
+  "registration_energy_fraction": 0.1,
+  "roi_definition": "target >= 1% of maximum target intensity",
+  "regions": [
+    {
+      "name": "width_160um_orientation_0deg",
+      "x_min_um": -1580.0,
+      "x_max_um": -580.0,
+      "y_min_um": 395.0,
+      "y_max_um": 1045.0,
+      "line_width_um": 160.0,
+      "orientation_deg": 0.0
+    },
+    {
+      "name": "width_160um_orientation_45deg",
+      "x_min_um": -500.0,
+      "x_max_um": 500.0,
+      "y_min_um": 395.0,
+      "y_max_um": 1045.0,
+      "line_width_um": 160.0,
+      "orientation_deg": 45.0
+    },
+    {
+      "name": "width_160um_orientation_90deg",
+      "x_min_um": 580.0,
+      "x_max_um": 1580.0,
+      "y_min_um": 395.0,
+      "y_max_um": 1045.0,
+      "line_width_um": 160.0,
+      "orientation_deg": 90.0
+    },
+    {
+      "name": "width_240um_orientation_0deg",
+      "x_min_um": -1580.0,
+      "x_max_um": -580.0,
+      "y_min_um": -325.0,
+      "y_max_um": 325.0,
+      "line_width_um": 240.0,
+      "orientation_deg": 0.0
+    },
+    {
+      "name": "width_240um_orientation_45deg",
+      "x_min_um": -500.0,
+      "x_max_um": 500.0,
+      "y_min_um": -325.0,
+      "y_max_um": 325.0,
+      "line_width_um": 240.0,
+      "orientation_deg": 45.0
+    },
+    {
+      "name": "width_240um_orientation_90deg",
+      "x_min_um": 580.0,
+      "x_max_um": 1580.0,
+      "y_min_um": -325.0,
+      "y_max_um": 325.0,
+      "line_width_um": 240.0,
+      "orientation_deg": 90.0
+    },
+    {
+      "name": "width_360um_orientation_0deg",
+      "x_min_um": -1580.0,
+      "x_max_um": -580.0,
+      "y_min_um": -1045.0,
+      "y_max_um": -395.0,
+      "line_width_um": 360.0,
+      "orientation_deg": 0.0
+    },
+    {
+      "name": "width_360um_orientation_45deg",
+      "x_min_um": -500.0,
+      "x_max_um": 500.0,
+      "y_min_um": -1045.0,
+      "y_max_um": -395.0,
+      "line_width_um": 360.0,
+      "orientation_deg": 45.0
+    },
+    {
+      "name": "width_360um_orientation_90deg",
+      "x_min_um": 580.0,
+      "x_max_um": 1580.0,
+      "y_min_um": -1045.0,
+      "y_max_um": -395.0,
+      "line_width_um": 360.0,
+      "orientation_deg": 90.0
+    }
+  ]
+}

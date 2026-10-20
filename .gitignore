@@ -13,6 +13,16 @@ env/
 build/
 dist/
 
+# Local presentation deliverables and authoring intermediates
+/output/
+/.codex-build/
+/.chart-data-*/
+*.ppt
+*.pptx
+*.pptm
+*.pps
+*.ppsx
+
 # Generated experiment results and optimization arrays
 results/
 **/results/
@@ -20,6 +30,11 @@ results/
 *.npz
 *.pt
 *.pth
+
+# Compact final designs for the published visible-band study
+!多波长 Fourier 光学/step11_visible_multiscale_20261020_full/target/target.npy
+!多波长 Fourier 光学/step11_visible_multiscale_20261020_full/*/spectral_degree_*/design.npz
+多波长 Fourier 光学/step11_visible_multiscale_20261020_full/**/checkpoints/
 
 # Downloaded references and local working notes
 literature_download/

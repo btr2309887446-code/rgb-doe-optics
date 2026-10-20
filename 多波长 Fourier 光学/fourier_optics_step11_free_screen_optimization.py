@@ -61,14 +61,45 @@ class FourierLens:
 
 
 class Problem:
-    def __init__(self, pupil, target, waves, band, grid_nm=400.0):
+    def __init__(self, pupil, target, waves, band, grid_nm=400.0,
+                 loss_profile="mean", roi_floor=0.80, roi_weight=0.10,
+                 cvar_weight=0.30, cvar_tail_fraction=0.10, region_masks=None):
         self.pupil, self.target = pupil, target
         self.waves, self.band, self.grid_nm = np.asarray(waves), np.asarray(band), grid_nm
         self.n, self.m = pupil.shape[0], target.shape[0]
         self.count = int(pupil.sum())
         self.target_sq = float(np.sum(target**2))
         self.roi = target >= 0.01*target.max()
-        self.ops = [FourierLens(self.n, self.m, w, grid_nm) for w in waves]
+        if (target.ndim != 2 or target.shape[0] != target.shape[1]
+            or np.any(~np.isfinite(target)) or np.any(target < 0)
+            or self.target_sq <= 0 or self.count < 1):
+            raise ValueError("Target and pupil must be finite, nonnegative, and nonempty")
+        if loss_profile not in {"mean", "robust_cvar"}:
+            raise ValueError("loss_profile must be mean or robust_cvar")
+        if (not np.isfinite(roi_floor) or not np.isfinite(roi_weight)
+            or not 0 <= roi_floor <= 1 or roi_weight < 0):
+            raise ValueError("ROI floor must be in [0, 1] and its weight nonnegative")
+        if (not np.isfinite(cvar_weight) or not np.isfinite(cvar_tail_fraction)
+            or not 0 <= cvar_weight <= 1 or not 0 < cvar_tail_fraction <= 1):
+            raise ValueError("CVaR weights/fraction must be in [0, 1] and (0, 1]")
+        self.loss_profile = loss_profile
+        self.roi_floor = float(roi_floor)
+        self.roi_weight = float(roi_weight)
+        self.cvar_weight = float(cvar_weight)
+        self.cvar_tail_fraction = float(cvar_tail_fraction)
+        self.region_masks = region_masks or {}
+        for name, mask in self.region_masks.items():
+            if np.asarray(mask).shape != target.shape or not np.any(mask):
+                raise ValueError(f"Region {name!r} must be a nonempty detector-grid mask")
+        self.op_by_wavelength = {}
+        self.ops = [self.operator(w) for w in waves]
+
+    def operator(self, wavelength_nm):
+        key = float(wavelength_nm)
+        if key not in self.op_by_wavelength:
+            self.op_by_wavelength[key] = FourierLens(
+                self.n, self.m, key, self.grid_nm)
+        return self.op_by_wavelength[key]
 
     def basis(self, waves, degree):
         x = (2*np.asarray(waves)-sum(self.band))/(self.band[1]-self.band[0])
@@ -95,18 +126,46 @@ class Model:
         coeff = self.unpack(theta)
         raw = self.basis @ coeff
         gc = np.zeros_like(coeff)
-        loss = 0.
-        for b, q, op in zip(self.basis, raw, p.ops):
+        residuals = []
+        roi_powers = []
+        normalized_fields = []
+        intensities = []
+        for q, op in zip(raw, p.ops):
             norm = np.linalg.norm(q)
             if not np.isfinite(norm) or norm < 1e-14:
                 raise FloatingPointError("Screen power is zero/nonfinite")
             u = np.zeros((p.n, p.n), complex)
             u[p.pupil] = a = q/norm
             v = op.forward(u)
-            r = np.abs(v)**2-p.target
-            factor = 1/(len(p.waves)*p.target_sq)
-            loss += .5*factor*np.sum(r*r)
-            gu = 2*factor*op.adjoint(r*v)[p.pupil]
+            intensity = np.abs(v)**2
+            residuals.append(intensity-p.target)
+            intensities.append(intensity)
+            roi_powers.append(float(np.sum(intensity[p.roi])))
+            normalized_fields.append((a, v, norm))
+
+        residuals = np.asarray(residuals)
+        roi_powers = np.asarray(roi_powers)
+        relative_l2_sq = np.sum(residuals**2, axis=(1, 2))/p.target_sq
+        if p.loss_profile == "mean":
+            spectral_weights = np.full(len(p.waves), 0.5/len(p.waves))
+            loss = float(np.mean(relative_l2_sq)*0.5)
+        else:
+            tail_weights = upper_tail_mean_weights(relative_l2_sq,
+                                                   p.cvar_tail_fraction)
+            spectral_weights = ((1-p.cvar_weight)/len(p.waves)
+                                + p.cvar_weight*tail_weights)
+            loss = float((1-p.cvar_weight)*np.mean(relative_l2_sq)
+                         + p.cvar_weight*np.dot(tail_weights, relative_l2_sq))
+            efficiency_deficit = np.maximum(p.roi_floor-roi_powers, 0.0)
+            loss += p.roi_weight*float(np.mean(efficiency_deficit**2))
+
+        for index, (b, residual, (a, v, norm), op) in enumerate(
+                zip(self.basis, residuals, normalized_fields, p.ops)):
+            image_gradient = (2*spectral_weights[index]/p.target_sq)*residual
+            if p.loss_profile == "robust_cvar":
+                deficit = max(p.roi_floor-roi_powers[index], 0.0)
+                image_gradient -= (2*p.roi_weight*deficit/len(p.waves))*p.roi
+            gu = 2*op.adjoint(image_gradient*v)[p.pupil]
             # dL=Re(vdot(gq,dq)); differentiate u=q/||q|| as a REAL map.
             gq = (gu-a*np.vdot(a, gu).real)/norm
             gc += b[:, None]*gq[None, :]
@@ -123,18 +182,61 @@ class Model:
                 raise FloatingPointError(f"Undefined zero/nonfinite screen at {w} nm")
             u = np.zeros((p.n, p.n), complex)
             u[p.pupil] = q/norm
-            image = np.abs(FourierLens(p.n, p.m, w, p.grid_nm).forward(u))**2
+            image = np.abs(p.operator(w).forward(u))**2
             captured = float(image.sum())
             screen = np.sqrt(p.count)*u
-            rows.append({"wavelength_nm":float(w),
+            metrics = {"wavelength_nm":float(w),
                 "relative_L2":float(np.linalg.norm(image-p.target)/np.sqrt(p.target_sq)),
                 "captured_power":captured, "roi_power":float(image[p.roi].sum()),
                 "renormalized_detector_L2_diagnostic":float(np.linalg.norm(image/max(captured,1e-300)-p.target)/np.sqrt(p.target_sq)),
-                "peak_transmission_amplitude":float(np.abs(screen).max())})
+                "peak_transmission_amplitude":float(np.abs(screen).max())}
+            for name, mask in p.region_masks.items():
+                a, b = image[mask], p.target[mask]
+                aa, bb = a-a.mean(), b-b.mean()
+                denom = np.linalg.norm(aa)*np.linalg.norm(bb)
+                metrics[f"correlation_{name}"] = float(np.sum(aa*bb)/denom) if denom > 0 else 0.0
+            rows.append(metrics)
             if save_arrays:
                 images.append(image)
                 screens.append(screen)
         return rows, np.asarray(images), np.asarray(screens)
+
+
+def objective_from_metrics(rows, loss_profile="mean", roi_floor=0.80,
+                           roi_weight=0.10, cvar_weight=0.30,
+                           cvar_tail_fraction=0.10):
+    """Reconstruct the scalar training objective from saved per-wave metrics."""
+    errors_sq = np.asarray([row["relative_L2"]**2 for row in rows], dtype=float)
+    if errors_sq.size == 0 or np.any(~np.isfinite(errors_sq)):
+        raise ValueError("Metrics must contain finite per-wavelength errors")
+    if loss_profile == "mean":
+        return float(0.5 * errors_sq.mean())
+    if loss_profile != "robust_cvar":
+        raise ValueError("loss_profile must be mean or robust_cvar")
+    tail_weights = upper_tail_mean_weights(errors_sq, cvar_tail_fraction)
+    roi = np.asarray([row["roi_power"] for row in rows], dtype=float)
+    deficit = np.maximum(roi_floor-roi, 0.0)
+    return float((1-cvar_weight)*errors_sq.mean()
+                 + cvar_weight*np.dot(tail_weights, errors_sq)
+                 + roi_weight*np.dot(deficit, deficit)/len(rows))
+
+
+def upper_tail_mean_weights(values, tail_fraction):
+    """Exact empirical upper-tail CVaR weights, including a fractional sample."""
+    values = np.asarray(values, dtype=float)
+    if values.ndim != 1 or values.size == 0 or np.any(~np.isfinite(values)):
+        raise ValueError("values must be a nonempty finite vector")
+    if not 0 < tail_fraction <= 1:
+        raise ValueError("tail_fraction must be in (0, 1]")
+    mass = values.size*tail_fraction
+    full_count = int(np.floor(mass))
+    fractional = mass-full_count
+    order = np.argsort(values)[::-1]
+    weights = np.zeros(values.size, dtype=float)
+    weights[order[:full_count]] = 1.0
+    if fractional > 1e-12:
+        weights[order[full_count]] = fractional
+    return weights/mass
 
 
 def verify_math():
@@ -186,6 +288,16 @@ def verify_math():
         c = np.zeros((degree+1,p.count),complex)
         c[0] = np.exp(1j*phi)
         assert np.isclose(model.value_gradient(model.pack(c))[0],base_value,rtol=1e-12)
+    model_two = Model(p,"spectral",2)
+    model_three = Model(p,"spectral",3)
+    nested_two = .2*(rng.normal(size=(3,p.count))+1j*rng.normal(size=(3,p.count)))
+    nested_three = np.zeros((4,p.count),complex)
+    nested_three[:3] = nested_two
+    theta_two = model_two.pack(nested_two)
+    theta_three = model_three.pack(nested_three)
+    assert np.isclose(model_two.value_gradient(theta_two)[0],
+                      model_three.value_gradient(theta_three)[0],rtol=1e-12)
+    checks["degree_2_to_degree_3_zero_extension"] = "passed"
     op = FourierLens(m,m,400.)
     desired = np.sqrt(target)*np.exp(1j*rng.uniform(-np.pi,np.pi,(m,m)))
     recovered = op.forward(op.adjoint(desired))
@@ -193,11 +305,41 @@ def verify_math():
     assert inverse_error < 1e-11
     checks["full_aperture_single_wave_inverse_DFT_relative_L2"] = float(inverse_error)
     checks["normalization_scale_invariance_and_model_nesting"] = "passed"
+
+    # Check the production robust objective, including its active ROI-floor
+    # penalty, away from a tie in the selected upper-tail wavelengths.
+    robust_p = Problem(pupil, target, [420., 460., 510., 570., 620., 680.],
+                       [400., 700.], loss_profile="robust_cvar", roi_floor=0.99,
+                       roi_weight=0.10, cvar_weight=0.30,
+                       cvar_tail_fraction=1/3)
+    robust_model = Model(robust_p, "spectral", 2)
+    robust_coeff = .2*(rng.normal(size=(3,p.count))+1j*rng.normal(size=(3,p.count)))
+    robust_coeff[0] += 1
+    robust_theta = robust_model.pack(robust_coeff)
+    value, gradient = robust_model.value_gradient(robust_theta)
+    d = rng.normal(size=robust_theta.size)
+    d /= np.linalg.norm(d)
+    h = 2e-6
+    numerical = (robust_model.value_gradient(robust_theta+h*d)[0]
+                 - robust_model.value_gradient(robust_theta-h*d)[0])/(2*h)
+    analytic = float(gradient@d)
+    error = abs(numerical-analytic)
+    assert np.isfinite(value) and error < 2e-7*max(1.,abs(numerical),abs(analytic)), (
+        value, numerical, analytic, error)
+    robust_rows, _, _ = robust_model.evaluate(robust_theta, robust_p.waves)
+    reconstructed = objective_from_metrics(robust_rows, "robust_cvar", 0.99,
+                                           0.10, 0.30, 1/3)
+    assert np.isclose(value, reconstructed, rtol=1e-10, atol=1e-12)
+    checks["robust_objective_gradient"] = {
+        "analytic": analytic, "finite_difference": float(numerical),
+        "absolute_error": float(error), "objective_reconstruction": "passed"}
     return checks
 
 
-def solve(model, starts, iterations, label):
+def solve(model, starts, iterations, label, return_candidates=False,
+          on_progress=None):
     best_theta, best_loss, runs = None, np.inf, []
+    candidate_thetas = []
     for restart, initial in enumerate(starts):
         tic = time.perf_counter()
         state = {"loss":np.inf,"theta":initial.copy(),"calls":0,"last_theta":None}
@@ -217,7 +359,9 @@ def solve(model, starts, iterations, label):
             i = len(history)
             history.append({"iteration":i,"loss":value,"gradient_inf":float(np.max(np.abs(gradient)))})
             if i%25==0:
-                print(f"{label} start={restart} iter={i} RMS-L2={np.sqrt(2*value):.6g}",flush=True)
+                print(f"{label} start={restart} iter={i} objective={value:.6g}",flush=True)
+                if on_progress is not None:
+                    on_progress(restart, i, state["theta"].copy(), float(state["loss"]))
         objective(initial)
         callback(initial)
         result = minimize(objective,initial,jac=True,method="L-BFGS-B",callback=callback,
@@ -228,8 +372,63 @@ def solve(model, starts, iterations, label):
         runs.append({"restart":restart,"best_loss":float(state["loss"]),"success":bool(result.success),
             "message":str(result.message),"iterations":int(result.nit),"evaluations":state["calls"],
             "seconds":time.perf_counter()-tic,"history":history})
-        print(f"{label} start={restart} best={np.sqrt(2*state['loss']):.6g}; {result.message}",flush=True)
+        candidate_thetas.append(state["theta"].copy())
+        if on_progress is not None:
+            on_progress(restart, int(result.nit), state["theta"].copy(),
+                        float(state["loss"]))
+        print(f"{label} start={restart} best objective={state['loss']:.6g}; {result.message}",flush=True)
+    if return_candidates:
+        return best_theta,float(best_loss),runs,candidate_thetas
     return best_theta,float(best_loss),runs
+
+
+def validation_summary(rows, band, l2_limit=0.10, roi_floor=0.80):
+    in_band = [row for row in rows if band[0] <= row["wavelength_nm"] <= band[1]]
+    if not in_band:
+        raise ValueError("Validation scan has no points inside the design band")
+    errors = np.asarray([row["relative_L2"] for row in in_band], dtype=float)
+    roi = np.asarray([row["roi_power"] for row in in_band], dtype=float)
+    if np.any(~np.isfinite(errors)) or np.any(~np.isfinite(roi)):
+        raise FloatingPointError("Validation metrics contain NaN or Inf")
+    worst_index = int(np.argmax(errors))
+    return {
+        "design_band_nm": [float(band[0]), float(band[1])],
+        "sample_count": len(in_band),
+        "mean_relative_L2": float(errors.mean()),
+        "p95_relative_L2": float(np.quantile(errors, 0.95)),
+        "worst_relative_L2": float(errors[worst_index]),
+        "worst_wavelength_nm": float(in_band[worst_index]["wavelength_nm"]),
+        "mean_roi_power": float(roi.mean()),
+        "p05_roi_power": float(np.quantile(roi, 0.05)),
+        "minimum_roi_power": float(roi.min()),
+        "relative_L2_limit": float(l2_limit),
+        "roi_power_floor": float(roi_floor),
+        "passed": bool(np.all(errors <= l2_limit) and np.all(roi >= roi_floor)),
+    }
+
+
+def select_adaptive_wavelengths(rows, training_waves, band, l2_limit=0.10,
+                                roi_floor=0.80, max_additions=6, separation_nm=5.0):
+    """Pick separated in-band failures, prioritizing normalized constraint violation."""
+    existing = np.asarray(training_waves, dtype=float)
+    candidates = []
+    for row in rows:
+        wavelength = float(row["wavelength_nm"])
+        if not band[0] <= wavelength <= band[1]:
+            continue
+        if np.any(np.isclose(existing, wavelength, atol=1e-8, rtol=0)):
+            continue
+        score = max(row["relative_L2"] / l2_limit,
+                    roi_floor / max(row["roi_power"], 1e-12))
+        if score > 1.0:
+            candidates.append((score, wavelength))
+    selected = []
+    while candidates and len(selected) < max_additions:
+        score, wavelength = max(candidates)
+        selected.append(wavelength)
+        candidates = [item for item in candidates
+                      if abs(item[1] - wavelength) >= separation_nm]
+    return np.asarray(sorted(selected), dtype=float)
 
 
 def load_case(archive, prefix, n, m, grid_nm, focal, custom=None):
@@ -302,14 +501,14 @@ def plots(out, target, X, waves, records, arrays):
         axes[1].plot([x["wavelength_nm"] for x in rows],[x["roi_power"] for x in rows],label=r["name"])
         run = min(r["runs"],key=lambda run:run["best_loss"])
         axes[2].semilogy([h["iteration"] for h in run["history"]],
-                        [max(np.sqrt(2*h["loss"]),1e-16) for h in run["history"]],label=r["name"])
+                        [max(h["loss"],1e-16) for h in run["history"]],label=r["name"])
     for ax in axes[:2]:
         for w in waves:
             ax.axvline(w,color="gray",lw=.5,ls=":")
         ax.set_xlabel("Wavelength (nm)")
     axes[0].set_ylabel("Relative L2 (fixed power)")
     axes[1].set_ylabel("ROI / total transmitted power")
-    axes[2].set(xlabel="Iteration, best restart",ylabel="Training RMS relative L2")
+    axes[2].set(xlabel="Iteration, best restart",ylabel="Training objective")
     for ax in axes:
         ax.grid(alpha=.2)
         ax.legend(fontsize=7)
@@ -318,7 +517,7 @@ def plots(out, target, X, waves, records, arrays):
     plt.close(fig)
 
 
-def report(out, metadata, records, waves):
+def report(out, metadata, records, waves, problem=None):
     lines = ["# 自由屏函数数值比较", "", "本报告由实际运行生成；数值为当前离散模型和预算下找到的最好解，不是全局最优证明。", "",
         f"屏网格 {metadata['screen_N']}；观察面网格 {metadata['detector_M']}；固定焦距 {metadata['focal_length_m']} m。",
         f"训练波长：{list(map(float,waves))} nm。所有模型使用同一孔径、物理观察面、目标及全平面总透射功率。", "",
@@ -327,11 +526,18 @@ def report(out, metadata, records, waves):
     for r in records:
         held = [x for x in r["scan"] if not np.any(np.isclose(x["wavelength_nm"],waves,rtol=0,atol=1e-9))]
         worst = f'{max(x["relative_L2"] for x in held):.6g}' if held else "无"
-        lines.append(f'| {r["name"]} | {r["parameters"]} | {np.sqrt(2*r["loss"]):.6g} | '
+        training_rms = float(np.sqrt(np.mean([x["relative_L2"]**2 for x in r["training"]])))
+        lines.append(f'| {r["name"]} | {r["parameters"]} | {training_rms:.6g} | '
             f'{np.mean([x["relative_L2"] for x in r["training"]]):.6g} | '
             f'{max(x["relative_L2"] for x in r["training"]):.6g} | {worst} | '
             f'{min(x["roi_power"] for x in r["training"]):.6g} |')
-    lines += ["", "损失是各波长相对 L2 平方均值的一半。没有按观察窗内功率重新归一化。",
+    if problem is not None and problem.loss_profile == "robust_cvar":
+        loss_description = (f"损失为 {(1-problem.cvar_weight):g}×全波长平均相对 L2² + "
+            f"{problem.cvar_weight:g}×最差 {100*problem.cvar_tail_fraction:g}% 相对 L2² 的经验 CVaR "
+            f"+ {problem.roi_weight:g}×平均 max(0, {problem.roi_floor:g}−ROI 功率)²。")
+    else:
+        loss_description = "损失是各波长相对 L2 平方均值的一半。"
+    lines += ["", loss_description + "没有按观察窗内功率重新归一化。",
         "自由复屏允许局部振幅超过 1；ROI 分母为总透射功率，不是现实器件效率。", "",
         "色散复屏采用 Chebyshev 复系数展开后进行逐波长屏面功率归一化。基矩阵秩达到训练波长数时，"
         "训练点可表达独立复屏；未训练波长误差可能增加。", "",
@@ -365,6 +571,13 @@ def main():
     parser.add_argument("--band-nm",default="400,700")
     parser.add_argument("--scan-step-nm",type=float,default=10.)
     parser.add_argument("--degrees",default="1,2")
+    parser.add_argument("--loss-profile",choices=("mean","robust_cvar"),default="mean")
+    parser.add_argument("--roi-floor",type=float,default=0.80)
+    parser.add_argument("--roi-weight",type=float,default=0.10)
+    parser.add_argument("--cvar-weight",type=float,default=0.30)
+    parser.add_argument("--cvar-tail-fraction",type=float,default=0.10)
+    parser.add_argument("--region-metadata",type=Path,
+                        help="JSON metadata from make_multiscale_resolution_target.py")
     parser.add_argument("--starts",type=int,default=3)
     parser.add_argument("--iterations",type=int,default=300)
     parser.add_argument("--seed",type=int,default=20261009)
@@ -379,7 +592,9 @@ def main():
         or len(band)!=2 or not 0<band[0]<band[1] or args.scan_step_nm<=0
         or np.any(~np.isfinite(waves)) or np.any(~np.isfinite(band)) or len(waves)<1
         or len(np.unique(waves))!=len(waves) or np.any(waves<band[0]) or np.any(waves>band[1])
-        or any(d<1 for d in degrees)):
+        or any(d<1 for d in degrees) or not 0<=args.roi_floor<=1
+        or args.roi_weight<0 or not 0<=args.cvar_weight<=1
+        or not 0<args.cvar_tail_fraction<=1):
         parser.error("Invalid grid, budget, band or polynomial degrees")
     checks = verify_math()
     print("Operator, adjoint, gradient, normalization, nesting and inverse-DFT checks PASSED.",flush=True)
@@ -407,7 +622,18 @@ def main():
             dest.mkdir()
             pupil,target,phi,x,X,metadata = load_case(archive,prefix,args.grid,args.detector_grid,
                 args.grid_wavelength_nm,args.focal_m,args.target_npy)
-            p = Problem(pupil,target,waves,band,args.grid_wavelength_nm)
+            region_masks = {}
+            region_metadata = None
+            if args.region_metadata:
+                from make_multiscale_resolution_target import make_region_masks
+                region_metadata = json.loads(args.region_metadata.read_text(encoding="utf-8"))
+                region_masks = make_region_masks(region_metadata, X)
+            p = Problem(pupil,target,waves,band,args.grid_wavelength_nm,
+                        loss_profile=args.loss_profile, roi_floor=args.roi_floor,
+                        roi_weight=args.roi_weight, cvar_weight=args.cvar_weight,
+                        cvar_tail_fraction=args.cvar_tail_fraction,
+                        region_masks=region_masks)
+            metadata["region_metadata"] = region_metadata
             arrays = {"pupil":pupil,"target":target,"screen_axis_m":x,"detector_axis_m":X,
                       "train_nm":waves,"band_nm":band,"scan_nm":scan,"focal_m":np.asarray(args.focal_m)}
             warm = None
@@ -451,7 +677,10 @@ def main():
                 prev,prev_loss = model.unpack(theta).copy(),loss
                 training,images,screens = model.evaluate(theta,waves,True)
                 scan_rows,_,_ = model.evaluate(theta,scan)
-                if not np.isclose(loss,.5*np.mean([r["relative_L2"]**2 for r in training]),rtol=1e-9,atol=1e-12):
+                reconstructed_loss = objective_from_metrics(
+                    training, p.loss_profile, p.roi_floor, p.roi_weight,
+                    p.cvar_weight, p.cvar_tail_fraction)
+                if not np.isclose(loss,reconstructed_loss,rtol=1e-9,atol=1e-12):
                     raise AssertionError("Saved output does not reproduce objective")
                 if max(r["captured_power"] for r in scan_rows)>1.005:
                     raise AssertionError("Power quadrature exceeds unity: refine detector sampling")
@@ -469,9 +698,11 @@ def main():
                 for r in records:
                     for split in ["training","scan"]:
                         writer.writerows({"model":r["name"],"split":split,**row} for row in r[split])
-            report(dest,metadata,records,waves)
+            report(dest,metadata,records,waves,p)
             plots(dest,target,X,waves,records,arrays)
-            summary.append({"target":prefix,"models":[{"name":r["name"],"training_RMS_L2":float(np.sqrt(2*r["loss"]))} for r in records]})
+            summary.append({"target":prefix,"models":[{"name":r["name"],
+                "training_RMS_L2":float(np.sqrt(np.mean([x["relative_L2"]**2 for x in r["training"]])))}
+                for r in records]})
             save_json(out/"summary.json",summary)
     print(f"Completed: {out.resolve()}",flush=True)
 

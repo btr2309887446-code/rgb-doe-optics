@@ -1,0 +1,76 @@
+{
+  "case": "annular_ring_control",
+  "degree_2": {
+    "design_band": {
+      "design_band_nm": [
+        400.0,
+        700.0
+      ],
+      "sample_count": 301,
+      "mean_relative_L2": 0.07860161953490696,
+      "p95_relative_L2": 0.09261034292803696,
+      "worst_relative_L2": 0.09379042987034887,
+      "worst_wavelength_nm": 400.0,
+      "mean_roi_power": 0.9824232778827781,
+      "p05_roi_power": 0.9743731728042468,
+      "minimum_roi_power": 0.9577785417020737,
+      "relative_L2_limit": 0.1,
+      "roi_power_floor": 0.8,
+      "passed": true
+    },
+    "pressure": {
+      "design_band_nm": [
+        380.0,
+        780.0
+      ],
+      "sample_count": 401,
+      "mean_relative_L2": 0.10420044353108696,
+      "p95_relative_L2": 0.2554284617081556,
+      "worst_relative_L2": 0.32463319063214263,
+      "worst_wavelength_nm": 780.0,
+      "mean_roi_power": 0.9641394981530998,
+      "p05_roi_power": 0.8560114748654579,
+      "minimum_roi_power": 0.8180581716216975,
+      "relative_L2_limit": 0.1,
+      "roi_power_floor": 0.8,
+      "passed": false
+    }
+  },
+  "degree_3": {
+    "design_band": {
+      "design_band_nm": [
+        400.0,
+        700.0
+      ],
+      "sample_count": 301,
+      "mean_relative_L2": 0.01104767653135803,
+      "p95_relative_L2": 0.032082941818555956,
+      "worst_relative_L2": 0.04034134911731844,
+      "worst_wavelength_nm": 400.0,
+      "mean_roi_power": 0.9959332479391892,
+      "p05_roi_power": 0.9945960628575451,
+      "minimum_roi_power": 0.9917195438199159,
+      "relative_L2_limit": 0.1,
+      "roi_power_floor": 0.8,
+      "passed": true
+    },
+    "pressure": {
+      "design_band_nm": [
+        380.0,
+        780.0
+      ],
+      "sample_count": 401,
+      "mean_relative_L2": 0.024282245858659818,
+      "p95_relative_L2": 0.10113710096593194,
+      "worst_relative_L2": 0.15681566091863502,
+      "worst_wavelength_nm": 780.0,
+      "mean_roi_power": 0.9867252270841184,
+      "p05_roi_power": 0.9249724427776009,
+      "minimum_roi_power": 0.8832757505837696,
+      "relative_L2_limit": 0.1,
+      "roi_power_floor": 0.8,
+      "passed": false
+    }
+  },
+  "degree_3_adaptive_rounds": []
+}

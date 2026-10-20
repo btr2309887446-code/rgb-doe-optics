@@ -99,3 +99,29 @@ python fourier_optics_step11_validate.py --source step11_comparison/letter_A --o
 ```
 
 默认继续优化 `spectral_degree_2`；可通过 `--model phase`、`--model complex` 或 `--model spectral_degree_1` 选择其他已保存模型。该程序使用继承解作为一个起点，属于敏感性检查，不应当作重新进行的公平多初值比较。
+
+## 可见光全波段多尺度目标实验
+
+新增实验入口 `run_visible_multiscale_design.py`，目标生成器为 `make_multiscale_resolution_target.py`。它对 256×256、4 mm 视场的抗锯齿多尺度线条图，在 400–700 nm 每 10 nm、并加入 488/532/633 nm 的 34 个点上联合优化二阶和三阶 Chebyshev 复屏。二阶模型的每个多起点解零扩展到三阶，新增的三阶系数初始为零；两种模型使用相同波长、目标、损失、迭代预算和起点数。
+
+损失为 `0.7 × 平均相对 L2² + 0.3 × 最差 10% 相对 L2² 的经验 CVaR + 0.1 × 平均 max(0, 0.80 − ROI 功率)²`。最差 10% 对有限训练点数使用分数边界样本，精确保持 10% 尾部权重。ROI 是目标值不低于峰值 1% 的像素；其功率以传播前屏面总功率为分母。
+
+400–700 nm 以 1 nm 扫描，逐点检查相对 L2 ≤0.10 且 ROI 功率 ≥0.80。多尺度目标未通过时，三阶模型最多补入两轮、每轮最多六个误差/ROI 约束最差且彼此相隔至少 5 nm 的训练点。原有圆环目标作控制组，不进行自适应补点。380–780 nm 的 1 nm 扫描仅作为范围外压力测试，单独汇报。
+
+屏面默认 320×320，观察面保持 256×256、15.625 μm 间距和 4 mm 视场。320 屏网格用于使 380 nm 压力测试处于离散 Nyquist 范围内；目标像素、孔径物理尺寸和焦距保持原 Step 11 的约定。二阶和三阶参数总数随此采样统一增加，阶数比较仍只改变多项式系数数目。
+
+运行前检查数学和损失梯度：
+
+```powershell
+python run_visible_multiscale_design.py --check-only
+```
+
+完整实验命令（输出路径必须是新目录）：
+
+```powershell
+python run_visible_multiscale_design.py --output step11_visible_multiscale_20261020
+```
+
+可用 `--starts`、`--iterations`、`--grid` 和 `--adaptive-rounds` 覆盖默认预算。改变 `--grid` 时需同时满足 380 nm 采样检查。结果目录保存生成目标及物理元数据、配置、逐波长 CSV、二阶/三阶系数、每个 1 nm 波长的强度 `.npy`、光谱曲线、代表性共尺度图、优化收敛日志和综合报告。
+
+这项实验仍是固定孔径下自由复屏的标量、点采样 Fourier 模型。即使双门槛全部通过，也不能据此声称真实材料 DOE 的加工可行性或器件效率；ROI 功率是该数值系统中的收集比例。

@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "study": "visible-band multiscale imaging 2026-10-20",
+  "hash_basis": "Published file sizes and SHA-256 values use staged Git blob bytes before commit; local-only arrays use local file bytes. Git checkout line-ending conversion may change working-copy byte hashes.",
+  "scope": "Research code, documentation, metrics, figures, target and four compact final designs. Presentation deliverables and checkpoints are excluded.",
+  "files": [
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/config.json",
+      "bytes": 1470,
+      "sha256": "c0ce341dc726d801df3d62b31b676f8d7c4eed586d837f80ac91819b0fe01952"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/metrics.csv",
+      "bytes": 120439,
+      "sha256": "7ba9726a3a3ec5fa128340e8e4668a5ae92bba7cd45f1dc2d82e6f53305a5507"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/report.md",
+      "bytes": 1101,
+      "sha256": "29c9f9e50028ebc97b0b58b659711a46cb618230be1c94b3310c2652dd76877c"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/results.json",
+      "bytes": 407880,
+      "sha256": "2c0159dddf275da4a4583b66670a78c7304064afc97698141155409bc47b14be"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/spectral_degree_2/design.npz",
+      "bytes": 802039,
+      "sha256": "47d2f0d98b454521edc230542fde96f89dd970af53a10d1425789e123277edaa"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/spectral_degree_2/spectral_validation.png",
+      "bytes": 111628,
+      "sha256": "7cad47fc04fcbcbd124807fc97ad0546f504998a1bc80e88ca7265c5120b11d2"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/spectral_degree_2/validation_patterns.png",
+      "bytes": 606669,
+      "sha256": "2bbfe0eb7b834a0e9eb70601f190aae639689677bce43646e584e54840938d10"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/spectral_degree_3/design.npz",
+      "bytes": 959320,
+      "sha256": "a8acdf8b0b7a58800e44d265df7486f30de024c919f6cab6cc7d028cdcce43ae"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/spectral_degree_3/spectral_validation.png",
+      "bytes": 107238,
+      "sha256": "aad0392a7e73045e7ea7176372f9ab7daeafd672f521732ce0f01a15df6e5deb"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/spectral_degree_3/validation_patterns.png",
+      "bytes": 511996,
+      "sha256": "147caa5148213493217aa98e57889df0907128ab12ab4a8bb521f779457a3607"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/summary.json",
+      "bytes": 2159,
+      "sha256": "5bf2154ca6af4ee4e11d6af827b65c58e4169867f3182dc3715f8c58561cf3d8"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/math_checks.json",
+      "bytes": 4445,
+      "sha256": "0cd52c1169825282d3609a2de65b46c4e5e860b218b8e9f4bac2b87412810388"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/config.json",
+      "bytes": 1602,
+      "sha256": "bb50384d9095ad48c933af7aa01a6b85b5cd1e394692330a4294d2db872326bc"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/metrics.csv",
+      "bytes": 293894,
+      "sha256": "a1e8ada3acfe7e24c2d5438b3da6f654054040185134c7a47f029540f4fbee9e"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/report.md",
+      "bytes": 1607,
+      "sha256": "bec0278132d21e99a36038246107baecbf3e09bbd1f32eb0cdff7e9c4f28dbf0"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/results.json",
+      "bytes": 518537,
+      "sha256": "57b00328b016f574f6aaad791be2274f999bd6a673e3e207c93acdeae6527b8e"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/spectral_degree_2/design.npz",
+      "bytes": 476967,
+      "sha256": "eab69d78292759315c800f0f7884a04a1e0a1edd54adf61020d1f90e71938305"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/spectral_degree_2/spectral_validation.png",
+      "bytes": 100539,
+      "sha256": "f94379b9139da01b0c7e93a26d21972af391f63859b834dc7fa8a34332997d80"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/spectral_degree_2/validation_patterns.png",
+      "bytes": 1108959,
+      "sha256": "cf2fe26a5f41aa393691c74f8e39746e715c2c33df8cc5b6bb3875c5e539c8ad"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/spectral_degree_3/design.npz",
+      "bytes": 633082,
+      "sha256": "8e8f7d6548efc4a97f962accd0d166605a281842dc53467d8b1d38bb411723a8"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/spectral_degree_3/spectral_validation.png",
+      "bytes": 99430,
+      "sha256": "d2c17830fb42615452c4116b22ce0a560e74efbc88fe282d8abd83b968b15056"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/spectral_degree_3/validation_patterns.png",
+      "bytes": 1082832,
+      "sha256": "765fbb9bc382c7feec654c1fa5d5e603e182786ca6a3aa1e3b045472fcc1b81a"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/summary.json",
+      "bytes": 131500,
+      "sha256": "3f5a5f7f7dc7cddaa431aa5243150b664bb5ff00b32fc111a278868d157c3abd"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/provenance.json",
+      "bytes": 17403,
+      "sha256": "7c59844150487c0dbaf42806a8d2154e89461ed7cf641eaa7a4e44596958026e"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/README.md",
+      "bytes": 2651,
+      "sha256": "02a36de7d9d16aede1faeb7e9b016dd6fed79ace9ba4fb1511c162a10b8a69da"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/report.md",
+      "bytes": 3785,
+      "sha256": "6a1c181a1cc5291921cf7add4f924b37f7661bceb351e567c2558c50caf47e3e"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/summary.json",
+      "bytes": 454,
+      "sha256": "458e510dee8e5c705c0f8c9d97f69d5165155bbc144aa345215ddce2f2f4ea8b"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/target/sampling_report.json",
+      "bytes": 3469,
+      "sha256": "b8d260a81a2efc40d31bc540c328dbb0033fd0050d32f0e45cbc53ecdabb1305"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/target/target.json",
+      "bytes": 2805,
+      "sha256": "54cd1074f8c0d718bf31cc3863f2f642b386561682f7028dc805c4ebc0ccaaf5"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/target/target.npy",
+      "bytes": 524416,
+      "sha256": "616805cb76f7ddcceb8a9b850b884fa496647ac7a28ec5740171b19d1d0ebb49"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/target/target_preview.png",
+      "bytes": 35592,
+      "sha256": "4684ea2a00c1e517b9292a7fa199e635b02fda85cbec48f1ba8585ed571f5487"
+    }
+  ],
+  "source_files": [
+    {
+      "path": ".gitignore",
+      "bytes": 965,
+      "sha256": "d163b647debfb957a6cc738504d1ffbd4d142389208b550ecf7db1053da6046c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4486,
+      "sha256": "a0acefcefe749bcd5af77d55936cbf79d04ad2f2a4308dd261a95e05ee29c8d4"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 51,
+      "sha256": "2a74f295ec4c988ba38884705aa55f103d9bd1d6c2bfc9951bd3137e1a782c3c"
+    },
+    {
+      "path": "docs/visible_band_research.md",
+      "bytes": 6660,
+      "sha256": "25cc15a31b17650fe3369c915999aa183ee4b8341a82d0e62c1f1ca54aba6b1b"
+    },
+    {
+      "path": "tests/test_visible_multiscale_design.py",
+      "bytes": 5708,
+      "sha256": "6d6066d2b694392b1a7bdff6c143704213b10c7081932bdb75520394e784917d"
+    },
+    {
+      "path": "多波长 Fourier 光学/fourier_optics_step11_README.md",
+      "bytes": 9784,
+      "sha256": "e727b5464e5d9cb56707592e978d6bedd0890e56c296d8b59adb48c30f16fcfd"
+    },
+    {
+      "path": "多波长 Fourier 光学/fourier_optics_step11_free_screen_optimization.py",
+      "bytes": 38508,
+      "sha256": "9451145db7c80e00f4532cfe878c026afdbf1c51be0976a01e779b3f5d9d2cfe"
+    },
+    {
+      "path": "多波长 Fourier 光学/make_multiscale_resolution_target.py",
+      "bytes": 7325,
+      "sha256": "e3b125b28e1a12f1e7c76f24311016ac136882edf6ba386675a1e17792d88fcf"
+    },
+    {
+      "path": "多波长 Fourier 光学/run_visible_multiscale_design.py",
+      "bytes": 40347,
+      "sha256": "1a7c353f4222db95543b9d9893b4ce2799544c46d8ea505f5f3234faea0d042d"
+    }
+  ],
+  "local_only_scan_arrays": [
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/spectral_degree_2/spectral_scan_images.npy",
+      "bytes": 105119872,
+      "sha256": "3acc15cbaa88356da36f7ee3d69e7d78921b7aedcfaa551d84fd6ef4f34495ca"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/annular_ring_control/spectral_degree_3/spectral_scan_images.npy",
+      "bytes": 105119872,
+      "sha256": "6b649de634946920c6835f39a59d69072737fc550ff06afc81122ce1d60a4f5c"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/spectral_degree_2/spectral_scan_images.npy",
+      "bytes": 105119872,
+      "sha256": "1aac5773f440b610b0c415613dbf6ddc891b0a008f7aca3e444154d8b09597ab"
+    },
+    {
+      "path": "多波长 Fourier 光学/step11_visible_multiscale_20261020_full/multiscale/spectral_degree_3/spectral_scan_images.npy",
+      "bytes": 105119872,
+      "sha256": "48f3b4f8d79f73e289cddc2c818a5524682d5ebfce3714ca3dcc24d44983ac56"
+    }
+  ],
+  "local_only_checkpoints": "checkpoints/ remains local; final design.npz files are published instead.",
+  "source_provenance_checks": {
+    "run_visible_multiscale_design.py": {
+      "recorded_run_sha256": "8c2723c8f3f0e8642bb87e4884ed748aff72c050c889c4a7f7bf6ea0448a40ea",
+      "current_worktree_sha256": "1a7c353f4222db95543b9d9893b4ce2799544c46d8ea505f5f3234faea0d042d",
+      "repository_blob_sha256": "1a7c353f4222db95543b9d9893b4ce2799544c46d8ea505f5f3234faea0d042d",
+      "matches_recorded_run": false
+    },
+    "fourier_optics_step11_free_screen_optimization.py": {
+      "recorded_run_sha256": "3b36a35a9192b43d94fc2d2d590bd65ea889ed3e6ed59298ce05919455c2be98",
+      "current_worktree_sha256": "3b36a35a9192b43d94fc2d2d590bd65ea889ed3e6ed59298ce05919455c2be98",
+      "repository_blob_sha256": "9451145db7c80e00f4532cfe878c026afdbf1c51be0976a01e779b3f5d9d2cfe",
+      "matches_recorded_run": true
+    }
+  },
+  "provenance_note": "The current experiment runner hash differs from the original run record; the model hash matches. Original provenance is preserved. Saved final designs are checked by repropagation, not by rerunning optimization.",
+  "compact_design_repropagation_checks": [
+    {
+      "case": "multiscale",
+      "model": "spectral_degree_2",
+      "wavelengths_nm": [
+        400,
+        532,
+        700
+      ],
+      "maximum_allowed_absolute_difference": 1e-10,
+      "status": "passed"
+    },
+    {
+      "case": "multiscale",
+      "model": "spectral_degree_3",
+      "wavelengths_nm": [
+        400,
+        532,
+        700
+      ],
+      "maximum_allowed_absolute_difference": 1e-10,
+      "status": "passed"
+    },
+    {
+      "case": "annular_ring_control",
+      "model": "spectral_degree_2",
+      "wavelengths_nm": [
+        400,
+        532,
+        700
+      ],
+      "maximum_allowed_absolute_difference": 1e-10,
+      "status": "passed"
+    },
+    {
+      "case": "annular_ring_control",
+      "model": "spectral_degree_3",
+      "wavelengths_nm": [
+        400,
+        532,
+        700
+      ],
+      "maximum_allowed_absolute_difference": 1e-10,
+      "status": "passed"
+    }
+  ],
+  "verification": {
+    "unittest_total": 51,
+    "unittest_passed": 50,
+    "unittest_skipped": 1
+  }
+}

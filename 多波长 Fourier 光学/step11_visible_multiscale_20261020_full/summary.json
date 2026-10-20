@@ -1,0 +1,15 @@
+{
+  "primary_target": {
+    "degree_2_design_band": false,
+    "degree_3_design_band": false,
+    "primary_target_passed": false,
+    "selected_model": "none_meets_both_gates"
+  },
+  "annular_ring_control": {
+    "degree_2_design_band": true,
+    "degree_3_design_band": true,
+    "primary_target_passed": true,
+    "selected_model": "spectral_degree_3"
+  },
+  "interpretation": "Pass requires every 1 nm design-band sample to satisfy both thresholds."
+}
